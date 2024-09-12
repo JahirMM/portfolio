@@ -1,4 +1,4 @@
-const World = (props: React.SVGProps<SVGSVGElement>) => {
+const Mail = (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
       {...props}
@@ -13,13 +13,12 @@ const World = (props: React.SVGProps<SVGSVGElement>) => {
       strokeLinejoin="round"
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-      <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
-      <path d="M3.6 9h16.8" />
-      <path d="M3.6 15h16.8" />
-      <path d="M11.5 3a17 17 0 0 0 0 18" />
-      <path d="M12.5 3a17 17 0 0 1 0 18" />
+      <path d="M12 18h-7a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v7.5" />
+      <path d="M3 6l9 6l9 -6" />
+      <path d="M15 18h6" />
+      <path d="M18 15l3 3l-3 3" />
     </svg>
   );
 };
 
-export default World;
+export default Mail;
