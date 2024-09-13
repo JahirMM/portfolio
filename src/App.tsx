@@ -3,6 +3,8 @@ import SectionContainer from "./components/SectionContainer";
 import Hero from "./components/Hero";
 import BriefCase from "./icons/BriefCase";
 import Experience from "./components/Experience";
+import Projects from "./components/Projects";
+import Code from "./icons/Code";
 
 function App() {
   return (
@@ -21,19 +23,19 @@ function App() {
         <SectionContainer customClass="py-20 md:py-36">
           <Hero />
         </SectionContainer>
-        <SectionContainer>
-          <h2 className="text-4xl font-bold mb-20 flex items-center gap-x-2">
+        <SectionContainer customClass="mb-20">
+          <h2 className="text-4xl font-bold mb-20 flex items-center gap-x-4">
             <BriefCase className="size-7" />
             Experiencia
           </h2>
           <Experience />
         </SectionContainer>
         <SectionContainer>
-          <h2 className="text-4xl font-bold mb-20 flex items-center gap-x-2">
-            <BriefCase className="size-7" />
-            Experiencia
+          <h2 className="text-4xl font-bold mb-20 flex items-center gap-x-4">
+            <Code className="size-8" />
+            Proyectos
           </h2>
-          <div>contenido</div>
+          <Projects />
         </SectionContainer>
       </main>
     </>
