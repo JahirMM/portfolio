@@ -6,6 +6,7 @@ export default {
     extend: {
       colors: {
         secondaryColour: "#FCB043",
+        cardsBackground: "#090E24",
       },
     },
   },

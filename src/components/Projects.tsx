@@ -16,7 +16,7 @@ const Projects = () => {
         ({ image, title, description, link, tags, github }, index) => (
           <article
             key={title}
-            className={`bg-[#0a102b] p-4 rounded-2xl flex flex-col gap-8 group md:flex-row ${
+            className={`bg-cardsBackground p-4 rounded-2xl flex flex-col gap-8 group md:flex-row ${
               index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
             }`}
           >

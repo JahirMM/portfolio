@@ -7,6 +7,7 @@ import Projects from "./components/Projects";
 import Code from "./icons/Code";
 import Skills from "./components/Skills";
 import Gears from "./icons/Gears";
+import AboutMe from "./components/AboutMe";
 
 function App() {
   return (
@@ -45,6 +46,13 @@ function App() {
             Proyectos
           </h2>
           <Projects />
+        </SectionContainer>
+        <SectionContainer>
+          <h2 className="text-4xl font-bold mb-20 flex items-center gap-x-4">
+            <Code className="size-8" />
+            Sobre mí
+          </h2>
+          <AboutMe />
         </SectionContainer>
       </main>
     </>
