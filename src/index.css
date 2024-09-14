@@ -51,3 +51,12 @@ body {
 }
 
 /* ----------- */
+
+.location {
+  background-image: url("../public/aboutMe/location.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center 10%;
+  background-color: rgba(47, 47, 47, 0.5);
+  background-blend-mode: darken;
+}
