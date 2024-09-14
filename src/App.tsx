@@ -5,6 +5,8 @@ import BriefCase from "./icons/BriefCase";
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import Code from "./icons/Code";
+import Skills from "./components/Skills";
+import Gears from "./icons/Gears";
 
 function App() {
   return (
@@ -29,6 +31,13 @@ function App() {
             Experiencia
           </h2>
           <Experience />
+        </SectionContainer>
+        <SectionContainer customClass="mb-20">
+          <h2 className="text-4xl font-bold mb-20 flex items-center gap-x-4">
+            <Gears className="size-7" />
+            Skills
+          </h2>
+          <Skills />
         </SectionContainer>
         <SectionContainer>
           <h2 className="text-4xl font-bold mb-20 flex items-center gap-x-4">

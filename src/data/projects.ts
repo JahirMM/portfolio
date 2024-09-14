@@ -1,5 +1,6 @@
 import CSSIcon from "../icons/CSSIcon";
 import ExpressJS from "../icons/ExpressJS";
+import Html from "../icons/Html";
 import MtySQL from "../icons/MtySQL";
 import NextJS from "../icons/NextJS";
 import NodeJS from "../icons/NodeJS";
@@ -8,7 +9,7 @@ import Tailwind from "../icons/Tailwind";
 import TypeScript from "../icons/TypeScript";
 import ViteJS from "../icons/ViteJS";
 
-const TAGS = {
+export const TECHNOLOGIES = {
   NEXT: {
     name: "Next.js",
     className: "bg-black text-white",
@@ -54,6 +55,11 @@ const TAGS = {
     className: "bg-[#003159] text-white",
     icon: CSSIcon,
   },
+  HTML: {
+    name: "HTML",
+    className: "bg-[#3D2B11] text-white",
+    icon: Html,
+  },
 };
 export const PROJECTS = [
   {
@@ -63,12 +69,12 @@ export const PROJECTS = [
     github: "https://github.com/JahirMM/WriteNotes",
     image: "/projects/writeNote.webp",
     tags: [
-      TAGS.NEXT,
-      TAGS.TYPESCRIP,
-      TAGS.TAILWIND,
-      TAGS.NODEJS,
-      TAGS.MYSQL,
-      TAGS.EXPRESSJS,
+      TECHNOLOGIES.NEXT,
+      TECHNOLOGIES.TYPESCRIP,
+      TECHNOLOGIES.TAILWIND,
+      TECHNOLOGIES.NODEJS,
+      TECHNOLOGIES.MYSQL,
+      TECHNOLOGIES.EXPRESSJS,
     ],
   },
   {
@@ -78,6 +84,11 @@ export const PROJECTS = [
     link: "https://menory-game.vercel.app/",
     github: "https://github.com/JahirMM/MemoryGame",
     image: "/projects/memoryGame.webp",
-    tags: [TAGS.VITEJS, TAGS.REACT, TAGS.TYPESCRIP, TAGS.CSS],
+    tags: [
+      TECHNOLOGIES.VITEJS,
+      TECHNOLOGIES.REACT,
+      TECHNOLOGIES.TYPESCRIP,
+      TECHNOLOGIES.CSS,
+    ],
   },
 ];
