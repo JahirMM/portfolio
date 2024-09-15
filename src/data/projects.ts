@@ -1,6 +1,7 @@
 import CSSIcon from "../icons/CSSIcon";
 import ExpressJS from "../icons/ExpressJS";
 import Html from "../icons/Html";
+import MongoDB from "../icons/MongoDB";
 import MtySQL from "../icons/MtySQL";
 import NextJS from "../icons/NextJS";
 import NodeJS from "../icons/NodeJS";
@@ -60,6 +61,11 @@ export const TECHNOLOGIES = {
     className: "bg-[#3D2B11] text-white",
     icon: Html,
   },
+  MONGODB: {
+    name: "MongoDB",
+    className: "bg-[#0F4B12] text-white",
+    icon: MongoDB,
+  },
 };
 export const PROJECTS = [
   {
@@ -73,7 +79,7 @@ export const PROJECTS = [
       TECHNOLOGIES.TYPESCRIP,
       TECHNOLOGIES.TAILWIND,
       TECHNOLOGIES.NODEJS,
-      TECHNOLOGIES.MYSQL,
+      TECHNOLOGIES.MONGODB,
       TECHNOLOGIES.EXPRESSJS,
     ],
   },

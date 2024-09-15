@@ -43,7 +43,7 @@ const AboutMe = () => {
 
   return (
     <div className="grid grid-cols-1 gap-10 sm:grid-cols-6">
-      <div className="bg-cardsBackground rounded-2xl p-4 sm:col-start-1 sm:col-end-4">
+      <div className="bg-cardsBackground rounded-2xl p-4 sm:col-start-1 sm:col-end-4 border border-gray-800">
         <div className="text-secondaryColour text-xl font-bold mb-3">
           Perfil
         </div>
@@ -58,7 +58,7 @@ const AboutMe = () => {
           excelentes.
         </p>
       </div>
-      <div className="bg-cardsBackground rounded-2xl h-[320px] p-0 flex flex-col overflow-hidden sm:col-start-1 sm:col-end-4 lg:col-end-5">
+      <div className="bg-cardsBackground rounded-2xl h-[320px] p-0 flex flex-col overflow-hidden border border-gray-800 sm:col-start-1 sm:col-end-4 lg:col-end-5">
         <div className="px-6 py-6 text-secondaryColour text-xl font-bold">
           Habilidades blandas
         </div>
@@ -89,7 +89,7 @@ const AboutMe = () => {
           })}
         </div>
       </div>
-      <div className="p-4 bg-cardsBackground rounded-2xl sm:col-start-4 sm:col-end-7 sm:row-start-1">
+      <div className="p-4 bg-cardsBackground rounded-2xl border border-gray-800 sm:col-start-4 sm:col-end-7 sm:row-start-1">
         <div className="text-secondaryColour text-xl font-bold mb-3">
           Educación
         </div>
@@ -100,7 +100,7 @@ const AboutMe = () => {
           eficazmente en equipo.
         </p>
       </div>
-      <div className="p-4 rounded-2xl h-[320px] w-full sm:col-start-4 sm:col-end-7 lg:col-start-5 location">
+      <div className="p-4 rounded-2xl h-[320px] w-full border border-gray-800 sm:col-start-4 sm:col-end-7 lg:col-start-5 location">
         <div className="text-secondaryColour text-xl font-bold">
           Ubicación (Chile)
         </div>
