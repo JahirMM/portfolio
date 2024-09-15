@@ -7,6 +7,7 @@ export default {
       colors: {
         secondaryColour: "#FCB043",
         cardsBackground: "#090E24",
+        photoColor: "#8C601D",
       },
     },
   },

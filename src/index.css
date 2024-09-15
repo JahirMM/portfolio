@@ -19,6 +19,8 @@ body {
   min-height: 100vh;
 }
 
+/* ----- */
+
 .skillsContainer {
   mask-image: linear-gradient(
     to right,
@@ -53,7 +55,7 @@ body {
 /* ----------- */
 
 .location {
-  background-image: url("../public/aboutMe/location.webp");
+  background-image: url("/aboutMe/location.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center 10%;

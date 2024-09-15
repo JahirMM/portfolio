@@ -102,7 +102,7 @@ const AboutMe = () => {
       </div>
       <div className="p-4 rounded-2xl h-[320px] w-full sm:col-start-4 sm:col-end-7 lg:col-start-5 location">
         <div className="text-secondaryColour text-xl font-bold">
-          Educación (Chile)
+          Ubicación (Chile)
         </div>
       </div>
     </div>
