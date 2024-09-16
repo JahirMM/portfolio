@@ -70,6 +70,7 @@ const AboutMe = () => {
                 <div
                   ref={nodeRef}
                   className="
+                    cursor-pointer
                     absolute
                     inline-flex items-center gap-2
                     px-6 py-1.5

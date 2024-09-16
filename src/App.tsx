@@ -23,31 +23,31 @@ function App() {
 
       <Header />
       <main className="relative z-40">
-        <SectionContainer customClass="py-20 md:py-36">
+        <SectionContainer customClass="py-20 md:py-36" id="#">
           <Hero />
         </SectionContainer>
-        <SectionContainer customClass="mb-20">
+        <SectionContainer customClass="mb-20" id="experiencia">
           <h2 className="text-4xl font-bold mb-20 flex items-center gap-x-4">
             <BriefCase className="size-7" />
             Experiencia
           </h2>
           <Experience />
         </SectionContainer>
-        <SectionContainer customClass="mb-20">
+        <SectionContainer customClass="mb-20" id="skills">
           <h2 className="text-4xl font-bold mb-20 flex items-center gap-x-4">
             <Gears className="size-7" />
             Skills
           </h2>
           <Skills />
         </SectionContainer>
-        <SectionContainer>
+        <SectionContainer customClass="mb-20" id="proyectos">
           <h2 className="text-4xl font-bold mb-20 flex items-center gap-x-4">
             <Code className="size-8" />
             Proyectos
           </h2>
           <Projects />
         </SectionContainer>
-        <SectionContainer>
+        <SectionContainer id="sobre-mi">
           <h2 className="text-4xl font-bold mb-20 flex items-center gap-x-4">
             <Code className="size-8" />
             Sobre mí
