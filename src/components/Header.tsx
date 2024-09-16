@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
-import Github from "../icons/Github";
 import Menu from "../icons/Menu";
 import IconX from "../icons/IconX";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
-  // bg-[#0E1637]
   const [activeSection, setActiveSection] = useState("");
 
   const navItems = [
@@ -70,7 +68,7 @@ const Header = () => {
   return (
     <>
       <span
-        className="fixed top-[10px] sm:top-[25px] right-[50px] z-[99] md:hidden"
+        className="fixed top-[10px] sm:top-[25px] right-[50px] z-[99] cursor-pointer md:hidden"
         onClick={() => setShowMenu(!showMenu)}
       >
         {showMenu ? <IconX className="size-7" /> : <Menu className="size-7" />}
@@ -94,6 +92,7 @@ const Header = () => {
         <nav
           className={`
         flex flex-col gap-5 justify-center items-center
+        z-[9999]
         md:flex-row
         md:px-4 
         ${scrolled ? "md:bg-[#0E1637] rounded-xl" : ""}

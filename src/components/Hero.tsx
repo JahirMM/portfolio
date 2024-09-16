@@ -40,25 +40,10 @@ const Hero = () => {
           flex justify-center items-end 
           rounded-[20px] 
           h-[350px] w-[300px]
-          after:content-['']
-          after:w-[7px] after:h-[7px]
-          after:absolute after:top-0 after:left-[47.5px]
-          after:bg-photoColor after:shadow-[1.4px_-1.4px_#03081d]
-          after:rounded-tr-[5px]
-          before:content-[''] 
-          before:w-[7px] before:h-[7px]
-          before:absolute before:top-0 before:right-[47.6px]
-          before:bg-photoColor before:shadow-[-1.4px_-1.4px_#03081d]
-          before:rounded-tl-[5px] 
-          before:z-[10]
           "
         >
-          <img
-            src="https://th.bing.com/th/id/OIP.5cw3LIrosr-qbOb7iTEb1gHaHa?rs=1&pid=ImgDetMain"
-            alt="jahir photo"
-            className="size-4/5"
-          />
-          <div className="absolute top-0 translate-y-[-50%] translate-x-0 p-[5px] px-[10px] rounded-[15px] border-[5px] border-[#010720] bg-gradient-to-r from-[#212963] to-[#101B49] text-[14px] font-bold">
+          <img src="/jahir.webp" alt="jahir photo" className="size-11/12" />
+          <div className="absolute top-0 -translate-y-[50%] translate-x-0 p-[5px] px-[10px] rounded-[15px] border-[5px] border-[#010720] bg-gradient-to-r from-[#212963] to-[#101B49] text-[14px] font-bold">
             Disponible para trabajar
             <span className="absolute top-0 translate-y-[-4px]">
               <span className="relative flex h-3 w-3">
