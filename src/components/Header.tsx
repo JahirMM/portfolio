@@ -84,7 +84,7 @@ const Header = () => {
           py-10
           shadow-2xl
           transition-transform duration-700 
-          -translate-y-full ${showMenu ? "-translate-y-0" : ""}
+          ${showMenu ? "-translate-y-0" : "-translate-y-full"}
           md:bg-none md:from-none md:to-none
           md:mt-2
           md:-translate-y-0
