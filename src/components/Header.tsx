@@ -1,11 +1,15 @@
-import { useEffect, useState } from "react";
 import Menu from "../icons/Menu";
 import IconX from "../icons/IconX";
+
+import { useEffect, useState } from "react";
+
+import { useChangeTheme } from "../hooks/useChangeTheme";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const { handleChangeTheme, theme } = useChangeTheme();
 
   const navItems = [
     {
@@ -71,19 +75,22 @@ const Header = () => {
         className="fixed top-[10px] sm:top-[25px] right-[50px] z-[99] cursor-pointer md:hidden"
         onClick={() => setShowMenu(!showMenu)}
       >
-        {showMenu ? <IconX className="size-7" /> : <Menu className="size-7" />}
+        {showMenu ? (
+          <IconX className="size-7 text-black dark:text-white" />
+        ) : (
+          <Menu className="size-7 text-black dark:text-white" />
+        )}
       </span>
       <header
         className={`
-          bg-gradient-to-b from-[#03081d] to-[#0b1437]
+          bg-gradient-to-b from-[#F3EDE5] to-[#bab1a4] dark:bg-gradient-to-b dark:from-[#03081d] dark:to-[#0b1437]
           fixed top-0 z-50 
           flex items-center justify-center 
           w-full mx-auto
           py-10
-          shadow-2xl
           transition-transform duration-700 
           ${showMenu ? "-translate-y-0" : "-translate-y-full"}
-          md:bg-none md:from-none md:to-none
+          md:bg-none md:from-none md:to-none dark:md:bg-none dark:md:from-none dark:md:to-none
           md:mt-2
           md:-translate-y-0
           md:py-0`}
@@ -94,17 +101,21 @@ const Header = () => {
         flex flex-col gap-5 justify-center items-center
         z-[9999]
         md:flex-row
-        md:px-4 
-        ${scrolled ? "md:bg-[#0E1637] rounded-xl" : ""}
+        md:px-4
+        ${
+          scrolled
+            ? "md:bg-[#FFFFFF] md:shadow-lg dark:md:bg-[#0E1637] rounded-xl"
+            : ""
+        }
         `}
         >
           {navItems.map((link, index) => (
             <a
               key={index}
-              className={`text-sm block px-2 py-2 hover:text-blue-500 dark:hover:text-blue-500 ${
+              className={`text-sm block px-2 py-2 hover:text-secondaryColorLightTheme dark:hover:text-secondaryColorDarkTheme ${
                 activeSection === link.label
-                  ? "text-blue-500"
-                  : "text-gray-200/80"
+                  ? "font-bold text-secondaryColorLightTheme dark:text-secondaryColorDarkTheme"
+                  : "text-gray-800 dark:text-gray-200/80"
               }`}
               aria-label={link.label}
               href={link.url}
@@ -112,11 +123,16 @@ const Header = () => {
               {link.title}
             </a>
           ))}
-
-          <label className="inline-flex items-center cursor-pointer">
-            <input type="checkbox" value="" className="sr-only peer" />
-            <div className="relative w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-          </label>
+          <div
+            onClick={handleChangeTheme}
+            className="w-11 h-6 rounded-xl relative flex items-center bg-secondaryColorLightTheme dark:bg-[#1D3CBE]"
+          >
+            <span
+              className={`absolute h-5 w-5 rounded-full transition-transform duration-500 ease-in-out transform ${
+                theme === "light" ? "translate-x-[3px]" : "translate-x-full"
+              } bg-slate-300 dark:bg-blue-200`}
+            ></span>
+          </div>
         </nav>
       </header>
     </>

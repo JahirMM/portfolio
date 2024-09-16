@@ -5,9 +5,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        secondaryColour: "#FCB043",
-        cardsBackground: "#090E24",
-        photoColor: "#8C601D",
+        cardsBackgroundLightTheme: "#F9F6F3",
+        secondaryColorLightTheme: "#FF9E13",
+        primaryColorLightTheme: "#F3EDE5",
+        photoColorLightTheme: "#CC841E",
+
+        cardsBackgroundDarkTheme: "#090E24",
+        secondaryColorDarkTheme: "#FCB043",
+        primaryColorDarkTheme: "#03081d",
+        photoColorDarkTheme: "#8C601D",
       },
     },
   },

@@ -16,9 +16,9 @@ const Projects = () => {
         ({ image, title, description, link, tags, github }, index) => (
           <article
             key={title}
-            className={`bg-cardsBackground p-4 rounded-2xl flex flex-col gap-8 group md:flex-row border border-gray-800 ${
+            className={`bg-cardsBackgroundLightTheme p-4 rounded-2xl flex flex-col gap-8 group md:flex-row border border-gray-800/10 dark:border-gray-800 ${
               index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-            }`}
+            } dark:bg-cardsBackgroundDarkTheme`}
           >
             <div className="w-full md:w-1/2">
               <div className="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:hover:bg-gray-800/50 lg:h-full">
@@ -31,7 +31,7 @@ const Projects = () => {
               </div>
             </div>
             <div className="w-full space-y-7 md:w-1/2 md:max-w-lg">
-              <h3 className="text-2xl font-bold text-secondaryColour lg:text-xl">
+              <h3 className="text-2xl font-bold text-secondaryColorLightTheme lg:text-xl dark:text-secondaryColorDarkTheme">
                 {title}
               </h3>
               <div className="flex flex-wrap space-y-7">
@@ -47,7 +47,7 @@ const Projects = () => {
                     </li>
                   ))}
                 </ul>
-                <div className="text-gray-300 text-sm text-pretty">
+                <div className="text-gray-800 text-sm text-pretty dark:text-gray-300">
                   {description}
                 </div>
                 <footer className="flex items-end justify-start mt-4 gap-x-4">
