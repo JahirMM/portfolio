@@ -7,7 +7,7 @@ const ProjectDetails = () => {
   const sliderRef = useRef<HTMLInputElement>(null);
   const imgRef = useRef<HTMLImageElement>(null);
   const navigate = useNavigate();
-  const { nameProject } = useParams<{ nameProject: string | undefined }>(); // Permitir que sea undefined
+  const { nameProject } = useParams<{ nameProject: string | undefined }>();
 
   const PROJECT_DETAILS: {
     [key: string]: {
@@ -15,8 +15,9 @@ const ProjectDetails = () => {
       subtitle: string;
       description: string;
       github: string;
-      darkModeImage: string;
-      lightModeImage: string;
+      darkModeImage?: string;
+      lightModeImage?: string;
+      images?: string[];
     };
   } = {
     WriteNote: {
@@ -26,11 +27,17 @@ const ProjectDetails = () => {
         "Aplicación web diseñada para mejorar la gestión personal de notas. Los usuarios pueden crear cuentas, iniciar sesión y gestionar sus notas de manera flexible, con la opción de marcarlas como favoritas para acceder rápidamente a las más importantes. Creado desde cero con Next.js, React (TypeScript) y Tailwind CSS para el frontend, y Node.js con TypeScript y Express para el backend.",
       github: "https://github.com/JahirMM/WriteNotes",
       lightModeImage: "/projects/writeNote/writeNoteInLightMode.webp",
-      darkModeImage: "/projects/writeNote/writeNoteInDarkMode..webp",
+      darkModeImage: "/projects/writeNote/writeNoteInDarkMode.webp",
+      images: [
+        "/projects/writeNote/login.jpeg",
+        "/projects/writeNote/signUp.jpeg",
+        "/projects/writeNote/userProfile.webp",
+        "/projects/writeNote/notesList.webp",
+        "/projects/writeNote/writeNoteMobileView.webp",
+      ],
     },
   };
 
-  // Verificar si nameProject es válido
   const project = nameProject ? PROJECT_DETAILS[nameProject] : undefined;
 
   useEffect(() => {
@@ -65,7 +72,7 @@ const ProjectDetails = () => {
             <h1 className="text-5xl font-bold text-secondaryColorLightTheme mb-10 dark:text-secondaryColorDarkTheme">
               {project.title}
             </h1>
-            <div className="text-gray-800 mb-10 dark:text-white/80">
+            <div className="text-gray-800 text-pretty mb-10 dark:text-white/80">
               {project.description}
             </div>
             <a href={project.github} className="flex">
@@ -74,40 +81,56 @@ const ProjectDetails = () => {
                 Ver en GitHub
               </span>
             </a>
-            <div
-              className="
+            {(project.darkModeImage || project.lightModeImage) && (
+              <div
+                className="
               my-16
-              imageSliderContainer 
+              imageSliderContainer
               max-w-[47rem] h-[20rem] sm:h-[25rem] md:h-[33rem]
               mx-auto
-              border border-gray-600
+              border border-gray-600 dark:border-none
               relative overflow-hidden
               rounded-xl
-              dark:border-none
             "
-            >
-              <img
-                src={project.darkModeImage}
-                alt={`${project.title} ${project.subtitle}`}
-              />
-              <img
-                src={project.lightModeImage}
-                alt={`${project.title} ${project.subtitle}`}
-                id="my-img"
-                ref={imgRef}
-              />
-              <input
-                type="range"
-                min="0"
-                max="100"
-                defaultValue="50"
-                id="slider"
-                ref={sliderRef}
-              />
-            </div>
+              >
+                <img
+                  src={project.darkModeImage}
+                  alt={`${project.title} ${project.subtitle}`}
+                  className="border border-gray-600 dark:border-none"
+                />
+                <img
+                  src={project.lightModeImage}
+                  alt={`${project.title} ${project.subtitle}`}
+                  id="my-img"
+                  ref={imgRef}
+                />
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  defaultValue="50"
+                  id="slider"
+                  ref={sliderRef}
+                />
+              </div>
+            )}
+            <div className="max-w-[47rem] mx-auto mb-40 mt-40">VIDEO</div>
+
+            {project.images && project.images.length > 0 && (
+              <div className="max-w-[47rem] mx-auto flex flex-col gap-40">
+                {project.images.map((image, index) => (
+                  <div
+                    className="bg-cardsBackgroundLightTheme p-4 border border-gray-800/10 rounded-xl dark:bg-cardsBackgroundDarkTheme dark:border-gray-800"
+                    key={index}
+                  >
+                    <img src={image} alt={`Imagen ${index + 1}`} />
+                  </div>
+                ))}
+              </div>
+            )}
           </>
         ) : (
-          <div>Cargando...</div> // Opcional: un estado de carga mientras se verifica el proyecto
+          <div>Cargando...</div>
         )}
       </main>
     </>
