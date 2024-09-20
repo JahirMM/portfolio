@@ -69,7 +69,8 @@ export const TECHNOLOGIES = {
 };
 export const PROJECTS = [
   {
-    title: "WriteNote - Tu espacio personal para notas",
+    title: "WriteNote ",
+    subtitle: "Tu espacio personal para notas",
     description:
       "Aplicación web diseñada para mejorar la gestión personal de notas. Los usuarios pueden crear cuentas, iniciar sesión y gestionar sus notas de manera flexible, con la opción de marcarlas como favoritas para acceder rápidamente a las más importantes. Creado desde cero con Next.js, React (TypeScript) y Tailwind CSS para el frontend, y Node.js con TypeScript y Express para el backend.",
     github: "https://github.com/JahirMM/WriteNotes",
@@ -82,9 +83,12 @@ export const PROJECTS = [
       TECHNOLOGIES.MONGODB,
       TECHNOLOGIES.EXPRESSJS,
     ],
+    darkModeImage: "",
+    lightModeImage: "",
   },
   {
-    title: "MemoryGame - Un juego de verbos en ingles",
+    title: "MemoryGame",
+    subtitle: "Un juego de verbos en ingles",
     description:
       "Aplicación web interactiva que ayuda a los usuarios a practicar la conjugación de verbos en inglés. En el juego, los usuarios deben emparejar verbos en presente simple con su correspondiente forma en pasado. Desarrollado utilizando Vite, React y TypeScript, el proyecto ofrece una experiencia educativa entretenida y ágil, diseñada desde cero para mejorar la práctica del inglés de manera divertida.",
     link: "https://menory-game.vercel.app/",

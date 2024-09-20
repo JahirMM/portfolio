@@ -13,9 +13,12 @@ const Projects = () => {
   return (
     <div className="flex flex-col gap-y-16">
       {projects.map(
-        ({ image, title, description, link, tags, github }, index) => (
+        (
+          { image, title, subtitle, description, link, tags, github },
+          index
+        ) => (
           <article
-            key={title}
+            key={index}
             className={`bg-cardsBackgroundLightTheme p-4 rounded-2xl flex flex-col gap-8 group md:flex-row border border-gray-800/10 dark:border-gray-800 ${
               index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
             } dark:bg-cardsBackgroundDarkTheme`}
@@ -32,7 +35,7 @@ const Projects = () => {
             </div>
             <div className="w-full space-y-7 md:w-1/2 md:max-w-lg">
               <h3 className="text-2xl font-bold text-secondaryColorLightTheme lg:text-xl dark:text-secondaryColorDarkTheme">
-                {title}
+                {title} - {subtitle}
               </h3>
               <div className="flex flex-wrap space-y-7">
                 <ul className="flex flex-row flex-wrap gap-2">

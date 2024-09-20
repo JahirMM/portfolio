@@ -26,6 +26,14 @@ const AppRoutes = () => {
           }
         />
         <Route
+          path="/not-found"
+          element={
+            <Layout>
+              <NotFound />
+            </Layout>
+          }
+        />
+        <Route
           path="*"
           element={
             <Layout>
