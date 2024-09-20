@@ -1,9 +1,9 @@
 // DATA
-import { PROJECTS } from "../data/projects";
+import { PROJECTS } from "../../data/projects";
 
 // ICONS
-import Github from "../icons/Github";
-import Link from "../icons/Link";
+import Github from "../../icons/Github";
+import Link from "../../icons/Link";
 
 // COMPONENTS
 import ProjectLink from "./ProjectLink";

@@ -84,11 +84,11 @@ const Header = () => {
       <header
         className={`
           bg-gradient-to-b from-[#F3EDE5] to-[#bab1a4] dark:bg-gradient-to-b dark:from-[#03081d] dark:to-[#0b1437]
-          fixed top-0 z-50 
-          flex items-center justify-center 
+          fixed top-0 z-50
+          flex items-center justify-center
           w-full mx-auto
           py-10
-          transition-transform duration-700 
+          transition-transform duration-700
           ${showMenu ? "-translate-y-0" : "-translate-y-full"}
           md:bg-none md:from-none md:to-none dark:md:bg-none dark:md:from-none dark:md:to-none
           md:mt-2
@@ -125,7 +125,7 @@ const Header = () => {
           ))}
           <div
             onClick={handleChangeTheme}
-            className="w-11 h-6 rounded-xl relative flex items-center bg-secondaryColorLightTheme dark:bg-[#1D3CBE]"
+            className="cursor-pointer w-11 h-6 rounded-xl relative flex items-center bg-secondaryColorLightTheme dark:bg-[#1D3CBE]"
           >
             <span
               className={`absolute h-5 w-5 rounded-full transition-transform duration-500 ease-in-out transform ${
