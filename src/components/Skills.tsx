@@ -1,8 +1,8 @@
-import { TECHNOLOGIES } from "../data/projects";
+import { SKILLS } from "../data/skills";
 
 const Skills = () => {
-  const SKILLS = Object.values(TECHNOLOGIES);
-  const duplicateSkills = [...SKILLS, ...SKILLS];
+  const skillsList = Object.values(SKILLS);
+  const duplicateSkills = [...skillsList, ...skillsList];
 
   return (
     <div className="[mask-image:linear-gradient(to_right,rgba(0,0,0,0),rgba(0,0,0,1)_20%,rgba(0,0,0,1)_80%,rgba(0,0,0,0))]">

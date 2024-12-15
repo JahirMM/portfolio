@@ -1,16 +1,16 @@
-import CSSIcon from "../icons/CSSIcon";
+import TypeScript from "../icons/TypeScript";
 import ExpressJS from "../icons/ExpressJS";
-import Html from "../icons/Html";
+import Tailwind from "../icons/Tailwind";
+import CSSIcon from "../icons/CSSIcon";
 import MongoDB from "../icons/MongoDB";
 import MtySQL from "../icons/MtySQL";
 import NextJS from "../icons/NextJS";
 import NodeJS from "../icons/NodeJS";
-import React from "../icons/React";
-import Tailwind from "../icons/Tailwind";
-import TypeScript from "../icons/TypeScript";
 import ViteJS from "../icons/ViteJS";
+import React from "../icons/React";
+import Html from "../icons/Html";
 
-export const TECHNOLOGIES = {
+const TECHNOLOGIES = {
   NEXT: {
     name: "Next.js",
     className: "bg-black text-white",
@@ -66,15 +66,28 @@ export const TECHNOLOGIES = {
     className: "bg-[#0F4B12] text-white",
     icon: MongoDB,
   },
+  JAVA: {
+    name: "Java",
+    className: "bg-[#0F4B12] text-white",
+    icon: MongoDB,
+  },
+  SPTINGBOOT: {
+    name: "Spring Boot",
+    className: "bg-[#0F4B12] text-white",
+    icon: MongoDB,
+  },
 };
+
 export const PROJECTS = [
   {
     title: "WriteNote ",
     subtitle: "Tu espacio personal para notas",
     description:
       "Aplicación web diseñada para mejorar la gestión personal de notas. Los usuarios pueden crear cuentas, iniciar sesión y gestionar sus notas de manera flexible, con la opción de marcarlas como favoritas para acceder rápidamente a las más importantes. Creado desde cero con Next.js, React (TypeScript) y Tailwind CSS para el frontend, y Node.js con TypeScript y Express para el backend.",
-    github: "https://github.com/JahirMM/WriteNotes",
-    image: "/projects/writeNote.webp",
+      link: "",
+      github: "https://github.com/JahirMM/WriteNotes",
+    details: "/project/WriteNote",
+    image: "/projects/writeNote/writeNote-main.webp",
     tags: [
       TECHNOLOGIES.NEXT,
       TECHNOLOGIES.TYPESCRIP,
@@ -93,12 +106,27 @@ export const PROJECTS = [
       "Aplicación web interactiva que ayuda a los usuarios a practicar la conjugación de verbos en inglés. En el juego, los usuarios deben emparejar verbos en presente simple con su correspondiente forma en pasado. Desarrollado utilizando Vite, React y TypeScript, el proyecto ofrece una experiencia educativa entretenida y ágil, diseñada desde cero para mejorar la práctica del inglés de manera divertida.",
     link: "https://menory-game.vercel.app/",
     github: "https://github.com/JahirMM/MemoryGame",
-    image: "/projects/memoryGame.webp",
+    details: "",
+    image: "/projects/memoryGame/memoryGame-main.webp",
     tags: [
       TECHNOLOGIES.VITEJS,
       TECHNOLOGIES.REACT,
       TECHNOLOGIES.TYPESCRIP,
       TECHNOLOGIES.CSS,
+    ],
+  },
+  {
+    title: "Prime Tech",
+    subtitle: "Tienda online",
+    description:
+      "Proyecto backend que  permite agregar productos y sus detalles para su venta. Desarrollado utilizando Java con Spring Boot, integra seguridad mediante Spring Security y JWT (JSON Web Tokens) para autenticación y autorización. La aplicación facilita la gestión de producto, accesibles solo para usuarios autorizados.",
+    link: "",
+    github: "https://github.com/JahirMM/primeTechBackend",
+    details: "/backend-project/primeTechBackend?nameModule=auth",
+    image: "/projects/memoryGame.webp",
+    tags: [
+      TECHNOLOGIES.JAVA,
+      TECHNOLOGIES.SPTINGBOOT
     ],
   },
 ];

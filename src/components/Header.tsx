@@ -2,14 +2,12 @@ import Menu from "../icons/Menu";
 import IconX from "../icons/IconX";
 
 import { useEffect, useState } from "react";
-
-import { useChangeTheme } from "../hooks/useChangeTheme";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [activeSection, setActiveSection] = useState("");
-  const { handleChangeTheme, theme } = useChangeTheme();
 
   const navItems = [
     {
@@ -123,16 +121,7 @@ const Header = () => {
               {link.title}
             </a>
           ))}
-          <div
-            onClick={handleChangeTheme}
-            className="cursor-pointer w-11 h-6 rounded-xl relative flex items-center bg-secondaryColorLightTheme dark:bg-[#1D3CBE]"
-          >
-            <span
-              className={`absolute h-5 w-5 rounded-full transition-transform duration-500 ease-in-out transform ${
-                theme === "light" ? "translate-x-[3px]" : "translate-x-full"
-              } bg-slate-300 dark:bg-blue-200`}
-            ></span>
-          </div>
+          <ThemeSwitcher/>
         </nav>
       </header>
     </>

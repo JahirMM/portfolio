@@ -4,6 +4,7 @@ import ProjectDetails from "../components/projects/projectDetails/ProjectDetails
 import NotFound from "../components/NotFound";
 import Layout from "../Layout";
 import App from "../App";
+import BackendDetails from "../components/projects/projectDetails/BackendDetails";
 
 const AppRoutes = () => {
   return (
@@ -23,6 +24,14 @@ const AppRoutes = () => {
             <Layout>
               <ProjectDetails />
             </Layout>
+          }
+        />
+        <Route
+          path="/backend-project/:nameProject"
+          element={
+            // <Layout>
+              <BackendDetails />
+            // </Layout>
           }
         />
         <Route

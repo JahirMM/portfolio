@@ -1,5 +1,6 @@
 // DATA
 import { PROJECTS } from "../../data/projects";
+import FileDescription from "../../icons/FileDescription";
 
 // ICONS
 import Github from "../../icons/Github";
@@ -14,7 +15,7 @@ const Projects = () => {
     <div className="flex flex-col gap-y-16">
       {projects.map(
         (
-          { image, title, subtitle, description, link, tags, github },
+          { image, title, subtitle, description, link, tags, github, details },
           index
         ) => (
           <article
@@ -55,15 +56,21 @@ const Projects = () => {
                 </div>
                 <footer className="flex items-end justify-start mt-4 gap-x-4">
                   {github && (
-                    <ProjectLink href={github}>
+                    <ProjectLink href={github} openInNewTab={true}>
                       <Github className="size-6" />
                       Code
                     </ProjectLink>
                   )}
                   {link && (
-                    <ProjectLink href={link}>
+                    <ProjectLink href={link} openInNewTab={true}>
                       <Link className="size-6" />
                       Preview
+                    </ProjectLink>
+                  )}
+                  {details && (
+                    <ProjectLink href={details} openInNewTab={false}>
+                      <FileDescription className="size-6" />
+                      Detalles
                     </ProjectLink>
                   )}
                 </footer>

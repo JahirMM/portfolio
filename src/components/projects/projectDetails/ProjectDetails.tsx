@@ -75,7 +75,7 @@ const ProjectDetails = () => {
             <div className="text-gray-800 text-pretty mb-10 dark:text-white/80">
               {project.description}
             </div>
-            <a href={project.github} className="flex">
+            <a href={project.github} target="_blank" className="flex">
               <span className="flex items-center gap-x-3 text-sm px-3 py-2 bg-gray-500 rounded-xl transition-colors duration-500 hover:bg-gray-800/90 active:bg-gray-900 dark:active:bg-black dark:bg-gray-800 dark:hover:bg-black">
                 <Github className="size-5" />
                 Ver en GitHub
@@ -86,7 +86,7 @@ const ProjectDetails = () => {
                 className="
               my-16
               imageSliderContainer
-              max-w-[47rem] h-[20rem] sm:h-[25rem] md:h-[33rem]
+              max-w-[75rem] h-[20rem] sm:h-[25rem] md:h-[33rem]
               mx-auto
               border border-gray-600 dark:border-none
               relative overflow-hidden
@@ -114,10 +114,10 @@ const ProjectDetails = () => {
                 />
               </div>
             )}
-            <div className="max-w-[47rem] mx-auto mb-40 mt-40">VIDEO</div>
+            <div className="max-w-[75rem] mx-auto mb-40 mt-40">VIDEO</div>
 
             {project.images && project.images.length > 0 && (
-              <div className="max-w-[47rem] mx-auto flex flex-col gap-40">
+              <div className="max-w-[75rem] mx-auto flex flex-col gap-40">
                 {project.images.map((image, index) => (
                   <div
                     className="bg-cardsBackgroundLightTheme p-4 border border-gray-800/10 rounded-xl dark:bg-cardsBackgroundDarkTheme dark:border-gray-800"
