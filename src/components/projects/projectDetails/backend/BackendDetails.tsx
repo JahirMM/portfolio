@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 
-import { PRIME_TECH_BACKEND_INTERFACE } from "../../../interfaces/backendInterfaces";
-import { PRIME_TECH_BACKEND } from "../../../data/backendProjectDetails/primeTechBackend";
+import { PRIME_TECH_BACKEND_INTERFACE } from "@/interfaces/backendInterfaces";
+import { PRIME_TECH_BACKEND } from "@/data/backendProjectDetails/primeTechBackend";
 
-import ModuleDetails from "./ModuleDetails";
-import BackendProjectNavigation from "./BackendProjectNavigation";
+import BackendProjectNavigation from "@/components/projects/projectDetails/backend/BackendProjectNavigation";
+import ModuleDetails from "@/components/projects/projectDetails/backend/ModuleDetails";
 
 
 function BackendDetails() {

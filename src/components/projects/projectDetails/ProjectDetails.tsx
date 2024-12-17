@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useRef, useEffect } from "react";
 
-import Github from "../../../icons/Github";
+import Github from "@/icons/Github";
 
 const ProjectDetails = () => {
   const sliderRef = useRef<HTMLInputElement>(null);

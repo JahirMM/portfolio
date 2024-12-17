@@ -1,5 +1,6 @@
-import CodeBlock from "./CodeBlock";
-import { Api } from "../../../interfaces/backendInterfaces";
+import { Api } from "@/interfaces/backendInterfaces";
+
+import CodeBlock from "@/components/projects/projectDetails/backend/CodeBlock";
 
 interface ApiDetailsProps {
   api: Api;

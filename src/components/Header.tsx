@@ -1,8 +1,8 @@
-import Menu from "../icons/Menu";
-import IconX from "../icons/IconX";
+import Menu from "@/icons/Menu";
+import IconX from "@/icons/IconX";
 
 import { useEffect, useState } from "react";
-import ThemeSwitcher from "./ThemeSwitcher";
+import ThemeSwitcher from "@/components/ThemeSwitcher";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);

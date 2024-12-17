@@ -1,16 +1,13 @@
-// COMPONENTS
+import SectionContainer from "@/components/SectionContainer";
+import Experience from "@/components/Experience";
+import Projects from "@/components/projects/Projects";
+import AboutMe from "@/components/AboutMe";
+import Skills from "@/components/Skills";
+import Hero from "@/components/Hero";
 
-import SectionContainer from "./components/SectionContainer";
-import Experience from "./components/Experience";
-import Projects from "./components/projects/Projects";
-import AboutMe from "./components/AboutMe";
-import Skills from "./components/Skills";
-import Hero from "./components/Hero";
-
-// ICONS
-import BriefCase from "./icons/BriefCase";
-import Code from "./icons/Code";
-import Gears from "./icons/Gears";
+import BriefCase from "@/icons/BriefCase";
+import Code from "@/icons/Code";
+import Gears from "@/icons/Gears";
 
 function App() {
   return (

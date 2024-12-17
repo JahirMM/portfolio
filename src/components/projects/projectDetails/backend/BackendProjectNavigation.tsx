@@ -1,8 +1,10 @@
-import { useState } from "react";
-import Menu from "../../../icons/Menu";
-import IconX from "../../../icons/IconX";
-import ThemeSwitcher from "../../ThemeSwitcher";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+
+import ThemeSwitcher from "@/components/ThemeSwitcher";
+
+import IconX from "@/icons/IconX";
+import Menu from "@/icons/Menu";
 
 interface NavigationOption {
   nameOption: string;

@@ -1,13 +1,10 @@
-// DATA
-import { PROJECTS } from "../../data/projects";
-import FileDescription from "../../icons/FileDescription";
+import { PROJECTS } from "@/data/projects";
+import FileDescription from "@/icons/FileDescription";
 
-// ICONS
-import Github from "../../icons/Github";
-import Link from "../../icons/Link";
+import Github from "@/icons/Github";
+import Link from "@/icons/Link";
 
-// COMPONENTS
-import ProjectLink from "./ProjectLink";
+import ProjectLink from "@/components/projects/ProjectLink";
 
 const Projects = () => {
   const projects = PROJECTS;

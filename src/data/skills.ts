@@ -1,14 +1,14 @@
-import TypeScript from "../icons/TypeScript";
-import ExpressJS from "../icons/ExpressJS";
-import Tailwind from "../icons/Tailwind";
-import CSSIcon from "../icons/CSSIcon";
-import MongoDB from "../icons/MongoDB";
-import MtySQL from "../icons/MtySQL";
-import NextJS from "../icons/NextJS";
-import NodeJS from "../icons/NodeJS";
-import ViteJS from "../icons/ViteJS";
-import React from "../icons/React";
-import Html from "../icons/Html";
+import TypeScript from "@/icons/TypeScript";
+import ExpressJS from "@/icons/ExpressJS";
+import Tailwind from "@/icons/Tailwind";
+import CSSIcon from "@/icons/CSSIcon";
+import MongoDB from "@/icons/MongoDB";
+import MtySQL from "@/icons/MtySQL";
+import NextJS from "@/icons/NextJS";
+import NodeJS from "@/icons/NodeJS";
+import ViteJS from "@/icons/ViteJS";
+import React from "@/icons/React";
+import Html from "@/icons/Html";
 
 export const SKILLS = {
     NEXT: {

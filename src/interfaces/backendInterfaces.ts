@@ -24,18 +24,15 @@ interface Backend<T = {}> {
   modules: T;
 }
 
-// Tipos para módulos específicos (puedes agregar más módulos si es necesario)
 type AuthModule = Module;
 type UserModule = Module;
 
-// Define y exporta el tipo principal como una interfaz
 interface PRIME_TECH_BACKEND_INTERFACE
   extends Backend<{
     auth?: AuthModule;
     user?: UserModule;
   }> {}
 
-// Exporta las interfaces y tipos adicionales si es necesario
 export type {
   PRIME_TECH_BACKEND_INTERFACE,
   ApiResponse,

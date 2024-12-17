@@ -1,6 +1,6 @@
 
-import ApiDetails from "./ApiDetails";
-import { Module } from "../../../interfaces/backendInterfaces";
+import { Module } from "@/interfaces/backendInterfaces";
+import ApiDetails from "@/components/projects/projectDetails/backend/ApiDetails";
 
 interface ModuleDetailsProps {
   module: Module;

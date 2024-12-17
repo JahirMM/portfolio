@@ -1,9 +1,12 @@
 import { useState } from "react";
-import LinkedIn from "../icons/LinkedIn";
-import SocialLink from "./SocialLink";
-import Github from "../icons/Github";
-import Mail from "../icons/Mail";
-import Copy from "../icons/Copy";
+
+import LinkedIn from "@/icons/LinkedIn";
+import Github from "@/icons/Github";
+import Copy from "@/icons/Copy";
+import Mail from "@/icons/Mail";
+
+import SocialLink from "@/components/SocialLink";
+
 
 const Hero = () => {
   const [copied, setCopied] = useState(false);

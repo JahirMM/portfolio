@@ -1,4 +1,4 @@
-import { SKILLS } from "../data/skills";
+import { SKILLS } from "@/data/skills";
 
 const Skills = () => {
   const skillsList = Object.values(SKILLS);

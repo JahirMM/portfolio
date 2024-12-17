@@ -1,4 +1,4 @@
-import { useChangeTheme } from "../hooks/useChangeTheme";
+import { useChangeTheme } from "@/hooks/useChangeTheme";
 
 function ThemeSwitcher() {
   const { handleChangeTheme, theme } = useChangeTheme();

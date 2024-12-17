@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import ProjectDetails from "../components/projects/projectDetails/ProjectDetails";
-import NotFound from "../components/NotFound";
-import Layout from "../Layout";
-import App from "../App";
-import BackendDetails from "../components/projects/projectDetails/BackendDetails";
+import ProjectDetails from "@/components/projects/projectDetails/ProjectDetails";
+import BackendDetails from "@/components/projects/projectDetails/backend/BackendDetails";
+import NotFound from "@/components/NotFound";
+import Layout from "@/Layout";
+import App from "@/App";
 
 const AppRoutes = () => {
   return (
@@ -29,9 +29,7 @@ const AppRoutes = () => {
         <Route
           path="/backend-project/:nameProject"
           element={
-            // <Layout>
               <BackendDetails />
-            // </Layout>
           }
         />
         <Route
