@@ -1,5 +1,5 @@
 export const PRIME_TECH_BACKEND = {
-  name: "prime Tech Backend",
+  name: "Prime Tech Backend",
   description: "PERROs",
   modules: {
     auth: {

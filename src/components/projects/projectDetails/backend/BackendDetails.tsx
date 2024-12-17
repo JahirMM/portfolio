@@ -14,9 +14,11 @@ function BackendDetails() {
   const [searchParams] = useSearchParams();
   const nameModule = searchParams.get("nameModule");
 
+  
+
   const BACKEND_PROJECTS = [
     {
-      name: "prime Tech Backend",
+      name: "Prime Tech Backend",
       data: PRIME_TECH_BACKEND,
       navegation: Object.keys(PRIME_TECH_BACKEND.modules || {}).map((moduleKey) => ({
         nameOption: moduleKey.charAt(0).toUpperCase() + moduleKey.slice(1).replace(/([A-Z])/g, " $1"),
@@ -30,25 +32,25 @@ function BackendDetails() {
       proj.name.toLowerCase().replace(/\s+/g, "") === nameProject?.toLowerCase()
   )?.data as PRIME_TECH_BACKEND_INTERFACE | undefined;
 
-  useEffect(() => {
-    if (!project) {
-      navigate("/not-found");
-    }
-  }, [project, navigate]);
-
   const selectedModule =
     nameModule && project?.modules
       ? project.modules[nameModule as keyof typeof project.modules]
       : null;
 
-  const handleNavigationClick = (moduleUrl: string) => {
-    navigate(`/backend-project/${nameProject}?nameModule=${moduleUrl}`);
-  };
-
   const navigationOptions = BACKEND_PROJECTS.find(
     (proj) =>
       proj.name.toLowerCase().replace(/\s+/g, "") === nameProject?.toLowerCase()
   )?.navegation;
+
+  const handleNavigationClick = (moduleUrl: string) => {
+    navigate(`/backend-project/${nameProject}?nameModule=${moduleUrl}`);
+  };
+
+  useEffect(() => {
+    if (!project) {
+      navigate("/not-found");
+    }
+  }, [project, navigate]);
 
   return (
     <main className="md:flex">
@@ -56,6 +58,7 @@ function BackendDetails() {
         <BackendProjectNavigation
           navigationOptions={navigationOptions}
           onNavigate={handleNavigationClick}
+          nameModule={nameModule}
         />
       )}
       <div className="p-6 md:ml-[150px] md:flex-1">

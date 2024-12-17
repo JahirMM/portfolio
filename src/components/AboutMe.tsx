@@ -97,7 +97,10 @@ const AboutMe = () => {
           Educación
         </div>
         <p className="text-gray-800 text-sm text-pretty dark:text-gray-300">
-          Me gradué como ingeniero en computación...
+          Me gradué como ingeniero en computación e informática en la
+          Universidad Andrés Bello en el año 2024. Durante mi carrera, trabajé
+          en proyectos donde aprendí y mejoré mis habilidades, colaborando
+          eficazmente en equipo.
         </p>
       </div>
       <div className="p-4 rounded-2xl h-[320px] w-full border border-gray-800/10 sm:col-start-4 sm:col-end-7 lg:col-start-5 location dark:border-gray-800">

@@ -14,14 +14,19 @@ interface NavigationOption {
 interface ProjectNavigationProps {
   navigationOptions: NavigationOption[];
   onNavigate: (moduleUrl: string) => void;
+  nameModule: string
+
 }
 
 function BackendProjectNavigation({
   navigationOptions,
   onNavigate,
+  nameModule
 }: ProjectNavigationProps) {
-    const navigate = useNavigate();
+  
+  const navigate = useNavigate();
   const [showMenu, setShowMenu] = useState(false);
+
   return (
     <>
       <span
@@ -50,21 +55,29 @@ function BackendProjectNavigation({
             dark:bg-cardsBackgroundDarkTheme
         `}
       >
-        <h2 className="text-2xl font-bold mb-4">Rest API</h2>
-        <ul className="flex flex-col gap-4 items-center">
+        <h2 className="text-2xl font-bold mb-4 text-pretty text-gray-800 dark:text-white">
+          Rest API
+        </h2>
+        <ul className="flex flex-col items-center gap-4 w-full">
           {navigationOptions.map((navOption) => (
-            <li key={navOption.url}>
+            <li key={navOption.url} className={`text-center w-full rounded-md ${nameModule === navOption.url ? "bg-[#E3D5C5]/50 dark:bg-[#0E173B]/50" : ""}`}>
               <button
                 onClick={() => onNavigate(navOption.url)}
-                className="text-blue-600 hover:underline"
+                className="text-gray-700 px-3 py-1 rounded-xl dark:opacity-80 dark:text-gray-300 hover:text-black hover:font-medium dark:hover:text-white"
               >
                 {navOption.nameOption}
               </button>
             </li>
           ))}
-          <span className="h-[1px] w-full bg-gray-500"></span>
-          <ThemeSwitcher/>
-          <button onClick={() => navigate('/')} className="text-blue-600 hover:underline" > Inicio </button>
+          <span className="h-[1px] w-full bg-gray-500/30"></span>
+          <ThemeSwitcher />
+          <button
+            onClick={() => navigate("/")}
+            className="text-black dark:opacity-80 dark:text-white"
+          >
+            {" "}
+            Inicio{" "}
+          </button>
         </ul>
       </div>
     </>
