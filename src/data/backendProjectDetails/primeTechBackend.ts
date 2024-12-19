@@ -1,6 +1,7 @@
 export const PRIME_TECH_BACKEND = {
   name: "Prime Tech Backend",
-  description: "PERROs",
+  description:
+    "Proyecto backend que  permite agregar productos y sus detalles para su venta. Desarrollado utilizando Java con Spring Boot, integra seguridad mediante Spring Security y JWT (JSON Web Tokens) para autenticación y autorización. La aplicación facilita la gestión de producto, accesibles solo para usuarios autorizados.",
   modules: {
     auth: {
       title: "Authentication APIs",
@@ -8,7 +9,7 @@ export const PRIME_TECH_BACKEND = {
       apis: [
         {
           title: "Sign Up",
-          description: "dogapsdngashga",
+          description: "",
           method: "POST",
           url: "http://localhost:8080/prime-tech/api/v1/auth/signUp",
           body: `
@@ -21,7 +22,7 @@ export const PRIME_TECH_BACKEND = {
               "maternalSurname": "Delgado"
             }`,
           response: {
-            description: "dahgahas",
+            description: "",
             example: `
               {
                 "message": "user successfully created",
@@ -38,7 +39,8 @@ export const PRIME_TECH_BACKEND = {
         },
         {
           title: "Login",
-          description: "",
+          description:
+            "Cuando el usuario inicia sesión, se guarda una cookie con su correo electrónico. Esta cookie permitirá validar la autenticación para otras solicitudes de la API.",
           method: "POST",
           url: "http://localhost:8080/prime-tech/api/v1/auth/login",
           body: `
@@ -72,7 +74,7 @@ export const PRIME_TECH_BACKEND = {
       description: "",
       apis: [
         {
-          title: "",
+          title: "Obtener información",
           description: "Mostrar información del usuario autenticado.",
           method: "GET",
           url: "http://localhost:8080/prime-tech/api/v1/user",
@@ -95,7 +97,7 @@ export const PRIME_TECH_BACKEND = {
           },
         },
         {
-          title: "",
+          title: "Actualizar información",
           description: "Actualizar información del usuario autenticado.",
           method: "PUT",
           url: "http://localhost:8080/prime-tech/api/v1/user",
@@ -124,7 +126,7 @@ export const PRIME_TECH_BACKEND = {
           },
         },
         {
-          title: "",
+          title: "Asignar rol de vendedor",
           description:
             'Asignar rol de vendedor al usuario autenticado. Proporciona el parámetro roleName en la ruta como /role/assign/{roleName}, usando "seller" para asignar el rol de vendedor.',
           method: "POST",
@@ -148,7 +150,7 @@ export const PRIME_TECH_BACKEND = {
           },
         },
         {
-          title: "",
+          title: "Eliminar imagen",
           description:
             'Eliminar el rol de vendedor al usuario autenticado, pasar "seller" para asignar el rol.',
           method: "DELETE",
@@ -163,7 +165,7 @@ export const PRIME_TECH_BACKEND = {
           },
         },
         {
-          title: "",
+          title: "Subir imagen",
           description:
             'Subir una foto de perfil del usuario autenticado. En el formulario de datos (form-data), utilizar la llave "image" de tipo file y proporciona la imagen.',
           method: "POST",
@@ -182,7 +184,7 @@ export const PRIME_TECH_BACKEND = {
           },
         },
         {
-          title: "",
+          title: "Obtener imagen",
           description:
             "Recuperar la URL de la foto de perfil del usuario autenticado.",
           method: "GET",
@@ -197,7 +199,7 @@ export const PRIME_TECH_BACKEND = {
           },
         },
         {
-          title: "",
+          title: "Eliminar imagen",
           description:
             "Eliminar la foto de perfil del usuario autenticado. Proporciona el parámetro userImageId en la ruta como /user-image/{userImageId} para identificar de manera única la imagen que se desea eliminar.",
           method: "DELETE",

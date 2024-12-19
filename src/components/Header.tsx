@@ -121,7 +121,7 @@ const Header = () => {
               {link.title}
             </a>
           ))}
-          <ThemeSwitcher/>
+          <ThemeSwitcher />
         </nav>
       </header>
     </>

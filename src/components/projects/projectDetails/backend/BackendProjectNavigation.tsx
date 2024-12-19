@@ -30,7 +30,7 @@ function BackendProjectNavigation({
   return (
     <>
       <span
-        className="fixed top-[10px] sm:top-[25px] right-[50px] z-[99] cursor-pointer md:hidden"
+        className="fixed top-[16px] sm:top-[16px] right-[50px] z-[99] cursor-pointer md:hidden"
         onClick={() => setShowMenu(!showMenu)}
       >
         {showMenu ? (
@@ -60,7 +60,7 @@ function BackendProjectNavigation({
         </h2>
         <ul className="flex flex-col items-center gap-4 w-full">
           {navigationOptions.map((navOption) => (
-            <li key={navOption.url} className={`text-center w-full rounded-md ${nameModule === navOption.url ? "bg-[#E3D5C5]/50 dark:bg-[#0E173B]/50" : ""}`}>
+            <li key={navOption.url} className={`text-center w-full rounded-md ${nameModule === navOption.url ? "bg-[#E3D5C5]/50 dark:bg-[#142053]" : ""}`}>
               <button
                 onClick={() => onNavigate(navOption.url)}
                 className="text-gray-700 px-3 py-1 rounded-xl dark:opacity-80 dark:text-gray-300 hover:text-black hover:font-medium dark:hover:text-white"

@@ -4,9 +4,10 @@ import CodeBlock from "@/components/projects/projectDetails/backend/CodeBlock";
 
 interface ApiDetailsProps {
   api: Api;
+  generateId: (title: string) => string;
 }
 
-const ApiDetails: React.FC<ApiDetailsProps> = ({ api }) => {
+const ApiDetails: React.FC<ApiDetailsProps> = ({ api, generateId }) => {
   if (
     !api.title?.trim() &&
     !api.description?.trim() &&
@@ -17,33 +18,62 @@ const ApiDetails: React.FC<ApiDetailsProps> = ({ api }) => {
   }
 
   return (
-    <div className="api-details border-b border-gray-300 mb-4 pb-4">
-      {api.title && <h3 className="text-xl font-bold">{api.title}</h3>}
-      {api.description && <p className="text-gray-700 mb-2">{api.description}</p>}
-      {api.method && (
-        <p className="text-gray-600">
-          <strong>Method:</strong> {api.method}
+    <section id={generateId(api.title)} className="border-gray-300 mb-4 pb-4">
+      {api.title && (
+        <h3 className="text-gray-800 text-3xl mb-8 font-bold dark:text-gray-300">
+          {api.title}
+        </h3>
+      )}
+      {api.description && (
+        <p className="text-gray-800 text-sm text-pretty dark:text-gray-300">
+          {api.description}
         </p>
       )}
+      {api.method && (
+        <p className="mt-5 font-bold">
+          <span className="text-gray-600 mr-3 dark:text-gray-500">Method:</span>
+          <span
+            className={`
+              ${
+                api.method === "POST"
+                  ? "text-yellow-500"
+                  : api.method === "GET"
+                  ? "text-green-500"
+                  : api.method === "PUT"
+                  ? "text-blue-500"
+                  : api.method === "DELETE"
+                  ? "text-pink-500"
+                  : ""
+              }
+              `}
+          >
+            {api.method}
+          </span>
+        </p>
+      )}
+
       {api.url && (
-        <p className="text-gray-600">
-          <strong>URL:</strong> {api.url}
+        <p className="mt-3 font-bold">
+          <span className="text-gray-600 mr-3 dark:text-gray-500">URL:</span>
+          <span className="text-gray-800 dark:text-white/85">{api.url}</span>
         </p>
       )}
       {api.body && (
-        <div className="mt-4">
-          <strong>Body:</strong>
+        <div className="mt-5 mb-9">
+          <span className="text-gray-800 block font-bold mb-5 dark:text-gray-300">Body:</span>
           <CodeBlock code={api.body} />
         </div>
       )}
-      {api.response && (
-        <div className="mt-4">
-          <strong>Response:</strong>
-          {api.response.description && <p>{api.response.description}</p>}
+      {api.response.description !== "" || api.response.example !== "" ? (
+        <div className="mt-5 mb-9">
+          <span className="text-gray-800 block font-bold mb-5 dark:text-gray-300">Response:</span>
+          {api.response.description && <p className="text-gray-800 text-sm text-pretty mb-5 dark:text-gray-500">{api.response.description}</p>}
           {api.response.example && <CodeBlock code={api.response.example} />}
         </div>
+      ) : (
+        <></>
       )}
-    </div>
+    </section>
   );
 };
 
