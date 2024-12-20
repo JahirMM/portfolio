@@ -30,7 +30,7 @@ function BackendProjectNavigation({
   return (
     <>
       <span
-        className="fixed top-[16px] sm:top-[16px] right-[50px] z-[99] cursor-pointer md:hidden"
+        className="fixed top-[32px] right-[50px] z-[99] cursor-pointer md:hidden"
         onClick={() => setShowMenu(!showMenu)}
       >
         {showMenu ? (
@@ -43,15 +43,16 @@ function BackendProjectNavigation({
         className={`
             bg-cardsBackgroundLightTheme
             fixed top-0 z-50
-            w-full p-10
+            w-full p-8
             transition-transform duration-700
             flex flex-col items-center
             ${showMenu ? "-translate-y-0" : "-translate-y-full"}
             md:-translate-y-0
             md:fixed
             md:h-full
-            md:w-[150px]
-            md:p-6
+            md:w-[185px]
+            md:pt-7
+            lg:pt-10
             dark:bg-cardsBackgroundDarkTheme
         `}
       >

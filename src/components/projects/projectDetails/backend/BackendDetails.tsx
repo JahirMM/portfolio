@@ -67,7 +67,7 @@ function BackendDetails() {
           nameModule={nameModule}
         />
       )}
-      <div className="flex flex-col-reverse mt-12 p-6 md:ml-[150px] md:flex-1">
+      <div className="flex flex-col-reverse mt-16 px-10 pt-10 md:ml-[185px] md:flex-1 lg:flex-row lg:mt-0 lg:gap-5">
         <div>
           <h1 className="text-4xl font-bold text-secondaryColorLightTheme mb-8 dark:text-secondaryColorDarkTheme">
             {project?.name}
@@ -86,7 +86,9 @@ function BackendDetails() {
             </p>
           )}
         </div>
-        <SubMenu apisList={selectedModule.apis} generateId={generateId} />
+        <div className="lg:sticky lg:top-0 lg:min-w-[25%]">
+          <SubMenu apisList={selectedModule.apis} generateId={generateId} />
+        </div>
       </div>
     </main>
   );
