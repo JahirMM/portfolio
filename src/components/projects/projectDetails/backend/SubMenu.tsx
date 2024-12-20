@@ -30,6 +30,14 @@ function SubMenu({
     }
   };
 
+    useEffect(() => {
+      if (apisList.length > 0) {
+        setSelectedTitle(apisList[0].title);
+      } else {
+        setSelectedTitle(null);
+      }
+    }, [apisList]);
+
   useEffect(() => {
     const handleScrollEvent = () => {
       let currentTitle = selectedTitle;
@@ -42,6 +50,7 @@ function SubMenu({
           }
         }
       });
+      
       if (currentTitle !== selectedTitle) {
         setSelectedTitle(currentTitle);
       }
@@ -60,7 +69,7 @@ function SubMenu({
           onClick={toggleSubMenu}
           className="inline-flex items-center gap-2 p-2 rounded-md border border-gray-800 text-gray-800 text-sm bg-cardsBackgroundLightTheme dark:text-gray-300 dark:bg-cardsBackgroundDarkTheme"
         >
-          <span>Página</span>
+          <span>Sección</span>
           <SubMenuArrow
             className={`size-4 text-gray-800 transition-transform ease-linear duration-500 ${
               showSubMenu ? "rotate-90" : "rotate-0"
