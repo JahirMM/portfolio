@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Api } from "@/interfaces/backendInterfaces";
 
 import SubMenuArrow from "@/icons/SubMenuArrow";
+import Check from "@/icons/Check";
 
 function SubMenu({
   apisList,
@@ -36,7 +37,7 @@ function SubMenu({
         const element = document.getElementById(generateId(api.title));
         if (element) {
           const rect = element.getBoundingClientRect();
-          if (rect.top <= 80 && rect.bottom >= 80) {
+          if (rect.top <= 270) {
             currentTitle = api.title;
           }
         }
@@ -61,37 +62,41 @@ function SubMenu({
         >
           <span>Página</span>
           <SubMenuArrow
-            className={`size-4 text-gray-800 dark:text-gray-300 transition-transform ease-linear duration-500 ${
+            className={`size-4 text-gray-800 transition-transform ease-linear duration-500 ${
               showSubMenu ? "rotate-90" : "rotate-0"
-            }`}
+            } dark:text-gray-300`}
           />
         </div>
         <span className="ml-2 text-gray-800 text-sm dark:text-gray-300">
           {selectedTitle || ""}
         </span>
       </div>
-      <ul
+      <div
         className={`flex flex-col gap-1 px-4 bg-cardsBackgroundLightTheme overflow-y-auto transition-[max-height] ease-in-out duration-700 ${
           showSubMenu ? "max-h-96" : "max-h-0"
         } dark:bg-cardsBackgroundDarkTheme`}
       >
         {apisList &&
           apisList.map((api, index) => (
-            <a
-              key={index}
-              href={`#${generateId(api.title)}`}
-              onClick={(e) => {
-                e.preventDefault();
-                handleScroll(generateId(api.title));
-                setSelectedTitle(api.title);
-                toggleSubMenu();
-              }}
-              className="py-1 text-gray-800 text-sm border-b border-gray-300 dark:text-gray-300 dark:border-gray-800"
-            >
-              {api.title}
-            </a>
+            <div key={index} className="flex items-center justify-between border-b border-gray-300 dark:border-gray-800">
+              <a
+                href={`#${generateId(api.title)}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleScroll(generateId(api.title));
+                  setSelectedTitle(api.title);
+                  toggleSubMenu();
+                }}
+                className="py-1 text-gray-800 text-sm dark:text-gray-300"
+              >
+                {api.title}
+              </a>
+              {selectedTitle === api.title && (
+                <Check className="size-3 text-gray-800 dark:text-gray-300" />
+              )}
+            </div>
           ))}
-      </ul>
+      </div>
     </div>
   );
 }

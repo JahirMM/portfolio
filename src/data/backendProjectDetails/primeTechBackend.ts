@@ -150,7 +150,7 @@ export const PRIME_TECH_BACKEND = {
           },
         },
         {
-          title: "Eliminar imagen",
+          title: "Eliminar rol",
           description:
             'Eliminar el rol de vendedor al usuario autenticado, pasar "seller" para asignar el rol.',
           method: "DELETE",
