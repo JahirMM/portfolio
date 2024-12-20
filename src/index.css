@@ -99,3 +99,30 @@ body {
   background-size: contain;
   cursor: pointer;
 }
+
+/* ---------- */
+
+.icon {
+  display: block;
+}
+
+.options {
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+.options.open {
+  transition: width 0.3s ease, height 0.3s ease 0.3s;
+}
+
+.options.closed {
+  transition: height 0.3s ease, width 0.3s ease 0.3s;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
