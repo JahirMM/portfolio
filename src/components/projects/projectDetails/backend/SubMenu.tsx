@@ -26,7 +26,7 @@ function SubMenu({
     if (element) {
       const offset = 80;
       const y = element.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top: y, behavior: "smooth" });
+      window.scrollTo({ top: y});
     }
   };
 

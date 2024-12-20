@@ -62,7 +62,10 @@ function BackendProjectNavigation({
           {navigationOptions.map((navOption) => (
             <li key={navOption.url} className={`text-center w-full rounded-md ${nameModule === navOption.url ? "bg-[#E3D5C5]/50 dark:bg-[#142053]" : ""}`}>
               <button
-                onClick={() => onNavigate(navOption.url)}
+                onClick={() => {
+                  onNavigate(navOption.url)
+                  setShowMenu((showMenu) => !showMenu)
+                }}
                 className="text-gray-700 px-3 py-1 rounded-xl dark:opacity-80 dark:text-gray-300 hover:text-black hover:font-medium dark:hover:text-white"
               >
                 {navOption.nameOption}
