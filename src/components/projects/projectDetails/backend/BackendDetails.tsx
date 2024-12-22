@@ -6,7 +6,7 @@ import { PRIME_TECH_BACKEND } from "@/data/backendProjectDetails/primeTechBacken
 
 import BackendProjectNavigation from "@/components/projects/projectDetails/backend/BackendProjectNavigation";
 import ModuleDetails from "@/components/projects/projectDetails/backend/ModuleDetails";
-import SubMenu from "./SubMenu";
+import SubMenu from "@/components/projects/projectDetails/backend/SubMenu";
 
 function BackendDetails() {
   const navigate = useNavigate();
@@ -67,7 +67,7 @@ function BackendDetails() {
           nameModule={nameModule}
         />
       )}
-      <div className="flex flex-col-reverse mt-16 px-10 pt-10 md:ml-[185px] md:flex-1 lg:flex-row lg:mt-0 lg:gap-5">
+      <div className="flex flex-col-reverse mt-16 px-10 pt-10 md:ml-[170px] md:flex-1 lg:flex-row lg:mt-0 lg:gap-5">
         <div>
           <h1 className="text-4xl font-bold text-secondaryColorLightTheme mb-8 dark:text-secondaryColorDarkTheme">
             {project?.name}

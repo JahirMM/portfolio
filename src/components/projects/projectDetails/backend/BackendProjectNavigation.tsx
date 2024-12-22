@@ -26,7 +26,7 @@ function BackendProjectNavigation({
   const [showMenu, setShowMenu] = useState(false);
 
   const toggleMenu = () => {
-    setShowMenu(!showMenu);
+    setShowMenu((showMenu) => !showMenu);
   };
 
   return (
@@ -100,7 +100,7 @@ function BackendProjectNavigation({
                 <button
                   onClick={() => {
                     onNavigate(navOption.url);
-                    toggleMenu;
+                    toggleMenu();
                   }}
                   className="text-gray-700 px-3 py-1 rounded-xl dark:opacity-80 dark:text-gray-300 hover:text-black hover:font-medium dark:hover:text-white"
                 >

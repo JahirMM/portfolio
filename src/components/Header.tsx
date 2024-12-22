@@ -7,7 +7,6 @@ import { navItems } from "@/data/navItems";
 import Menu from "@/icons/Menu";
 import IconX from "@/icons/IconX";
 
-
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(
@@ -41,28 +40,27 @@ const Header = () => {
   }, []);
 
   return (
-    <>
-      <div className="fixed top-[27px] right-[38px] z-[999] md:relative">
-        <div
-          className="relative z-[999] cursor-pointer md:hidden"
-          onClick={toggleMenu}
-        >
-          {showMenu ? (
-            <IconX
-              className={`min-h-9 min-w-9 p-1 bg-cardsBackgroundLightTheme text-black dark:bg-[#0D1228] dark:text-white ${
-                showMenu ? "rounded-tr-xl" : "rounded-full"
-              }`}
-            />
-          ) : (
-            <Menu
-              className={`min-h-9 min-w-9 p-1 bg-cardsBackgroundLightTheme text-black dark:bg-[#0D1228] dark:text-white ${
-                showMenu ? "rounded-tr-xl" : "rounded-full"
-              }`}
-            />
-          )}
-        </div>
-        <header
-          className={`
+    <div className="fixed top-[27px] right-[38px] z-[999] md:relative">
+      <div
+        className="relative z-[999] cursor-pointer md:hidden"
+        onClick={toggleMenu}
+      >
+        {showMenu ? (
+          <IconX
+            className={`min-h-9 min-w-9 p-1 bg-cardsBackgroundLightTheme text-black dark:bg-[#0D1228] dark:text-white ${
+              showMenu ? "rounded-tr-xl" : "rounded-full"
+            }`}
+          />
+        ) : (
+          <Menu
+            className={`min-h-9 min-w-9 p-1 bg-cardsBackgroundLightTheme text-black dark:bg-[#0D1228] dark:text-white ${
+              showMenu ? "rounded-tr-xl" : "rounded-full"
+            }`}
+          />
+        )}
+      </div>
+      <header
+        className={`
             options absolute top-0 right-0 w-0 h-9 overflow-hidden overflow-y-auto no-scrollbar
             text-black 
             rounded-2xl
@@ -73,9 +71,9 @@ const Header = () => {
             md:dark:bg-transparent dark:bg-[#0D1228]
             ${showMenu ? "w-[160px] h-[232px] open" : "w-0 h-9 closed"}
           `}
-        >
-          <nav
-            className={`
+      >
+        <nav
+          className={`
               flex flex-col gap-4
               bg-cardsBackgroundLightTheme 
               md:flex-row md:items-center md:justify-center md:gap-4
@@ -88,26 +86,25 @@ const Header = () => {
                   : "opacity-0"
               }
             `}
-          >
-            {navItems.map((link, index) => (
-              <a
-                key={index}
-                className={`text-sm block hover:text-secondaryColorLightTheme dark:hover:text-secondaryColorDarkTheme ${
-                  activeSection === link.label
-                    ? "font-bold text-secondaryColorLightTheme dark:text-secondaryColorDarkTheme"
-                    : "text-gray-800 dark:text-gray-200/80"
-                }`}
-                aria-label={link.label}
-                href={link.url}
-              >
-                {link.title}
-              </a>
-            ))}
-            <ThemeSwitcher />
-          </nav>
-        </header>
-      </div>
-    </>
+        >
+          {navItems.map((link, index) => (
+            <a
+              key={index}
+              className={`text-sm block hover:text-secondaryColorLightTheme dark:hover:text-secondaryColorDarkTheme ${
+                activeSection === link.label
+                  ? "font-bold text-secondaryColorLightTheme dark:text-secondaryColorDarkTheme"
+                  : "text-gray-800 dark:text-gray-200/80"
+              }`}
+              aria-label={link.label}
+              href={link.url}
+            >
+              {link.title}
+            </a>
+          ))}
+          <ThemeSwitcher />
+        </nav>
+      </header>
+    </div>
   );
 };
 
