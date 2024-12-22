@@ -55,7 +55,7 @@ function BackendProjectNavigation({
           options absolute top-0 right-0 w-0 h-9 overflow-hidden overflow-y-auto no-scrollbar
           bg-cardsBackgroundLightTheme
           text-black 
-          rounded-xl
+          rounded-2xl
           z-[99] p-4
           md:fixed md:min-h-full md:w-[185px] md:left-0 md:right-auto md:rounded-none md:pt-7
           lg:pt-10
