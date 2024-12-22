@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 
 import { PRIME_TECH_BACKEND_INTERFACE } from "@/interfaces/backendInterfaces";
@@ -7,6 +7,7 @@ import { PRIME_TECH_BACKEND } from "@/data/backendProjectDetails/primeTechBacken
 import BackendProjectNavigation from "@/components/projects/projectDetails/backend/BackendProjectNavigation";
 import ModuleDetails from "@/components/projects/projectDetails/backend/ModuleDetails";
 import SubMenu from "@/components/projects/projectDetails/backend/SubMenu";
+import SubMenuArrow from "@/icons/SubMenuArrow";
 
 function BackendDetails() {
   const navigate = useNavigate();
@@ -58,6 +59,8 @@ function BackendDetails() {
     return title.toLowerCase().replace(/\s+/g, "-");
   };
 
+  const [showDiagram, setShowDiagram] = useState(false);
+
   return (
     <main className="md:flex">
       {navigationOptions && (
@@ -75,6 +78,29 @@ function BackendDetails() {
           <p className="text-gray-800 text-sm text-pretty mb-8 dark:text-gray-300">
             {project?.description}
           </p>
+
+          <button
+            className="flex items-center gap-2 bg-[#E3D5C5]/50 px-3 py-2 mb-8 rounded-lg text-gray-800 text-sm dark:text-gray-300 dark:bg-[#142053]"
+            onClick={() => setShowDiagram(!showDiagram)}
+          >
+            Diagrama Entidad-Relación
+            <SubMenuArrow
+              className={`size-4 text-gray-800 transition-transform ease-linear duration-500 ${
+                showDiagram ? "rotate-90" : "rotate-0"
+              } dark:text-gray-300`}
+            />
+          </button>
+          {project?.diagrama && showDiagram && (
+            <>
+              <div className="mb-10">
+                <img
+                  src={project?.diagrama}
+                  alt=""
+                  className="w-full"
+                />
+              </div>
+            </>
+          )}
 
           {selectedModule ? (
             <ModuleDetails module={selectedModule} generateId={generateId} />

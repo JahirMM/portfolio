@@ -21,6 +21,7 @@ interface Module {
 interface Backend<T = {}> {
   name: string;
   description: string;
+  diagrama: string;
   modules: T;
 }
 

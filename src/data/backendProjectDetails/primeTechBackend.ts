@@ -2,6 +2,7 @@ export const PRIME_TECH_BACKEND = {
   name: "Prime Tech Backend",
   description:
     "Proyecto backend que  permite agregar productos y sus detalles para su venta. Desarrollado utilizando Java con Spring Boot, integra seguridad mediante Spring Security y JWT (JSON Web Tokens) para autenticación y autorización. La aplicación facilita la gestión de producto, accesibles solo para usuarios autorizados.",
+  diagrama: "/primeTech/backend/base-de-datos.webp",
   modules: {
     auth: {
       title: "Authentication APIs",

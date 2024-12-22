@@ -30,28 +30,27 @@ function BackendProjectNavigation({
   };
 
   return (
-    <>
-      <div className="fixed top-[27px] right-[38px] z-[999]">
-        <div
-          className="relative z-[999] cursor-pointer md:hidden"
-          onClick={toggleMenu}
-        >
-          {showMenu ? (
-            <IconX
-              className={`min-h-9 min-w-9 p-1 bg-cardsBackgroundLightTheme text-black dark:bg-[#0D1228] dark:text-white ${
-                showMenu ? "rounded-tr-xl" : "rounded-full"
-              }`}
-            />
-          ) : (
-            <Menu
-              className={`min-h-9 min-w-9 p-1 bg-cardsBackgroundLightTheme text-black dark:bg-[#0D1228] dark:text-white ${
-                showMenu ? "rounded-tr-xl" : "rounded-full"
-              } `}
-            />
-          )}
-        </div>
-        <div
-          className={`
+    <div className="fixed top-[27px] right-[38px] z-[999]">
+      <div
+        className="relative z-[999] cursor-pointer md:hidden"
+        onClick={toggleMenu}
+      >
+        {showMenu ? (
+          <IconX
+            className={`min-h-9 min-w-9 p-1 bg-cardsBackgroundLightTheme text-black dark:bg-[#0D1228] dark:text-white ${
+              showMenu ? "rounded-tr-xl" : "rounded-full"
+            }`}
+          />
+        ) : (
+          <Menu
+            className={`min-h-9 min-w-9 p-1 bg-cardsBackgroundLightTheme text-black dark:bg-[#0D1228] dark:text-white ${
+              showMenu ? "rounded-tr-xl" : "rounded-full"
+            } `}
+          />
+        )}
+      </div>
+      <div
+        className={`
           options absolute top-0 right-0 w-0 h-9 overflow-hidden overflow-y-auto no-scrollbar
           bg-cardsBackgroundLightTheme
           text-black 
@@ -65,18 +64,18 @@ function BackendProjectNavigation({
               ? "w-[200px] h-[248px] max-h-[348px] open"
               : "w-0 h-9 closed"
           }`}
+      >
+        <h2
+          className={`text-xl text-center font-bold mb-4 text-pretty text-gray-800 md:text-2xl dark:text-white ${
+            showMenu
+              ? "opacity-100 transition-opacity duration-[2s]"
+              : "opacity-0"
+          } md:opacity-100`}
         >
-          <h2
-            className={`text-xl text-center font-bold mb-4 text-pretty text-gray-800 md:text-2xl dark:text-white ${
-              showMenu
-                ? "opacity-100 transition-opacity duration-[2s]"
-                : "opacity-0"
-            } md:opacity-100`}
-          >
-            Rest API
-          </h2>
-          <ul
-            className={`
+          Rest API
+        </h2>
+        <ul
+          className={`
               flex flex-col items-center gap-4 w-full
               ${
                 showMenu
@@ -84,11 +83,11 @@ function BackendProjectNavigation({
                   : "opacity-0"
               }
               md:opacity-100`}
-          >
-            {navigationOptions.map((navOption) => (
-              <li
-                key={navOption.url}
-                className={`
+        >
+          {navigationOptions.map((navOption) => (
+            <li
+              key={navOption.url}
+              className={`
                   text-center w-full rounded-md 
                   ${
                     nameModule === navOption.url
@@ -96,31 +95,30 @@ function BackendProjectNavigation({
                       : ""
                   }
                   `}
-              >
-                <button
-                  onClick={() => {
-                    onNavigate(navOption.url);
-                    toggleMenu();
-                  }}
-                  className="text-gray-700 px-3 py-1 rounded-xl dark:opacity-80 dark:text-gray-300 hover:text-black hover:font-medium dark:hover:text-white"
-                >
-                  {navOption.nameOption}
-                </button>
-              </li>
-            ))}
-            <span className="h-[1px] w-full bg-gray-500/30"></span>
-            <ThemeSwitcher />
-            <button
-              onClick={() => navigate("/")}
-              className="text-black dark:opacity-80 dark:text-white"
             >
-              {" "}
-              Inicio{" "}
-            </button>
-          </ul>
-        </div>
+              <button
+                onClick={() => {
+                  onNavigate(navOption.url);
+                  toggleMenu();
+                }}
+                className="text-gray-700 px-3 py-1 rounded-xl dark:opacity-80 dark:text-gray-300 hover:text-black hover:font-medium dark:hover:text-white"
+              >
+                {navOption.nameOption}
+              </button>
+            </li>
+          ))}
+          <span className="h-[1px] w-full bg-gray-500/30"></span>
+          <ThemeSwitcher />
+          <button
+            onClick={() => navigate("/")}
+            className="text-black dark:opacity-80 dark:text-white"
+          >
+            {" "}
+            Inicio{" "}
+          </button>
+        </ul>
       </div>
-    </>
+    </div>
   );
 }
 
