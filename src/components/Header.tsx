@@ -97,6 +97,7 @@ const Header = () => {
               }`}
               aria-label={link.label}
               href={link.url}
+              onClick={toggleMenu}
             >
               {link.title}
             </a>
