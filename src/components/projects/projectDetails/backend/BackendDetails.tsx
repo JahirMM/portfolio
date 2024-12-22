@@ -8,6 +8,7 @@ import BackendProjectNavigation from "@/components/projects/projectDetails/backe
 import ModuleDetails from "@/components/projects/projectDetails/backend/ModuleDetails";
 import SubMenu from "@/components/projects/projectDetails/backend/SubMenu";
 import SubMenuArrow from "@/icons/SubMenuArrow";
+import Diagram from "./Diagram";
 
 function BackendDetails() {
   const navigate = useNavigate();
@@ -59,8 +60,6 @@ function BackendDetails() {
     return title.toLowerCase().replace(/\s+/g, "-");
   };
 
-  const [showDiagram, setShowDiagram] = useState(false);
-
   return (
     <main className="md:flex">
       {navigationOptions && (
@@ -79,28 +78,7 @@ function BackendDetails() {
             {project?.description}
           </p>
 
-          <button
-            className="flex items-center gap-2 bg-[#E3D5C5]/50 px-3 py-2 mb-8 rounded-lg text-gray-800 text-sm dark:text-gray-300 dark:bg-[#142053]"
-            onClick={() => setShowDiagram(!showDiagram)}
-          >
-            Diagrama Entidad-Relación
-            <SubMenuArrow
-              className={`size-4 text-gray-800 transition-transform ease-linear duration-500 ${
-                showDiagram ? "rotate-90" : "rotate-0"
-              } dark:text-gray-300`}
-            />
-          </button>
-          {project?.diagrama && showDiagram && (
-            <>
-              <div className="mb-10">
-                <img
-                  src={project?.diagrama}
-                  alt=""
-                  className="w-full"
-                />
-              </div>
-            </>
-          )}
+          {project?.diagram && <Diagram diagram={project.diagram} />}
 
           {selectedModule ? (
             <ModuleDetails module={selectedModule} generateId={generateId} />
