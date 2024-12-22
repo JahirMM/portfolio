@@ -7,10 +7,9 @@ import Link from "@/icons/Link";
 import ProjectLink from "@/components/projects/ProjectLink";
 
 const Projects = () => {
-  const projects = PROJECTS;
   return (
     <div className="flex flex-col gap-y-16">
-      {projects.map(
+      {PROJECTS.map(
         (
           { image, title, subtitle, description, link, tags, github, details },
           index

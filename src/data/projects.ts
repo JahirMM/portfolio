@@ -100,6 +100,20 @@ export const PROJECTS = [
     lightModeImage: "",
   },
   {
+    title: "Prime Tech",
+    subtitle: "Tienda online",
+    description:
+      "Proyecto backend que  permite agregar productos y sus detalles para su venta. Desarrollado utilizando Java con Spring Boot, integra seguridad mediante Spring Security y JWT (JSON Web Tokens) para autenticación y autorización. La aplicación facilita la gestión de producto, accesibles solo para usuarios autorizados.",
+    link: "",
+    github: "https://github.com/JahirMM/primeTechBackend",
+    details: "/backend-project/primeTechBackend?nameModule=auth",
+    image: "/projects/memoryGame.webp",
+    tags: [
+      TECHNOLOGIES.JAVA,
+      TECHNOLOGIES.SPTINGBOOT
+    ],
+  },
+  {
     title: "MemoryGame",
     subtitle: "Un juego de verbos en ingles",
     description:
@@ -113,20 +127,6 @@ export const PROJECTS = [
       TECHNOLOGIES.REACT,
       TECHNOLOGIES.TYPESCRIP,
       TECHNOLOGIES.CSS,
-    ],
-  },
-  {
-    title: "Prime Tech",
-    subtitle: "Tienda online",
-    description:
-      "Proyecto backend que  permite agregar productos y sus detalles para su venta. Desarrollado utilizando Java con Spring Boot, integra seguridad mediante Spring Security y JWT (JSON Web Tokens) para autenticación y autorización. La aplicación facilita la gestión de producto, accesibles solo para usuarios autorizados.",
-    link: "",
-    github: "https://github.com/JahirMM/primeTechBackend",
-    details: "/backend-project/primeTechBackend?nameModule=auth",
-    image: "/projects/memoryGame.webp",
-    tags: [
-      TECHNOLOGIES.JAVA,
-      TECHNOLOGIES.SPTINGBOOT
     ],
   },
 ];
