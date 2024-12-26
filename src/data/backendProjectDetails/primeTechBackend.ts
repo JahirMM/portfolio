@@ -12,7 +12,7 @@ export const PRIME_TECH_BACKEND = {
           title: "Sign Up",
           description: "",
           method: "POST",
-          url: "http://localhost:8080/prime-tech/api/v1/auth/signUp",
+          request: "http://localhost:8080/prime-tech/api/v1/auth/signUp",
           body: `
             {
               "email": "miguel54@gmail.com",
@@ -43,7 +43,7 @@ export const PRIME_TECH_BACKEND = {
           description:
             "Cuando el usuario inicia sesión, se guarda una cookie con su correo electrónico. Esta cookie permitirá validar la autenticación para otras solicitudes de la API.",
           method: "POST",
-          url: "http://localhost:8080/prime-tech/api/v1/auth/login",
+          request: "http://localhost:8080/prime-tech/api/v1/auth/login",
           body: `
             {
               "email": "miguel54@gmail.com",
@@ -61,7 +61,7 @@ export const PRIME_TECH_BACKEND = {
           title: "Logout",
           description: "",
           method: "POST",
-          url: "http://localhost:8080/prime-tech/api/v1/auth/logout",
+          request: "http://localhost:8080/prime-tech/api/v1/auth/logout",
           body: "",
           response: {
             description: "",
@@ -78,7 +78,7 @@ export const PRIME_TECH_BACKEND = {
           title: "Obtener información",
           description: "Mostrar información del usuario autenticado.",
           method: "GET",
-          url: "http://localhost:8080/prime-tech/api/v1/user",
+          request: "http://localhost:8080/prime-tech/api/v1/user",
           body: "",
           response: {
             description: "",
@@ -101,7 +101,7 @@ export const PRIME_TECH_BACKEND = {
           title: "Actualizar información",
           description: "Actualizar información del usuario autenticado.",
           method: "PUT",
-          url: "http://localhost:8080/prime-tech/api/v1/user",
+          request: "http://localhost:8080/prime-tech/api/v1/user",
           body: `
             {
               "firstName": "Alfonso",
@@ -131,7 +131,7 @@ export const PRIME_TECH_BACKEND = {
           description:
             'Asignar rol de vendedor al usuario autenticado. Proporciona el parámetro roleName en la ruta como /role/assign/{roleName}, usando "seller" para asignar el rol de vendedor.',
           method: "POST",
-          url: "http://localhost:8080/prime-tech/api/v1/role/assign/seller",
+          request: "http://localhost:8080/prime-tech/api/v1/role/assign/seller",
           body: "",
           response: {
             description: "",
@@ -155,7 +155,7 @@ export const PRIME_TECH_BACKEND = {
           description:
             'Eliminar el rol de vendedor al usuario autenticado, pasar "seller" para asignar el rol.',
           method: "DELETE",
-          url: "http://localhost:8080/prime-tech/api/v1/role/assign/seller",
+          request: "http://localhost:8080/prime-tech/api/v1/role/assign/seller",
           body: "",
           response: {
             description: "",
@@ -170,7 +170,7 @@ export const PRIME_TECH_BACKEND = {
           description:
             'Subir una foto de perfil del usuario autenticado. En el formulario de datos (form-data), utilizar la llave "image" de tipo file y proporciona la imagen.',
           method: "POST",
-          url: "http://localhost:8080/prime-tech/api/v1/user-image",
+          request: "http://localhost:8080/prime-tech/api/v1/user-image",
           body: `
             {
               "image": "<File>"
@@ -189,7 +189,7 @@ export const PRIME_TECH_BACKEND = {
           description:
             "Recuperar la URL de la foto de perfil del usuario autenticado.",
           method: "GET",
-          url: "http://localhost:8080/prime-tech/api/v1/user-image",
+          request: "http://localhost:8080/prime-tech/api/v1/user-image",
           body: "",
           response: {
             description: "",
@@ -204,7 +204,7 @@ export const PRIME_TECH_BACKEND = {
           description:
             "Eliminar la foto de perfil del usuario autenticado. Proporciona el parámetro userImageId en la ruta como /user-image/{userImageId} para identificar de manera única la imagen que se desea eliminar.",
           method: "DELETE",
-          url: "http://localhost:8080/prime-tech/api/v1/user-image/189e23b1-54d0-4510-959b-ef19369b659b",
+          request: "http://localhost:8080/prime-tech/api/v1/user-image/189e23b1-54d0-4510-959b-ef19369b659b",
           body: "",
           response: {
             description: "",
@@ -212,6 +212,118 @@ export const PRIME_TECH_BACKEND = {
               {
                 "message": "Image deleted correctly"
               }`,
+          },
+        },
+      ],
+    },
+    product: {
+      title: "Product APIs",
+      description:
+        "APIs relacionadas con la gestión de productos, incluyendo creación, actualización, eliminación y obtención de información.",
+      apis: [
+        {
+          title: "Agregar Producto",
+          description:
+            "API para agregar un nuevo producto. El usuario debe estar autenticado y tener el rol de vendedor.",
+          method: "POST",
+          request: "http://localhost:8080/prime-tech/api/v1/products",
+          body: `
+            {
+              "name": "iPhone 15 Pro 256GB",
+              "description": "El último modelo de iPhone con 256GB de almacenamiento, cámara avanzada y pantalla OLED.",
+              "brand": "Apple",
+              "stock": 50,
+              "price": 1299.99,
+              "category": "cellular"
+            }
+          `,
+          response: {
+            description: "Respuesta cuando se agrega el producto exitosamente.",
+            example: `
+              {
+                "message": "Product successfully added",
+                "product": {
+                  "productId": "6b933f6a-e3de-423d-a8ea-db8f44a8b440",
+                  "name": "iPhone 15 Pro 256GB",
+                  "description": "El último modelo de iPhone con 256GB de almacenamiento, cámara avanzada y pantalla OLED.",
+                  "brand": "Apple",
+                  "stock": 50,
+                  "price": 1299.99,
+                  "category": "cellular",
+                  "deviceType": "mobile",
+                  "createdAt": "2024-11-16T18:59:54.1781887"
+                }
+              }
+            `,
+          },
+        },
+        {
+          title: "Obtener un roducto",
+          description:
+            "API pública para recuperar la información de un producto. Recibe el parámetro \"productId\" en la ruta /products/{productId}",
+          method: "GET",
+          request: "http://localhost:8080/prime-tech/api/v1/products/6b933f6a-e3de-423d-a8ea-db8f44a8b440",
+          body: "",
+          response: {
+            description: "Detalles del producto solicitado.",
+            example: `
+              {
+                "product": {
+                  "productId": "6b933f6a-e3de-423d-a8ea-db8f44a8b440",
+                  "name": "iPhone 15 Pro 256GB",
+                  "description": "El último modelo de iPhone con 256GB de almacenamiento, cámara avanzada y pantalla OLED.",
+                  "brand": "Apple",
+                  "stock": 100,
+                  "price": 949.95,
+                  "category": "cellular",
+                  "deviceType": "mobile",
+                  "createdAt": "2024-11-16T18:59:54.178189",
+                  "updatedAt": "2024-11-16T19:28:18.052042"
+                }
+              }
+            `,
+          },
+        },
+        // lista de productos con filtro
+        {
+          title: "Actualizar Producto",
+          description:
+            "Actualizar la información de un producto existente. El usuario debe estar autenticado y tener el rol de vendedor.",
+          method: "PUT",
+          request: "http://localhost:8080/prime-tech/api/v1/products/6b933f6a-e3de-423d-a8ea-db8f44a8b440",
+          body: `
+            {
+              "name": "iPhone 15 Pro 256GB",
+              "description": "El último modelo de iPhone con 256GB de almacenamiento, cámara avanzada y pantalla OLED.",
+              "brand": "Apple",
+              "stock": 100,
+              "price": 949.95,
+              "category": "cellular"
+            }
+          `,
+          response: {
+            description: "Producto actualizado exitosamente.",
+            example: `
+              {
+                "message": "Product successfully updated"
+              }
+            `,
+          },
+        },
+        {
+          title: "Eliminar Producto",
+          description:
+            "Eliminar un producto existente. El usuario debe estar autenticado y tener el rol de vendedor.",
+          method: "DELETE",
+          request: "http://localhost:8080/prime-tech/api/v1/products/6b933f6a-e3de-423d-a8ea-db8f44a8b440",
+          body: "",
+          response: {
+            description: "Confirmación de eliminación.",
+            example: `
+              {
+                "message": "Product deleted correctly"
+              }
+            `,
           },
         },
       ],

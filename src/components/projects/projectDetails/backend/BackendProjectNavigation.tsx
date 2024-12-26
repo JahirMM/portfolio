@@ -30,7 +30,7 @@ function BackendProjectNavigation({
   };
 
   return (
-    <div className="fixed top-[27px] right-[38px] z-[999]">
+    <div className="fixed top-[27px] right-[38px] z-[999] md:w-[185px]">
       <div
         className="relative z-[999] cursor-pointer md:hidden"
         onClick={toggleMenu}

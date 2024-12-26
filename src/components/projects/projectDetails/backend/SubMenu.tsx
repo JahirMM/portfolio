@@ -66,25 +66,25 @@ function SubMenu({
     <div
       className="
         fixed px-6 top-0 left-0 right-0 text-sm
-        md:ml-[185px] md:px-0 
-        lg:sticky lg:ml-0 lg:px-6 lg:border-l lg:border-gray-400/20 lg:min-h-screen
+        md:ml-[185px]
+        lg:sticky lg:m-0 lg:p-0 lg:border-l lg:border-gray-400/20 lg:min-h-screen lg:px-4
         lg:dark:border-gray-600/30"
     >
       <div
         className="
         px-2 pb-3 pt-7 bg-primaryColorLightTheme 
         md:px-5 
-        lg:p-0
+        lg:p-0 lg:m-0
         dark:bg-primaryColorDarkTheme"
       >
         <div
           onClick={toggleSubMenu}
           className="
           cursor-pointer inline-flex items-center gap-2 p-2 rounded-md border border-gray-800 text-gray-800 text-sm bg-cardsBackgroundLightTheme 
-          lg:pointer-events-none lg:border-none lg:p-0 lg:text-2xl lg:font-bold lg:mb-6 lg:bg-primaryColorLightTheme
+          lg:pointer-events-none lg:border-none lg:text-2xl lg:font-bold lg:bg-primaryColorLightTheme lg:gap-0 lg:p-0 lg:mb-5
           dark:text-gray-300 dark:bg-cardsBackgroundDarkTheme lg:dark:bg-primaryColorDarkTheme"
         >
-          <span className="lg:pt-3">Sección</span>
+          <span>Sección</span>
           <SubMenuArrow
             className={`size-4 text-gray-800 transition-transform ease-linear duration-500 ${
               showSubMenu ? "rotate-90" : "rotate-0"
@@ -97,7 +97,7 @@ function SubMenu({
       </div>
       <div
         className="
-          hidden 
+          hidden
           lg:flex lg:flex-col lg:gap-4"
       >
         {apisList &&
@@ -113,7 +113,11 @@ function SubMenu({
                 }}
                 className={`
                   text-gray-800 text-sm py-2 px-3 rounded-md w-full block
-                  ${selectedTitle === api.title ? "bg-[#E3D5C5]/50 dark:bg-[#142053]" : ""}
+                  ${
+                    selectedTitle === api.title
+                      ? "bg-[#E3D5C5]/50 dark:bg-[#142053]"
+                      : ""
+                  }
                   dark:text-gray-300`}
               >
                 {api.title}

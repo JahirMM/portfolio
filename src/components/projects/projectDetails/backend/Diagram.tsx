@@ -1,7 +1,7 @@
 import SubMenuArrow from "@/icons/SubMenuArrow";
 import { useState } from "react";
 
-function Diagram({diagram}: {diagram:string}) {
+function Diagram({ diagram }: { diagram: string }) {
   const [showDiagram, setShowDiagram] = useState(false);
 
   return (
@@ -18,11 +18,13 @@ function Diagram({diagram}: {diagram:string}) {
         />
       </button>
       {showDiagram && (
-        <>
-          <div className="mb-10">
-            <img src={diagram} alt="Diagrama entidad relación de primeTech" className="w-full" />
-          </div>
-        </>
+        <div className="mb-10">
+          <img
+            src={diagram}
+            alt="Diagrama entidad relación de primeTech"
+            className="w-full"
+          />
+        </div>
       )}
     </>
   );

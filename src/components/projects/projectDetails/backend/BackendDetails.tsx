@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 
 import { PRIME_TECH_BACKEND_INTERFACE } from "@/interfaces/backendInterfaces";
@@ -7,7 +7,6 @@ import { PRIME_TECH_BACKEND } from "@/data/backendProjectDetails/primeTechBacken
 import BackendProjectNavigation from "@/components/projects/projectDetails/backend/BackendProjectNavigation";
 import ModuleDetails from "@/components/projects/projectDetails/backend/ModuleDetails";
 import SubMenu from "@/components/projects/projectDetails/backend/SubMenu";
-import SubMenuArrow from "@/icons/SubMenuArrow";
 import Diagram from "./Diagram";
 
 function BackendDetails() {
@@ -69,8 +68,8 @@ function BackendDetails() {
           nameModule={nameModule}
         />
       )}
-      <div className="flex flex-col-reverse mt-16 px-10 pt-10 md:ml-[170px] md:flex-1 lg:flex-row lg:mt-0 lg:gap-5">
-        <div>
+      <div className="flex flex-col-reverse mt-16 px-10 pt-10 lg:grid lg:grid-cols-4 lg:p-0 lg:m-0 lg:gap-4">
+        <div className="md:ml-[185px] lg:col-start-1 lg:col-end-4 lg:px-4 lg:pt-10">
           <h1 className="text-4xl font-bold text-secondaryColorLightTheme mb-8 dark:text-secondaryColorDarkTheme">
             {project?.name}
           </h1>
@@ -90,7 +89,7 @@ function BackendDetails() {
             </p>
           )}
         </div>
-        <div className="lg:sticky lg:top-0 lg:min-w-[25%]">
+        <div className="lg:pt-10">
           <SubMenu apisList={selectedModule.apis} generateId={generateId} />
         </div>
       </div>

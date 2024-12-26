@@ -7,7 +7,7 @@ interface Api {
   title: string;
   description: string;
   method: "GET" | "POST" | "PUT" | "DELETE";
-  url: string;
+  request: string;
   body: string;
   response: ApiResponse;
 }
@@ -21,7 +21,7 @@ interface Module {
 interface Backend<T = {}> {
   name: string;
   description: string;
-  diagrama: string;
+  diagram: string;
   modules: T;
 }
 

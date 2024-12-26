@@ -126,3 +126,9 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+.hola {
+  flex-grow: 1;
+  max-width: calc(100% - 185px - 25%); /* Calcula el máximo ancho permitido */
+  background-color: lightblue;
+}

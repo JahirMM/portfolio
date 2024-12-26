@@ -12,7 +12,7 @@ const ApiDetails: React.FC<ApiDetailsProps> = ({ api, generateId }) => {
     !api.title?.trim() &&
     !api.description?.trim() &&
     !api.method &&
-    !api.url?.trim()
+    !api.request?.trim()
   ) {
     return null;
   }
@@ -52,22 +52,34 @@ const ApiDetails: React.FC<ApiDetailsProps> = ({ api, generateId }) => {
         </p>
       )}
 
-      {api.url && (
-        <p className="mt-3 font-bold">
-          <span className="text-gray-600 mr-3 dark:text-gray-500">URL:</span>
-          <span className="text-gray-800 dark:text-white/85">{api.url}</span>
-        </p>
+      {api.request && (
+        <div className="mt-3 flex flex-col">
+          <span className="text-gray-600 font-bold mb-5 dark:text-gray-500">
+            Request:
+          </span>
+          <pre className="bg-gray-900 text-white text-sm py-4 px-6 overflow-auto w-full">
+            <code className="font-mono">{api.request}</code>
+          </pre>
+        </div>
       )}
       {api.body && (
         <div className="mt-5 mb-9">
-          <span className="text-gray-800 block font-bold mb-5 dark:text-gray-300">Body:</span>
+          <span className="text-gray-600 block font-bold mb-5 dark:text-gray-500">
+            Body:
+          </span>
           <CodeBlock code={api.body} />
         </div>
       )}
       {api.response.description !== "" || api.response.example !== "" ? (
         <div className="mt-5 mb-9">
-          <span className="text-gray-800 block font-bold mb-5 dark:text-gray-300">Response:</span>
-          {api.response.description && <p className="text-gray-800 text-sm text-pretty mb-5 dark:text-gray-500">{api.response.description}</p>}
+          <span className="text-gray-600 block font-bold mb-5 dark:text-gray-500">
+            Response:
+          </span>
+          {api.response.description && (
+            <p className="text-gray-800 text-sm text-pretty mb-5 dark:text-gray-500">
+              {api.response.description}
+            </p>
+          )}
           {api.response.example && <CodeBlock code={api.response.example} />}
         </div>
       ) : (
