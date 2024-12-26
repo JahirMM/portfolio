@@ -127,8 +127,28 @@ body {
   scrollbar-width: none;
 }
 
-.hola {
-  flex-grow: 1;
-  max-width: calc(100% - 185px - 25%); /* Calcula el máximo ancho permitido */
-  background-color: lightblue;
+/* -------------- */
+
+.socialLink {
+  animation: socialLinkAnimation 0.5s ease forwards;
+  transition-property: scale;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in;
+}
+
+@keyframes socialLinkAnimation {
+  from {
+    transform: translateX(-500px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.socialLink:hover {
+  scale: 1.1;
+}
+
+.contact {
+  animation: socialLinkAnimation 0.5s ease forwards;
 }

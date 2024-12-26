@@ -54,7 +54,7 @@ const Hero = () => {
             <Github className="size-5" />
             GitHub
           </SocialLink>
-          <div className="bg-gray-200/50 rounded-full border border-black/20 flex justify-center items-center gap-x-2 py-2 px-4 hover:bg-white/30 dark:hover:bg-white/10 transition dark:border-white/10 dark:bg-white/5">
+          <div className="bg-gray-200/50 rounded-full border border-black/20 flex justify-center items-center gap-x-2 py-2 px-4 hover:bg-white/30 dark:hover:bg-white/10 transition dark:border-white/10 dark:bg-white/5 contact">
             <a
               href="mailto:jahirmachuca45@gmail.com"
               className=""
@@ -93,8 +93,8 @@ const Hero = () => {
             Disponible para trabajar
             <span className="absolute top-0 translate-y-[-4px]">
               <span className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#001FFF] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-[#354BE9]"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-500 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-700"></span>
               </span>
             </span>
           </div>
