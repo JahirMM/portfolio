@@ -61,7 +61,7 @@ function BackendProjectNavigation({
           dark:bg-[#0D1228]
           ${
             showMenu
-              ? "w-[200px] h-[248px] max-h-[348px] open"
+              ? "w-[200px] h-[352px] open"
               : "w-0 h-9 closed"
           }`}
       >
