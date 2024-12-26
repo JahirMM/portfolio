@@ -18,10 +18,15 @@ interface Module {
   apis: Api[];
 }
 
+interface Diagram {
+  titleImage: string;
+  urlImge: string;
+}
+
 interface Backend<T = {}> {
   name: string;
   description: string;
-  diagram: string;
+  diagram: Diagram[];
   modules: T;
 }
 
@@ -39,6 +44,7 @@ export type {
   ApiResponse,
   Api,
   Module,
+  Diagram,
   Backend,
   AuthModule,
   UserModule,

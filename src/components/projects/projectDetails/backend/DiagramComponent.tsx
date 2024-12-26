@@ -1,7 +1,10 @@
-import SubMenuArrow from "@/icons/SubMenuArrow";
 import { useState } from "react";
 
-function Diagram({ diagram }: { diagram: string }) {
+import { Diagram } from "@/interfaces/backendInterfaces";
+
+import SubMenuArrow from "@/icons/SubMenuArrow";
+
+function DiagramComponent({ diagrams }: { diagrams: Diagram[] }) {
   const [showDiagram, setShowDiagram] = useState(false);
 
   return (
@@ -17,17 +20,18 @@ function Diagram({ diagram }: { diagram: string }) {
           } dark:text-gray-300`}
         />
       </button>
-      {showDiagram && (
-        <div className="mb-10">
-          <img
-            src={diagram}
-            alt="Diagrama entidad relación de primeTech"
-            className="w-full"
-          />
-        </div>
-      )}
+      {showDiagram &&
+        diagrams.map((diagram, index) => (
+          <div key={index} className="mb-10">
+            <img
+              src={diagram.urlImge}
+              alt="Diagrama entidad-relación de primeTech"
+              className="w-full bg-gray-900 p-2"
+            />
+          </div>
+        ))}
     </>
   );
 }
 
-export default Diagram;
+export default DiagramComponent;

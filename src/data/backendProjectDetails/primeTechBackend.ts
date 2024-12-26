@@ -2,7 +2,12 @@ export const PRIME_TECH_BACKEND = {
   name: "Prime Tech Backend",
   description:
     "Proyecto backend que  permite agregar productos y sus detalles para su venta. Desarrollado utilizando Java con Spring Boot, integra seguridad mediante Spring Security y JWT (JSON Web Tokens) para autenticación y autorización. La aplicación facilita la gestión de producto, accesibles solo para usuarios autorizados.",
-  diagram: "/primeTech/backend/base-de-datos.webp",
+  diagram: [
+    {
+      titleImage: "Diagrma Entidad-Relación",
+      urlImge: "/projects/primeTech/backend/base-de-datos.webp",
+    },
+  ],
   modules: {
     auth: {
       title: "Authentication APIs",
@@ -204,7 +209,8 @@ export const PRIME_TECH_BACKEND = {
           description:
             "Eliminar la foto de perfil del usuario autenticado. Proporciona el parámetro userImageId en la ruta como /user-image/{userImageId} para identificar de manera única la imagen que se desea eliminar.",
           method: "DELETE",
-          request: "http://localhost:8080/prime-tech/api/v1/user-image/189e23b1-54d0-4510-959b-ef19369b659b",
+          request:
+            "http://localhost:8080/prime-tech/api/v1/user-image/189e23b1-54d0-4510-959b-ef19369b659b",
           body: "",
           response: {
             description: "",
@@ -260,9 +266,10 @@ export const PRIME_TECH_BACKEND = {
         {
           title: "Obtener un roducto",
           description:
-            "API pública para recuperar la información de un producto. Recibe el parámetro \"productId\" en la ruta /products/{productId}",
+            'API pública para recuperar la información de un producto. Recibe el parámetro "productId" en la ruta /products/{productId}',
           method: "GET",
-          request: "http://localhost:8080/prime-tech/api/v1/products/6b933f6a-e3de-423d-a8ea-db8f44a8b440",
+          request:
+            "http://localhost:8080/prime-tech/api/v1/products/6b933f6a-e3de-423d-a8ea-db8f44a8b440",
           body: "",
           response: {
             description: "Detalles del producto solicitado.",
@@ -290,7 +297,8 @@ export const PRIME_TECH_BACKEND = {
           description:
             "Actualizar la información de un producto existente. El usuario debe estar autenticado y tener el rol de vendedor.",
           method: "PUT",
-          request: "http://localhost:8080/prime-tech/api/v1/products/6b933f6a-e3de-423d-a8ea-db8f44a8b440",
+          request:
+            "http://localhost:8080/prime-tech/api/v1/products/6b933f6a-e3de-423d-a8ea-db8f44a8b440",
           body: `
             {
               "name": "iPhone 15 Pro 256GB",
@@ -315,7 +323,8 @@ export const PRIME_TECH_BACKEND = {
           description:
             "Eliminar un producto existente. El usuario debe estar autenticado y tener el rol de vendedor.",
           method: "DELETE",
-          request: "http://localhost:8080/prime-tech/api/v1/products/6b933f6a-e3de-423d-a8ea-db8f44a8b440",
+          request:
+            "http://localhost:8080/prime-tech/api/v1/products/6b933f6a-e3de-423d-a8ea-db8f44a8b440",
           body: "",
           response: {
             description: "Confirmación de eliminación.",

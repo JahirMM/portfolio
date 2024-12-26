@@ -7,7 +7,7 @@ import { PRIME_TECH_BACKEND } from "@/data/backendProjectDetails/primeTechBacken
 import BackendProjectNavigation from "@/components/projects/projectDetails/backend/BackendProjectNavigation";
 import ModuleDetails from "@/components/projects/projectDetails/backend/ModuleDetails";
 import SubMenu from "@/components/projects/projectDetails/backend/SubMenu";
-import Diagram from "./Diagram";
+import Diagram from "./DiagramComponent";
 
 function BackendDetails() {
   const navigate = useNavigate();
@@ -77,7 +77,9 @@ function BackendDetails() {
             {project?.description}
           </p>
 
-          {project?.diagram && <Diagram diagram={project.diagram} />}
+          {project?.diagram && project.diagram.length > 0 && (
+            <Diagram diagrams={project.diagram} />
+          )}
 
           {selectedModule ? (
             <ModuleDetails module={selectedModule} generateId={generateId} />
