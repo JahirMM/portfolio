@@ -36,7 +36,7 @@ const Experience = () => {
             <h4
               key={company.company}
               onClick={() => handleClick(company.company)}
-              className={`cursor-pointer transition-all duration-300 relative ${
+              className={`cursor-pointer transition-[color] duration-300 relative ${
                 companySelected === company.company
                   ? "text-gray-800 text-xl font-bold pb-2 border-b-2 border-secondaryColorLightTheme md:border-l-2 md:border-b-0 md:pl-4 md:pb-0 dark:text-white"
                   : "text-black/50 text-lg pb-2 border-b-2 border-gray-600/80 md:border-l-2 md:border-b-0 md:pl-4 md:pb-0 dark:text-gray-500/80"

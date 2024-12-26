@@ -32,11 +32,13 @@ interface Backend<T = {}> {
 
 type AuthModule = Module;
 type UserModule = Module;
+type ProductModule = Module;
 
 interface PRIME_TECH_BACKEND_INTERFACE
   extends Backend<{
     auth?: AuthModule;
     user?: UserModule;
+    product?: ProductModule;
   }> {}
 
 export type {
@@ -48,4 +50,5 @@ export type {
   Backend,
   AuthModule,
   UserModule,
+  ProductModule,
 };
