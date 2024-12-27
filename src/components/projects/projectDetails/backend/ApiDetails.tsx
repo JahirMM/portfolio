@@ -76,7 +76,7 @@ const ApiDetails: React.FC<ApiDetailsProps> = ({ api, generateId }) => {
             Response:
           </span>
           {api.response.description && (
-            <p className="text-gray-800 text-sm text-pretty mb-5 dark:text-gray-500">
+            <p className="text-gray-800 text-sm text-pretty mb-5 dark:text-gray-300">
               {api.response.description}
             </p>
           )}
