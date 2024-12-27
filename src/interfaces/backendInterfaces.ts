@@ -33,12 +33,24 @@ interface Backend<T = {}> {
 type AuthModule = Module;
 type UserModule = Module;
 type ProductModule = Module;
+type CameraModule = Module;
+type BatteryModule = Module;
+type ScreenModule = Module;
+type MobileDeviceModule = Module;
+type SimCardModule = Module;
+type LaptopModule = Module;
 
 interface PRIME_TECH_BACKEND_INTERFACE
   extends Backend<{
     auth?: AuthModule;
     user?: UserModule;
     product?: ProductModule;
+    camera?: CameraModule;
+    battery?: BatteryModule;
+    screen?: ScreenModule;
+    mobileDevice?: MobileDeviceModule;
+    simCard?: SimCardModule;
+    laptop?: LaptopModule;
   }> {}
 
 export type {
@@ -51,4 +63,5 @@ export type {
   AuthModule,
   UserModule,
   ProductModule,
+  CameraModule,
 };

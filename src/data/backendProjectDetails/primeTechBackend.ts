@@ -404,6 +404,13 @@ export const PRIME_TECH_BACKEND = {
             `,
           },
         },
+      ],
+    },
+    camera: {
+      title: "Camera APIs",
+      description:
+        "APIs relacionadas con la gestión de la información de la cámara de un producto, incluyendo creación, actualización, eliminación y obtención.",
+      apis: [
         {
           title: "Agregar camara a producto",
           description:
@@ -545,6 +552,13 @@ export const PRIME_TECH_BACKEND = {
             `,
           },
         },
+      ],
+    },
+    battery: {
+      title: "Battery APIs",
+      description:
+        "APIs relacionadas con la gestión de la información de la bateria de un producto, incluyendo creación, actualización, eliminación y obtención.",
+      apis: [
         {
           title: "Agregar batería a producto",
           description:
@@ -655,6 +669,13 @@ export const PRIME_TECH_BACKEND = {
               `,
           },
         },
+      ],
+    },
+    screen: {
+      title: "Screen APIs",
+      description:
+        "APIs relacionadas con la gestión de la información de la pantalla de un producto, incluyendo creación, actualización, eliminación y obtención.",
+      apis: [
         {
           title: "Agregar pantalla a producto",
           description:
@@ -766,6 +787,13 @@ export const PRIME_TECH_BACKEND = {
               `,
           },
         },
+      ],
+    },
+    mobileDevice: {
+      title: "Mobile device APIs",
+      description:
+        "APIs relacionadas con la gestión de la información de productos de tipo móvil, incluyendo creación, actualización, eliminación y obtención.",
+      apis: [
         {
           title: "Agregar dispositivo móvil a producto",
           description:
@@ -886,6 +914,13 @@ export const PRIME_TECH_BACKEND = {
             `,
           },
         },
+      ],
+    },
+    simCard: {
+      title: "Sim card APIs",
+      description:
+        "APIs relacionadas con la gestión de la información de la tarjeta SIM de un producto de tipo móvil, incluyendo creación, actualización, eliminación y obtención.",
+      apis: [
         {
           title: "Agregar tarjeta SIM a dispositivo móvil",
           description:
@@ -993,6 +1028,13 @@ export const PRIME_TECH_BACKEND = {
             `,
           },
         },
+      ],
+    },
+    laptop: {
+      title: "Laptop APIs",
+      description:
+        "APIs relacionadas con la gestión de la información de productos de tipo laptop, incluyendo creación, actualización, eliminación y obtención.",
+      apis: [
         {
           title: "Agregar laptop a producto",
           description:
@@ -1001,33 +1043,71 @@ export const PRIME_TECH_BACKEND = {
           request:
             "http://localhost:8080/prime-tech/api/v1/laptop/f9aeb399-6f2f-45de-85b8-938d7f1edab9",
           body: `
-            {
-              "ram": 16,
-              "color": "Shadow Black",
-              "processor": "Intel Core Ultra 7",
-              "touchscreen": false,
-              "operatingSystem": "Windows 11",
-              "keyboardLanguage": "English",
-              "backlitKeyboard": true,
-              "graphicCard": "NVIDIA GeForce RTX 3060",
-              "usbPorts": 3,
-              "usbCPorts": 2,
-              "hdmiPorts": 1,
-              "withWifi": true,
-              "withBluetooth": true,
-              "withEthernetPort": true,
-              "ssdStorage": 1024,
-              "hddStorage": 0,
-              "quantitySpeakers": 2,
-              "microphone": 1
-            }
-          `,
+          {
+            "ram": 16,
+            "color": "Shadow Black",
+            "processor": "Intel Core Ultra 7",
+            "touchscreen": false,
+            "operatingSystem": "Windows 11",
+            "keyboardLanguage": "English",
+            "backlitKeyboard": true,
+            "graphicCard": "NVIDIA GeForce RTX 3060",
+            "usbPorts": 3,
+            "usbCPorts": 2,
+            "hdmiPorts": 1,
+            "withWifi": true,
+            "withBluetooth": true,
+            "withEthernetPort": true,
+            "ssdStorage": 1024,
+            "hddStorage": 0,
+            "quantitySpeakers": 2,
+            "microphone": 1
+          }
+        `,
           response: {
             description: "Respuesta cuando se agrega la laptop exitosamente.",
             example: `
-              {
-                "message": "Laptop successfully added",
-                "laptop": {
+            {
+              "message": "Laptop successfully added",
+              "laptop": {
+                "laptopId": "c802ea6d-5f76-45c0-8983-1c3b1d015d29",
+                "ram": 16,
+                "color": "Shadow Black",
+                "processor": "Intel Core Ultra 7",
+                "touchscreen": false,
+                "operatingSystem": "Windows 11",
+                "keyboardLanguage": "English",
+                "backlitKeyboard": true,
+                "graphicCard": "NVIDIA GeForce RTX 3060",
+                "usbPorts": 3,
+                "usbCPorts": 2,
+                "hdmiPorts": 1,
+                "withWifi": true,
+                "withBluetooth": true,
+                "withEthernetPort": true,
+                "ssdStorage": 1024,
+                "hddStorage": 0,
+                "quantitySpeakers": 2,
+                "microphone": 1
+              }
+            }
+          `,
+          },
+        },
+        {
+          title: "Obtener laptop de producto",
+          description:
+            "Recupera la información de una laptop de un producto de tipo laptop. API pública que no requiere autenticación. Recibe el parámetro productId en la ruta /laptop/{productId}",
+          method: "GET",
+          request:
+            "http://localhost:8080/prime-tech/api/v1/laptop/f9aeb399-6f2f-45de-85b8-938d7f1edab9",
+          body: "",
+          response: {
+            description: "Detalles de la laptop del producto solicitado.",
+            example: `
+            {
+              "laptop": [
+                {
                   "laptopId": "c802ea6d-5f76-45c0-8983-1c3b1d015d29",
                   "ram": 16,
                   "color": "Shadow Black",
@@ -1048,47 +1128,9 @@ export const PRIME_TECH_BACKEND = {
                   "quantitySpeakers": 2,
                   "microphone": 1
                 }
-              }
-            `,
-          },
-        },
-        {
-          title: "Obtener laptop de producto",
-          description:
-            "Recupera la información de una laptop de un producto de tipo laptop. API pública que no requiere autenticación. Recibe el parámetro productId en la ruta /laptop/{productId}",
-          method: "GET",
-          request:
-            "http://localhost:8080/prime-tech/api/v1/laptop/f9aeb399-6f2f-45de-85b8-938d7f1edab9",
-          body: "",
-          response: {
-            description: "Detalles de la laptop del producto solicitado.",
-            example: `
-              {
-                "laptop": [
-                  {
-                    "laptopId": "c802ea6d-5f76-45c0-8983-1c3b1d015d29",
-                    "ram": 16,
-                    "color": "Shadow Black",
-                    "processor": "Intel Core Ultra 7",
-                    "touchscreen": false,
-                    "operatingSystem": "Windows 11",
-                    "keyboardLanguage": "English",
-                    "backlitKeyboard": true,
-                    "graphicCard": "NVIDIA GeForce RTX 3060",
-                    "usbPorts": 3,
-                    "usbCPorts": 2,
-                    "hdmiPorts": 1,
-                    "withWifi": true,
-                    "withBluetooth": true,
-                    "withEthernetPort": true,
-                    "ssdStorage": 1024,
-                    "hddStorage": 0,
-                    "quantitySpeakers": 2,
-                    "microphone": 1
-                  }
-                ]
-              }
-            `,
+              ]
+            }
+          `,
           },
         },
         {
@@ -1099,56 +1141,56 @@ export const PRIME_TECH_BACKEND = {
           request:
             "http://localhost:8080/prime-tech/api/v1/laptop/c802ea6d-5f76-45c0-8983-1c3b1d015d29",
           body: `
-            {
-              "ram": 32,
-              "color": "Midnight Black",
-              "processor": "Intel Core Ultra 7",
-              "touchscreen": false,
-              "operatingSystem": "Windows 11",
-              "keyboardLanguage": "English",
-              "backlitKeyboard": true,
-              "graphicCard": "NVIDIA GeForce RTX 3060",
-              "usbPorts": 3,
-              "usbCPorts": 2,
-              "hdmiPorts": 1,
-              "withWifi": true,
-              "withBluetooth": true,
-              "withEthernetPort": true,
-              "ssdStorage": 2048,
-              "hddStorage": 0,
-              "quantitySpeakers": 2,
-              "microphone": 1
-            }
-          `,
+          {
+            "ram": 32,
+            "color": "Midnight Black",
+            "processor": "Intel Core Ultra 7",
+            "touchscreen": false,
+            "operatingSystem": "Windows 11",
+            "keyboardLanguage": "English",
+            "backlitKeyboard": true,
+            "graphicCard": "NVIDIA GeForce RTX 3060",
+            "usbPorts": 3,
+            "usbCPorts": 2,
+            "hdmiPorts": 1,
+            "withWifi": true,
+            "withBluetooth": true,
+            "withEthernetPort": true,
+            "ssdStorage": 2048,
+            "hddStorage": 0,
+            "quantitySpeakers": 2,
+            "microphone": 1
+          }
+        `,
           response: {
             description:
               "Respuesta cuando se actualiza la laptop exitosamente.",
             example: `
-              {
-                "message": "Laptop successfully updated",
-                "laptop": {
-                  "laptopId": "c802ea6d-5f76-45c0-8983-1c3b1d015d29",
-                  "ram": 32,
-                  "color": "Midnight Black",
-                  "processor": "Intel Core Ultra 7",
-                  "touchscreen": false,
-                  "operatingSystem": "Windows 11",
-                  "keyboardLanguage": "English",
-                  "backlitKeyboard": true,
-                  "graphicCard": "NVIDIA GeForce RTX 3060",
-                  "usbPorts": 3,
-                  "usbCPorts": 2,
-                  "hdmiPorts": 1,
-                  "withWifi": true,
-                  "withBluetooth": true,
-                  "withEthernetPort": true,
-                  "ssdStorage": 2048,
-                  "hddStorage": 0,
-                  "quantitySpeakers": 2,
-                  "microphone": 1
-                }
+            {
+              "message": "Laptop successfully updated",
+              "laptop": {
+                "laptopId": "c802ea6d-5f76-45c0-8983-1c3b1d015d29",
+                "ram": 32,
+                "color": "Midnight Black",
+                "processor": "Intel Core Ultra 7",
+                "touchscreen": false,
+                "operatingSystem": "Windows 11",
+                "keyboardLanguage": "English",
+                "backlitKeyboard": true,
+                "graphicCard": "NVIDIA GeForce RTX 3060",
+                "usbPorts": 3,
+                "usbCPorts": 2,
+                "hdmiPorts": 1,
+                "withWifi": true,
+                "withBluetooth": true,
+                "withEthernetPort": true,
+                "ssdStorage": 2048,
+                "hddStorage": 0,
+                "quantitySpeakers": 2,
+                "microphone": 1
               }
-            `,
+            }
+          `,
           },
         },
       ],

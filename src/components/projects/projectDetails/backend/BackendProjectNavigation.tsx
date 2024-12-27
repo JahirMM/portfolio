@@ -59,11 +59,7 @@ function BackendProjectNavigation({
           md:fixed md:min-h-full md:w-[185px] md:left-0 md:right-auto md:rounded-none md:pt-7
           lg:pt-10
           dark:bg-[#0D1228]
-          ${
-            showMenu
-              ? "w-[200px] h-[352px] open"
-              : "w-0 h-9 closed"
-          }`}
+          ${showMenu ? "w-[200px] h-[576px] open" : "w-0 h-9 closed"}`}
       >
         <h2
           className={`text-xl text-center font-bold mb-4 text-pretty text-gray-800 md:text-2xl dark:text-white ${
@@ -76,7 +72,7 @@ function BackendProjectNavigation({
         </h2>
         <ul
           className={`
-              flex flex-col items-center gap-4 w-full
+              flex flex-col items-center gap-4 w-full lg:max-h-[85%] lg:overflow-auto scr no-scrollbar 
               ${
                 showMenu
                   ? "opacity-100 transition-opacity duration-[2s]"
@@ -107,6 +103,17 @@ function BackendProjectNavigation({
               </button>
             </li>
           ))}
+        </ul>
+        <div
+          className={`
+              flex flex-col items-center gap-4 w-full
+              ${
+                showMenu
+                  ? "opacity-100 transition-opacity duration-[2s]"
+                  : "opacity-0"
+              }
+              md:opacity-100`}
+        >
           <span className="h-[1px] w-full bg-gray-500/30"></span>
           <ThemeSwitcher />
           <button
@@ -116,7 +123,7 @@ function BackendProjectNavigation({
             {" "}
             Inicio{" "}
           </button>
-        </ul>
+        </div>
       </div>
     </div>
   );
