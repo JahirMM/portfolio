@@ -112,7 +112,7 @@ function SubMenu({
                   toggleSubMenu();
                 }}
                 className={`
-                  text-gray-800 text-sm py-2 px-3 rounded-md w-full block
+                  text-gray-800 text-xs py-2 px-3 rounded-md w-full block
                   ${
                     selectedTitle === api.title
                       ? "bg-[#E3D5C5]/50 dark:bg-[#142053]"
@@ -128,7 +128,7 @@ function SubMenu({
       <div
         className={`flex flex-col gap-1 px-4 bg-cardsBackgroundLightTheme overflow-y-auto transition-[max-height] ease-in-out duration-700 ${
           showSubMenu ? "max-h-96 lg:hidden" : "max-h-0 lg:hidden"
-        } dark:bg-cardsBackgroundDarkTheme`}
+        } dark:bg-cardsBackgroundDarkTheme no-scrollbar`}
       >
         {apisList &&
           apisList.map((api, index) => (

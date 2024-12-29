@@ -39,6 +39,10 @@ type ScreenModule = Module;
 type MobileDeviceModule = Module;
 type SimCardModule = Module;
 type LaptopModule = Module;
+type FavoriteProductModule = Module;
+type ShoppingCartModule = Module;
+type PurchasedProductModule = Module;
+type HistoryModule = Module;
 
 interface PRIME_TECH_BACKEND_INTERFACE
   extends Backend<{
@@ -51,6 +55,10 @@ interface PRIME_TECH_BACKEND_INTERFACE
     mobileDevice?: MobileDeviceModule;
     simCard?: SimCardModule;
     laptop?: LaptopModule;
+    favoriteProduct?: FavoriteProductModule;
+    ShoppingCart?: ShoppingCartModule;
+    purchasedProduct?: PurchasedProductModule;
+    history?: HistoryModule;
   }> {}
 
 export type {

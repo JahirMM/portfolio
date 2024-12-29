@@ -1195,5 +1195,385 @@ export const PRIME_TECH_BACKEND = {
         },
       ],
     },
+    favoriteProduct: {
+      title: "Favorite Products APIs",
+      description:
+        "APIs relacionadas con la gestión de productos favoritos, incluyendo creación, actualización, eliminación y obtención de información.",
+      apis: [
+        {
+          title: "Agregar producto favorito",
+          description:
+            "El usuario debe estar autenticado. Se valida que el producto tenga un stock mayor a 0 y que exista. Recibe el parámetro productId en la ruta /favorite-products/{productId}.",
+          method: "POST",
+          request:
+            "http://localhost:8080/prime-tech/api/v1/favorite-products/f9aeb399-6f2f-45de-85b8-938d7f1edab9",
+          body: "",
+          response: {
+            description: "Respuesta cuando se agrega un producto favorito.",
+            example: `
+            {
+                "message": "Favorite product added",
+                "favoriteProduct": {
+                    "productId": "6b933f6a-e3de-423d-a8ea-db8f44a8b440",
+                    "favoriteProductId": "fc285dc4-fa66-4268-94ce-c7934c9849e9",
+                    "imgUrl": null,
+                    "name": "iPhone 15 Pro 256GB",
+                    "description": "El último modelo de iPhone con 256GB de almacenamiento, cámara avanzada y pantalla OLED.",
+                    "brand": "Apple",
+                    "stock": 80,
+                    "price": 949.950
+                }
+            }
+          `,
+          },
+        },
+        {
+          title: "Obtener productos favoritos",
+          description:
+            "El usuario debe estar autenticado. Si el producto no tiene stock, se eliminará de la lista.",
+          method: "GET",
+          request: "http://localhost:8080/prime-tech/api/v1/favorite-products",
+          body: "",
+          response: {
+            description: "Respuesta de productos favoritos encontrados.",
+            example: `
+            {
+              "message": "Favorite products found",
+              "favoriteProducts": [
+                  {
+                      "productId": "d296874e-c6a2-47ea-a57c-a2344927ba49",
+                      "favoriteProductId": "27fbfda0-105a-4778-97f1-6be701c86281",
+                      "imgUrl": null,
+                      "name": "iphone 15 pro",
+                      "description": "el mejor celular",
+                      "brand": "iphone",
+                      "stock": 10,
+                      "price": 1100000.000
+                  },
+                  {
+                      "productId": "f370790f-8fc6-4f69-827f-2d425f490c5a",
+                      "favoriteProductId": "5d51d04f-2543-4496-9c4a-507c0bd18802",
+                      "imgUrl": "/productImage/6afb0f8a-a6cb-4d54-912a-79618892b115.png",
+                      "name": "Laptop omen15 negro",
+                      "description": "la mejor laptop de HP",
+                      "brand": "HP",
+                      "stock": 4,
+                      "price": 1150000.000
+                  }
+              ]
+          }
+          `,
+          },
+        },
+        {
+          title: "Eliminar producto favorito",
+          description:
+            "El usuario debe estar autenticado. Recibe el parámetro favoriteProductId en la ruta /favorite-products/{favoriteProductId}",
+          method: "DELETE",
+          request:
+            "http://localhost:8080/prime-tech/api/v1/favorite-products/d296874e-c6a2-47ea-a57c-a2344927ba49",
+          body: "",
+          response: {
+            description:
+              "Respuesta al eliminar un producto favorito de la lista.",
+            example: `
+            {
+                "message": "Favorite product successfully deleted"
+            }
+          `,
+          },
+        },
+      ],
+    },
+    shoppingCart: {
+      title: "Shopping cart APIs",
+      description: "APIs relacionadas con la gestión del carrito de compra.",
+      apis: [
+        {
+          title: "Agregar producto",
+          description:
+            "El usuario debe estar autenticado. Si el producto ya esta en el carrito de compras se aumenta la cantidad . Recibe el parámetro productId en la ruta /shopping-cart/{productId}.",
+          method: "POST",
+          request:
+            "http://localhost:8080/prime-tech/api/v1/shopping-cart/f370790f-8fc6-4f69-827f-2d425f490c5a",
+          body: "",
+          response: {
+            description:
+              "Respuesta cuando se agrega un producto al carrito de compras.",
+            example: `
+            {
+                "message": "Product added to the shopping cart",
+                "shoppingCart": {
+                    "shoppingCartId": "ad2c0ed5-efa1-4357-9430-b796c803d36b",
+                    "createdAt": "2024-11-29T14:44:22.153468",
+                    "product": {
+                        "productId": "f370790f-8fc6-4f69-827f-2d425f490c5a",
+                        "imgUrl": "/productImage/6afb0f8a-a6cb-4d54-912a-79618892b115.png",
+                        "name": "Laptop omen15 negro",
+                        "brand": "HP",
+                        "stock": 4,
+                        "quantity": 2,
+                        "price": 1150000.00
+                    },
+                    "completed": false
+                }
+            }
+          `,
+          },
+        },
+        {
+          title: "Obtener productos",
+          description:
+            "El usuario debe estar autenticado. Si el producto no tiene stock, se eliminará de la lista.",
+          method: "GET",
+          request: "http://localhost:8080/prime-tech/api/v1/shopping-cart",
+          body: "",
+          response: {
+            description: "Respuesta de productos en el carrito de compra.",
+            example: `
+            {
+                "message": "Shopping cart found",
+                "shoppingCart": {
+                    "shoppingCartId": "ad2c0ed5-efa1-4357-9430-b796c803d36b",
+                    "createdAt": "2024-11-29T14:44:22.153468",
+                    "completed": false,
+                    "products": [
+                        {
+                            "productId": "f370790f-8fc6-4f69-827f-2d425f490c5a",
+                            "imgUrl": "/productImage/6afb0f8a-a6cb-4d54-912a-79618892b115.png",
+                            "name": "Laptop omen15 negro",
+                            "brand": "HP",
+                            "stock": 4,
+                            "quantity": 2,
+                            "price": 1150000.00
+                        }
+                    ]
+                }
+            }
+          `,
+          },
+        },
+        {
+          title: "Actualizar producto",
+          description:
+            "El usuario debe estar autenticado. Recibe el parámetro productId en la ruta /shopping-cart/{productId}",
+          method: "PUT",
+          request:
+            "http://localhost:8080/prime-tech/api/v1/shopping-cart/f370790f-8fc6-4f69-827f-2d425f490c5a",
+          body: `
+          {
+            "shoppingCartId": "ad2c0ed5-efa1-4357-9430-b796c803d36",
+            "quantity": 1
+          }
+          `,
+          response: {
+            description:
+              "Respuesta al actualizar la cantidad del producto en el carrito de compras.",
+            example: `
+            {
+                "message": "Product quantity updated",
+                "updatedItem": {
+                    "shoppingCartId": "ad2c0ed5-efa1-4357-9430-b796c803d36b",
+                    "productId": "f370790f-8fc6-4f69-827f-2d425f490c5a",
+                    "quantity": 1
+                }
+            }
+          `,
+          },
+        },
+        {
+          title: "Eliminar producto",
+          description:
+            "El usuario debe estar autenticado. Recibe el parámetro productId en la ruta /shopping-cart/{productId}",
+          method: "DELETE",
+          request:
+            "http://localhost:8080/prime-tech/api/v1/shopping-cart/f370790f-8fc6-4f69-827f-2d425f490c5a",
+          body: "",
+          response: {
+            description:
+              "Respuesta al eliminar un producto del carrito de compra.",
+            example: `
+            {
+                "message": "Product successfully deleted from the shopping cart"
+            }
+          `,
+          },
+        },
+      ],
+    },
+    purchasedProduct: {
+      title: "Add Purchased Product, API",
+      description:
+        "Esta API permite agregar productos como comprados. Recibe una lista de productos y crea una orden asociada al usuario. Valida que la cantidad solicitada no exceda el stock disponible, actualiza el inventario, agrega cada producto como vendido al vendedor correspondiente al producto y devuelve los detalles de los productos comprados.",
+      apis: [
+        {
+          title: "Agregar producto",
+          description: "",
+          method: "POST",
+          request: "http://localhost:8080/prime-tech/api/v1/purchases",
+          body: `
+          [
+              {
+                  "productId": "c0f11aa4-a0cb-47e0-9f00-6eb58c6e5cd1",
+                  "purchaseQuantity": 1
+              }
+          ]
+          `,
+          response: {
+            description: "Respuesta cuando se agrega un producto como comprado",
+            example: `
+            {
+                "message": "Purchased product successfully added",
+                "purchasedProducts": [
+                    {
+                        "purchaseId": "b8087528-6301-4943-a4a1-8e0fea3316a3",
+                        "productId": "c0f11aa4-a0cb-47e0-9f00-6eb58c6e5cd1",
+                        "productName": "test",
+                        "productDescription": "test",
+                        "productPrice": 1249.94,
+                        "productImg": null,
+                        "sellerId": "c36e4379-52e8-495d-9e74-20db2644dbff",
+                        "sellerName": "Alfonso Delgado Sanz",
+                        "sellerEmail": "miguel54@gmail.com",
+                        "purchaseQuantity": 1
+                    }
+                ]
+            }
+          `,
+          },
+        },
+      ],
+    },
+    history: {
+      title: "Historial de Pedidos y Ventas",
+      description:
+        "Recupera los registros históricos de productos comprados y vendidos.",
+      apis: [
+        {
+          title: "Productos comprados",
+          description: "",
+          method: "GET",
+          request: "http://localhost:8080/prime-tech/api/v1/orders",
+          body: "",
+          response: {
+            description: "",
+            example: `
+            {
+                "orders": [
+                    {
+                        "orderId": "e52c6c2b-006e-4972-9c9d-acaf7b71c395",
+                        "orderDate": "2024-12-09T15:01:21.326905",
+                        "status": "PENDING",
+                        "products": [
+                            {
+                                "purchaseId": "c710e087-63d1-4fe3-bc38-471153cbf811",
+                                "productId": "f370790f-8fc6-4f69-827f-2d425f490c5a",
+                                "productName": "Laptop omen15 negro",
+                                "productDescription": "la mejor laptop de HP",
+                                "productPrice": 1150000.00,
+                                "productImg": "/productImage/6afb0f8a-a6cb-4d54-912a-79618892b115.png",
+                                "sellerId": "b6c99381-6538-479e-9b9f-a539cc79764d",
+                                "sellerName": "testUno nombre test apellido test apellido",
+                                "sellerEmail": "test1@gmail.com",
+                                "purchaseQuantity": 3
+                            },
+                            {
+                                "purchaseId": "0c3d2695-7894-4999-9677-53d029a95253",
+                                "productId": "d296874e-c6a2-47ea-a57c-a2344927ba49",
+                                "productName": "iphone 15 pro",
+                                "productDescription": "el mejor celular",
+                                "productPrice": 1100000.00,
+                                "productImg": null,
+                                "sellerId": "b6c99381-6538-479e-9b9f-a539cc79764d",
+                                "sellerName": "testUno nombre test apellido test apellido",
+                                "sellerEmail": "test1@gmail.com",
+                                "purchaseQuantity": 1
+                            }
+                        ]
+                    },
+                    {
+                        "orderId": "0f1ed54c-ce13-46c6-8be9-cc4c6851fe47",
+                        "orderDate": "2024-12-09T15:02:25.470593",
+                        "status": "PENDING",
+                        "products": [
+                            {
+                                "purchaseId": "4c1dd787-b539-4472-8940-35377198b76f",
+                                "productId": "c0f11aa4-a0cb-47e0-9f00-6eb58c6e5cd1",
+                                "productName": "test",
+                                "productDescription": "test",
+                                "productPrice": 1249.94,
+                                "productImg": null,
+                                "sellerId": "c36e4379-52e8-495d-9e74-20db2644dbff",
+                                "sellerName": "Alfonso Delgado Sanz",
+                                "sellerEmail": "miguel54@gmail.com",
+                                "purchaseQuantity": 1
+                            }
+                        ]
+                    }
+                ]
+            }
+          `,
+          },
+        },
+        {
+          title: "Productos vendidos",
+          description:
+            "Obtiene una lista de productos que han sido vendidos, incluyendo detalles de la venta, descripciones de los productos e información del comprador.",
+          method: "GET",
+          request: "http://localhost:8080/prime-tech/api/v1/sales",
+          body: "",
+          response: {
+            description: "",
+            example: `
+            {
+                "message": "Products found",
+                "soldProduct": [
+                    {
+                        "soldId": "e5158d4d-9f6b-4736-b3f1-1afad8ce55f8",
+                        "productId": "5b7bbf5f-0bab-4437-99f8-1a9c18a4da74",
+                        "productName": "HP Omen 4536436434 Core Ultra 234236 16GB",
+                        "productDescription": "Laptop de alto rendimiento con procesador Core Ultra 7, 16GB de RAM y almacenamiento SSD de 1TB. Ideal para gaming y tareas intensivas.",
+                        "productPrice": 534.99,
+                        "productImg": null,
+                        "purchaseQuantity": 3,
+                        "saleDate": "2024-12-07T18:46:27.059703"
+                    },
+                    {
+                        "soldId": "d67aa1bc-6412-4552-8d66-0bd792654065",
+                        "productId": "5b7bbf5f-0bab-4437-99f8-1a9c18a4da74",
+                        "productName": "HP Omen 4536436434 Core Ultra 234236 16GB",
+                        "productDescription": "Laptop de alto rendimiento con procesador Core Ultra 7, 16GB de RAM y almacenamiento SSD de 1TB. Ideal para gaming y tareas intensivas.",
+                        "productPrice": 534.99,
+                        "productImg": null,
+                        "purchaseQuantity": 1,
+                        "saleDate": "2024-12-09T14:16:09.867038"
+                    },
+                    {
+                        "soldId": "a870f64f-83f5-4a13-9511-3069e2e983ed",
+                        "productId": "c0f11aa4-a0cb-47e0-9f00-6eb58c6e5cd1",
+                        "productName": "test",
+                        "productDescription": "test",
+                        "productPrice": 1249.94,
+                        "productImg": null,
+                        "purchaseQuantity": 1,
+                        "saleDate": "2024-12-09T15:02:25.485735"
+                    },
+                    {
+                        "soldId": "faf1a90c-14d1-46fc-9c60-357de1c91e05",
+                        "productId": "c0f11aa4-a0cb-47e0-9f00-6eb58c6e5cd1",
+                        "productName": "test",
+                        "productDescription": "test",
+                        "productPrice": 1249.94,
+                        "productImg": null,
+                        "purchaseQuantity": 1,
+                        "saleDate": "2024-12-28T22:33:57.854643"
+                    }
+                ]
+            }
+          `,
+          },
+        },
+      ],
+    },
   },
 };

@@ -72,13 +72,13 @@ function BackendProjectNavigation({
         </h2>
         <ul
           className={`
-              flex flex-col items-center gap-4 w-full lg:max-h-[85%] lg:overflow-auto scr no-scrollbar 
+              flex flex-col items-center gap-4 overflow-auto scr no-scrollbar max-h-[75%] 
               ${
                 showMenu
                   ? "opacity-100 transition-opacity duration-[2s]"
                   : "opacity-0"
               }
-              md:opacity-100`}
+              md:opacity-100 lg:max-h-[80%]`}
         >
           {navigationOptions.map((navOption) => (
             <li
@@ -97,7 +97,7 @@ function BackendProjectNavigation({
                   onNavigate(navOption.url);
                   toggleMenu();
                 }}
-                className="text-gray-700 px-3 py-1 rounded-xl dark:opacity-80 dark:text-gray-300 hover:text-black hover:font-medium dark:hover:text-white"
+                className="text-sm text-gray-700 px-3 py-1 rounded-xl dark:opacity-80 dark:text-gray-300 hover:text-black hover:font-medium dark:hover:text-white"
               >
                 {navOption.nameOption}
               </button>
@@ -114,11 +114,11 @@ function BackendProjectNavigation({
               }
               md:opacity-100`}
         >
-          <span className="h-[1px] w-full bg-gray-500/30"></span>
+          <span className="h-[1px] w-full bg-gray-500/30 mt-3"></span>
           <ThemeSwitcher />
           <button
             onClick={() => navigate("/")}
-            className="text-black dark:opacity-80 dark:text-white"
+            className="text-sm text-black dark:opacity-80 dark:text-white"
           >
             {" "}
             Inicio{" "}
