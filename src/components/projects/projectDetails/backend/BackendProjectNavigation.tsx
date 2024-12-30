@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 
 import ThemeSwitcher from "@/components/ThemeSwitcher";
@@ -13,13 +13,11 @@ interface NavigationOption {
 
 interface ProjectNavigationProps {
   navigationOptions: NavigationOption[];
-  onNavigate: (moduleUrl: string) => void;
   nameModule: string;
 }
 
 function BackendProjectNavigation({
   navigationOptions,
-  onNavigate,
   nameModule,
 }: ProjectNavigationProps) {
   const navigate = useNavigate();
@@ -30,7 +28,7 @@ function BackendProjectNavigation({
   };
 
   return (
-    <div className="fixed top-[27px] right-[38px] z-[999] md:w-[185px]">
+    <nav className="fixed top-[27px] right-[38px] z-[999] md:w-[185px]">
       <div
         className="relative z-[999] cursor-pointer md:hidden"
         onClick={toggleMenu}
@@ -92,15 +90,15 @@ function BackendProjectNavigation({
                   }
                   `}
             >
-              <button
-                onClick={() => {
-                  onNavigate(navOption.url);
-                  toggleMenu();
-                }}
+              <Link
+                to={`/backend-project/primeTechBackend?nameModule=${encodeURIComponent(
+                  navOption.url
+                )}`}
+                onClick={() => toggleMenu()}
                 className="text-sm text-gray-700 px-3 py-1 rounded-xl dark:opacity-80 dark:text-gray-300 hover:text-black hover:font-medium dark:hover:text-white"
               >
                 {navOption.nameOption}
-              </button>
+              </Link>
             </li>
           ))}
         </ul>
@@ -125,7 +123,7 @@ function BackendProjectNavigation({
           </button>
         </div>
       </div>
-    </div>
+    </nav>
   );
 }
 

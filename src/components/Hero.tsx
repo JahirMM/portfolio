@@ -7,7 +7,6 @@ import Mail from "@/icons/Mail";
 
 import SocialLink from "@/components/SocialLink";
 
-
 const Hero = () => {
   const [copied, setCopied] = useState(false);
   const textToCopy = "jahirmachuca45@gmail.com";
@@ -88,7 +87,11 @@ const Hero = () => {
           dark:bg-photoColorDarkTheme
           "
         >
-          <img src="/jahir.webp" alt="jahir photo" className="size-11/12" />
+          <img
+            src="/jahir.webp"
+            alt="Jahir Machuca"
+            className="size-11/12"
+          />
           <div className="text-gray-800 absolute top-0 -translate-y-[50%] translate-x-0 p-[5px] px-[10px] rounded-[15px] border-[5px] border-primaryColorLightTheme bg-gradient-to-r from-[#D8CCBC] to-[#BEAF9B] text-[14px] font-bold dark:text-white dark:border-[#010720] dark:from-[#212963] dark:to-[#101B49]">
             Disponible para trabajar
             <span className="absolute top-0 translate-y-[-4px]">

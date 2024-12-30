@@ -1,75 +1,55 @@
 import { useEffect } from "react";
-import { useNavigate, useParams, useSearchParams } from "react-router-dom";
-
-import { PRIME_TECH_BACKEND_INTERFACE } from "@/interfaces/backendInterfaces";
-import { PRIME_TECH_BACKEND } from "@/data/backendProjectDetails/primeTechBackend";
+import { useNavigate } from "react-router-dom";
 
 import BackendProjectNavigation from "@/components/projects/projectDetails/backend/BackendProjectNavigation";
 import ModuleDetails from "@/components/projects/projectDetails/backend/ModuleDetails";
 import SubMenu from "@/components/projects/projectDetails/backend/SubMenu";
-import Diagram from "./DiagramComponent";
+import DiagramComponent from "./DiagramComponent";
+
+import { useBackendProject } from "@/hooks/useBackendProject";
+import { useSelectedModule } from "@/hooks/useSelectedModule";
 
 function BackendDetails() {
   const navigate = useNavigate();
-  const { nameProject } = useParams<{ nameProject: string | undefined }>();
-  const [searchParams] = useSearchParams();
-  const nameModule = searchParams.get("nameModule");
-
-  const BACKEND_PROJECTS = [
-    {
-      name: "Prime Tech Backend",
-      data: PRIME_TECH_BACKEND,
-      navegation: Object.keys(PRIME_TECH_BACKEND.modules || {}).map(
-        (moduleKey) => ({
-          nameOption:
-            moduleKey.charAt(0).toUpperCase() +
-            moduleKey.slice(1).replace(/([A-Z])/g, " $1"),
-          url: moduleKey,
-        })
-      ),
-    },
-  ];
-
-  const project = BACKEND_PROJECTS.find(
-    (proj) =>
-      proj.name.toLowerCase().replace(/\s+/g, "") === nameProject?.toLowerCase()
-  )?.data as PRIME_TECH_BACKEND_INTERFACE | undefined;
-
-  const selectedModule =
-    nameModule && project?.modules
-      ? project.modules[nameModule as keyof typeof project.modules]
-      : null;
-
-  const navigationOptions = BACKEND_PROJECTS.find(
-    (proj) =>
-      proj.name.toLowerCase().replace(/\s+/g, "") === nameProject?.toLowerCase()
-  )?.navegation;
-
-  const handleNavigationClick = (moduleUrl: string) => {
-    navigate(`/backend-project/${nameProject}?nameModule=${moduleUrl}`);
-  };
+  const { project, navigationOptions } = useBackendProject();
+  const { nameModule, selectedModule } = useSelectedModule(project);
 
   useEffect(() => {
     if (!project) {
-      navigate("/not-found");
+      navigate("/not-found", { replace: true });
     }
   }, [project, navigate]);
 
-  const generateId = (title: string) => {
-    return title.toLowerCase().replace(/\s+/g, "-");
-  };
+  useEffect(() => {
+    if (nameModule && !selectedModule) {
+      navigate("/not-found", { replace: true });
+    } else {
+      const titleElement = document.getElementById("moduleTitle");
+
+      if (titleElement) {
+        const yOffset = -80;
+        const y =
+          titleElement.getBoundingClientRect().top + window.scrollY + yOffset;
+
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+    }
+  }, [nameModule]);
+
+  if (!project || (nameModule && !selectedModule)) {
+    return null;
+  }
 
   return (
-    <main className="md:flex">
+    <div className="md:flex">
       {navigationOptions && (
         <BackendProjectNavigation
           navigationOptions={navigationOptions}
-          onNavigate={handleNavigationClick}
           nameModule={nameModule}
         />
       )}
       <div className="mt-16 px-10 pt-10 grid grid-cols-1 lg:grid-cols-4 lg:p-0 lg:m-0 lg:gap-4">
-        <div className="md:ml-[185px] lg:col-start-1 lg:col-end-4 lg:px-4 lg:pt-10">
+        <article className="md:ml-[185px] lg:col-start-1 lg:col-end-4 lg:px-4 lg:pt-10">
           <h1 className="text-4xl font-bold text-secondaryColorLightTheme mb-8 dark:text-secondaryColorDarkTheme">
             {project?.name}
           </h1>
@@ -78,24 +58,16 @@ function BackendDetails() {
           </p>
 
           {project?.diagram && project.diagram.length > 0 && (
-            <Diagram diagrams={project.diagram} />
+            <DiagramComponent diagrams={project.diagram} />
           )}
 
-          {selectedModule ? (
-            <ModuleDetails module={selectedModule} generateId={generateId} />
-          ) : (
-            <p className="text-red-500">
-              {nameModule
-                ? `The module "${nameModule}" does not exist or has no content.`
-                : "Please select a module to view its details."}
-            </p>
-          )}
-        </div>
-        <div className="lg:pt-10">
-          <SubMenu apisList={selectedModule.apis} generateId={generateId} />
-        </div>
+          {selectedModule && <ModuleDetails module={selectedModule} />}
+        </article>
+        <aside className="lg:pt-10">
+          <SubMenu apisList={selectedModule.apis} />
+        </aside>
       </div>
-    </main>
+    </div>
   );
 }
 

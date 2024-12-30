@@ -9,6 +9,9 @@ import NodeJS from "@/icons/NodeJS";
 import ViteJS from "@/icons/ViteJS";
 import React from "@/icons/React";
 import Html from "@/icons/Html";
+import Java from "@/icons/Java";
+import SpringBoot from "@/icons/SpringBoot";
+import JWT from "@/icons/JWT";
 
 const TECHNOLOGIES = {
   NEXT: {
@@ -68,13 +71,18 @@ const TECHNOLOGIES = {
   },
   JAVA: {
     name: "Java",
-    className: "bg-[#0F4B12] text-white",
-    icon: MongoDB,
+    className: "bg-[#462F05] text-white",
+    icon: Java,
   },
-  SPTINGBOOT: {
+  SPRINGBOOT: {
     name: "Spring Boot",
     className: "bg-[#0F4B12] text-white",
-    icon: MongoDB,
+    icon: SpringBoot,
+  },
+  JWT: {
+    name: "JWT",
+    className: "bg-[#470423] text-white",
+    icon: JWT,
   },
 };
 
@@ -107,10 +115,11 @@ export const PROJECTS = [
     link: "",
     github: "https://github.com/JahirMM/primeTechBackend",
     details: "/backend-project/primeTechBackend?nameModule=auth",
-    image: "/projects/memoryGame.webp",
+    image: "/projects/primeTech/backend/primeTech-main.webp",
     tags: [
       TECHNOLOGIES.JAVA,
-      TECHNOLOGIES.SPTINGBOOT
+      TECHNOLOGIES.SPRINGBOOT,
+      TECHNOLOGIES.JWT
     ],
   },
   {

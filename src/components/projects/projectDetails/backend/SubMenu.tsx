@@ -1,17 +1,13 @@
-import { useEffect, useState } from "react";
+import { MouseEvent, useCallback, useEffect, useState } from "react";
 
 import { Api } from "@/interfaces/backendInterfaces";
 
 import SubMenuArrow from "@/icons/SubMenuArrow";
 import Check from "@/icons/Check";
 
-function SubMenu({
-  apisList,
-  generateId,
-}: {
-  apisList: Api[];
-  generateId: (title: string) => string;
-}) {
+import { generateId } from "@/utils/stringUtils";
+
+function SubMenu({ apisList }: { apisList: Api[] }) {
   const [showSubMenu, setShowSubMenu] = useState(false);
   const [selectedTitle, setSelectedTitle] = useState<string | null>(
     apisList.length > 0 ? apisList[0].title : null
@@ -21,14 +17,25 @@ function SubMenu({
     setShowSubMenu((prevShowSubMenu) => !prevShowSubMenu);
   };
 
-  const handleScroll = (id: string) => {
+  const handleScroll = useCallback((id: string) => {
     const element = document.getElementById(id);
     if (element) {
       const offset = 80;
       const y = element.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top: y });
     }
-  };
+  }, []);
+
+  const handleApiTitle = useCallback(
+    (e: MouseEvent<HTMLAnchorElement>, apiTitle: string) => {
+      e.preventDefault();
+      const id = generateId(apiTitle);
+      handleScroll(id);
+      setSelectedTitle(apiTitle);
+      setShowSubMenu(false);
+    },
+    [handleScroll]
+  );
 
   useEffect(() => {
     if (apisList.length > 0) {
@@ -60,10 +67,10 @@ function SubMenu({
     return () => {
       window.removeEventListener("scroll", handleScrollEvent);
     };
-  }, [apisList, generateId, selectedTitle]);
+  }, [selectedTitle]);
 
   return (
-    <div
+    <nav
       className="
         fixed px-6 top-0 left-0 right-0 text-sm
         md:ml-[185px]
@@ -95,21 +102,18 @@ function SubMenu({
           {selectedTitle || ""}
         </span>
       </div>
-      <div
+      <ul
         className="
           hidden
           lg:flex lg:flex-col lg:gap-4"
       >
         {apisList &&
           apisList.map((api, index) => (
-            <div key={index}>
+            <li key={index}>
               <a
                 href={`#${generateId(api.title)}`}
                 onClick={(e) => {
-                  e.preventDefault();
-                  handleScroll(generateId(api.title));
-                  setSelectedTitle(api.title);
-                  toggleSubMenu();
+                  handleApiTitle(e, api.title);
                 }}
                 className={`
                   text-gray-800 text-xs py-2 px-3 rounded-md w-full block
@@ -122,27 +126,24 @@ function SubMenu({
               >
                 {api.title}
               </a>
-            </div>
+            </li>
           ))}
-      </div>
-      <div
+      </ul>
+      <ul
         className={`flex flex-col gap-1 px-4 bg-cardsBackgroundLightTheme overflow-y-auto transition-[max-height] ease-in-out duration-700 ${
           showSubMenu ? "max-h-96 lg:hidden" : "max-h-0 lg:hidden"
         } dark:bg-cardsBackgroundDarkTheme no-scrollbar`}
       >
         {apisList &&
           apisList.map((api, index) => (
-            <div
+            <li
               key={index}
               className="flex items-center justify-between border-b border-gray-300 dark:border-gray-800"
             >
               <a
                 href={`#${generateId(api.title)}`}
                 onClick={(e) => {
-                  e.preventDefault();
-                  handleScroll(generateId(api.title));
-                  setSelectedTitle(api.title);
-                  toggleSubMenu();
+                  handleApiTitle(e, api.title);
                 }}
                 className="py-1 text-gray-800 text-sm dark:text-gray-300"
               >
@@ -151,10 +152,10 @@ function SubMenu({
               {selectedTitle === api.title && (
                 <Check className="size-3 text-gray-800 dark:text-gray-300" />
               )}
-            </div>
+            </li>
           ))}
-      </div>
-    </div>
+      </ul>
+    </nav>
   );
 }
 

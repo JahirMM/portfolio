@@ -3,40 +3,40 @@ import { useRef, useEffect } from "react";
 
 import Github from "@/icons/Github";
 
+const PROJECT_DETAILS: {
+  [key: string]: {
+    title: string;
+    subtitle: string;
+    description: string;
+    github: string;
+    darkModeImage?: string;
+    lightModeImage?: string;
+    images?: string[];
+  };
+} = {
+  WriteNote: {
+    title: "WriteNote",
+    subtitle: "Tu espacio personal para notas",
+    description:
+      "Aplicación web diseñada para mejorar la gestión personal de notas. Los usuarios pueden crear cuentas, iniciar sesión y gestionar sus notas de manera flexible, con la opción de marcarlas como favoritas para acceder rápidamente a las más importantes. Creado desde cero con Next.js, React (TypeScript) y Tailwind CSS para el frontend, y Node.js con TypeScript y Express para el backend.",
+    github: "https://github.com/JahirMM/WriteNotes",
+    lightModeImage: "/projects/writeNote/writeNoteInLightMode.webp",
+    darkModeImage: "/projects/writeNote/writeNoteInDarkMode.webp",
+    images: [
+      "/projects/writeNote/login.jpeg",
+      "/projects/writeNote/signUp.jpeg",
+      "/projects/writeNote/userProfile.webp",
+      "/projects/writeNote/notesList.webp",
+      "/projects/writeNote/writeNoteMobileView.webp",
+    ],
+  },
+};
+
 const ProjectDetails = () => {
   const sliderRef = useRef<HTMLInputElement>(null);
   const imgRef = useRef<HTMLImageElement>(null);
   const navigate = useNavigate();
   const { nameProject } = useParams<{ nameProject: string | undefined }>();
-
-  const PROJECT_DETAILS: {
-    [key: string]: {
-      title: string;
-      subtitle: string;
-      description: string;
-      github: string;
-      darkModeImage?: string;
-      lightModeImage?: string;
-      images?: string[];
-    };
-  } = {
-    WriteNote: {
-      title: "WriteNote",
-      subtitle: "Tu espacio personal para notas",
-      description:
-        "Aplicación web diseñada para mejorar la gestión personal de notas. Los usuarios pueden crear cuentas, iniciar sesión y gestionar sus notas de manera flexible, con la opción de marcarlas como favoritas para acceder rápidamente a las más importantes. Creado desde cero con Next.js, React (TypeScript) y Tailwind CSS para el frontend, y Node.js con TypeScript y Express para el backend.",
-      github: "https://github.com/JahirMM/WriteNotes",
-      lightModeImage: "/projects/writeNote/writeNoteInLightMode.webp",
-      darkModeImage: "/projects/writeNote/writeNoteInDarkMode.webp",
-      images: [
-        "/projects/writeNote/login.jpeg",
-        "/projects/writeNote/signUp.jpeg",
-        "/projects/writeNote/userProfile.webp",
-        "/projects/writeNote/notesList.webp",
-        "/projects/writeNote/writeNoteMobileView.webp",
-      ],
-    },
-  };
 
   const project = nameProject ? PROJECT_DETAILS[nameProject] : undefined;
 
@@ -66,7 +66,7 @@ const ProjectDetails = () => {
 
   return (
     <>
-      <main className="py-20 p-10 w-full mx-auto container md:max-w-6xl">
+      <section className="py-20 p-10 w-full mx-auto container md:max-w-6xl">
         {project ? (
           <>
             <h1 className="text-5xl font-bold text-secondaryColorLightTheme mb-10 dark:text-secondaryColorDarkTheme">
@@ -114,7 +114,7 @@ const ProjectDetails = () => {
                 />
               </div>
             )}
-            <div className="max-w-[75rem] mx-auto mb-40 mt-40">VIDEO</div>
+            {/* <div className="max-w-[75rem] mx-auto mb-40 mt-40">VIDEO</div> */}
 
             {project.images && project.images.length > 0 && (
               <div className="max-w-[75rem] mx-auto flex flex-col gap-40">
@@ -132,7 +132,7 @@ const ProjectDetails = () => {
         ) : (
           <div>Cargando...</div>
         )}
-      </main>
+      </section>
     </>
   );
 };

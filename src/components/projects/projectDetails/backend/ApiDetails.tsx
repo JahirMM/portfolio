@@ -2,12 +2,13 @@ import { Api } from "@/interfaces/backendInterfaces";
 
 import CodeBlock from "@/components/projects/projectDetails/backend/CodeBlock";
 
+import { generateId } from "@/utils/stringUtils";
+
 interface ApiDetailsProps {
   api: Api;
-  generateId: (title: string) => string;
 }
 
-const ApiDetails: React.FC<ApiDetailsProps> = ({ api, generateId }) => {
+const ApiDetails: React.FC<ApiDetailsProps> = ({ api }) => {
   if (
     !api.title?.trim() &&
     !api.description?.trim() &&
@@ -18,7 +19,7 @@ const ApiDetails: React.FC<ApiDetailsProps> = ({ api, generateId }) => {
   }
 
   return (
-    <section id={generateId(api.title)} className="border-gray-300 mb-4 pb-4">
+    <div id={generateId(api.title)} className="border-gray-300 mb-4 pb-4">
       {api.title && (
         <h3 className="text-gray-800 text-3xl mb-8 font-bold dark:text-gray-300">
           {api.title}
@@ -85,7 +86,7 @@ const ApiDetails: React.FC<ApiDetailsProps> = ({ api, generateId }) => {
       ) : (
         <></>
       )}
-    </section>
+    </div>
   );
 };
 

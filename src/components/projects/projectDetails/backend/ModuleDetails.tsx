@@ -3,13 +3,9 @@ import ApiDetails from "@/components/projects/projectDetails/backend/ApiDetails"
 
 interface ModuleDetailsProps {
   module: Module;
-  generateId: (title: string) => string;
 }
 
-const ModuleDetails: React.FC<ModuleDetailsProps> = ({
-  module,
-  generateId,
-}) => {
+const ModuleDetails: React.FC<ModuleDetailsProps> = ({ module }) => {
   if (
     (!module.title || module.title.trim() === "") &&
     (!module.description || module.description.trim() === "") &&
@@ -19,9 +15,12 @@ const ModuleDetails: React.FC<ModuleDetailsProps> = ({
   }
 
   return (
-    <div className="mb-8">
+    <section className="mb-8">
       {module.title && (
-        <h2 className="text-gray-800 text-3xl font-bold mb-10 pb-4 border-b border-gray-500/30 dark:text-gray-300">
+        <h2
+          className="text-gray-800 text-3xl font-bold mb-10 pb-4 border-b border-gray-500/30 dark:text-gray-300"
+          id="moduleTitle"
+        >
           {module.title}
         </h2>
       )}
@@ -31,10 +30,8 @@ const ModuleDetails: React.FC<ModuleDetailsProps> = ({
         </p>
       )}
       {module.apis &&
-        module.apis.map((api, index) => (
-          <ApiDetails key={index} api={api} generateId={generateId} />
-        ))}
-    </div>
+        module.apis.map((api, index) => <ApiDetails key={index} api={api} />)}
+    </section>
   );
 };
 

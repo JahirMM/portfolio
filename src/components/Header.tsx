@@ -40,8 +40,9 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="fixed top-[27px] right-[38px] z-[999] md:relative">
-      <div
+    <header className="fixed top-[27px] right-[38px] z-[999] md:relative">
+      <button
+        aria-label="Tooggle menu"
         className="relative z-[999] cursor-pointer md:hidden"
         onClick={toggleMenu}
       >
@@ -58,8 +59,8 @@ const Header = () => {
             }`}
           />
         )}
-      </div>
-      <header
+      </button>
+      <nav
         className={`
             options absolute top-0 right-0 w-0 h-9 overflow-hidden overflow-y-auto no-scrollbar
             text-black 
@@ -72,7 +73,7 @@ const Header = () => {
             ${showMenu ? "w-[160px] h-[232px] open" : "w-0 h-9 closed"}
           `}
       >
-        <nav
+        <ul
           className={`
               flex flex-col gap-4
               bg-cardsBackgroundLightTheme 
@@ -88,24 +89,25 @@ const Header = () => {
             `}
         >
           {navItems.map((link, index) => (
-            <a
-              key={index}
-              className={`text-sm block hover:text-secondaryColorLightTheme dark:hover:text-secondaryColorDarkTheme ${
-                activeSection === link.label
-                  ? "font-bold text-secondaryColorLightTheme dark:text-secondaryColorDarkTheme"
-                  : "text-gray-800 dark:text-gray-200/80"
-              }`}
-              aria-label={link.label}
-              href={link.url}
-              onClick={toggleMenu}
-            >
-              {link.title}
-            </a>
+            <li key={index}>
+              <a
+                className={`text-sm block hover:text-secondaryColorLightTheme dark:hover:text-secondaryColorDarkTheme ${
+                  activeSection === link.label
+                    ? "font-bold text-secondaryColorLightTheme dark:text-secondaryColorDarkTheme"
+                    : "text-gray-800 dark:text-gray-200/80"
+                }`}
+                aria-label={link.label}
+                href={link.url}
+                onClick={toggleMenu}
+              >
+                {link.title}
+              </a>
+            </li>
           ))}
           <ThemeSwitcher />
-        </nav>
-      </header>
-    </div>
+        </ul>
+      </nav>
+    </header>
   );
 };
 
