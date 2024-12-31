@@ -104,7 +104,9 @@ const Header = () => {
               </a>
             </li>
           ))}
-          <ThemeSwitcher />
+          <li>
+            <ThemeSwitcher />
+          </li>
         </ul>
       </nav>
     </header>
