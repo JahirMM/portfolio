@@ -2,36 +2,20 @@ import { SKILLS } from "@/data/skills";
 
 const Skills = () => {
   const skillsList = Object.values(SKILLS);
-  const duplicateSkills = [...skillsList, ...skillsList];
 
   return (
-    <div className="[mask-image:linear-gradient(to_right,rgba(0,0,0,0),rgba(0,0,0,1)_20%,rgba(0,0,0,1)_80%,rgba(0,0,0,0))]">
-      <div className="flex gap-5 mb-8 select-none overflow-hidden content">
-        <ul className="list-none flex justify-between items-center gap-5">
-          {duplicateSkills.map(({ icon: Icon, name, className }, index) => (
-            <li
-              key={index}
-              className={`${className} flex items-center gap-3 px-4 py-1 whitespace-nowrap rounded-2xl text-sm`}
-            >
-              <Icon className="size-5" />
-              {name}
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div className="flex gap-5 mb-8 select-none overflow-hidden content second">
-        <ul className="list-none flex justify-between items-center gap-5">
-          {duplicateSkills.map(({ icon: Icon, name, className }, index) => (
-            <li
-              key={index}
-              className={`${className} flex items-center gap-3 px-4 py-1 whitespace-nowrap rounded-2xl text-sm`}
-            >
-              <Icon className="size-5" />
-              {name}
-            </li>
-          ))}
-        </ul>
-      </div>
+    <div>
+      <ul className="grid grid-cols-2 md:grid-cols-4 gap-5">
+        {skillsList.map(({ icon: Icon, name }, index) => (
+          <li
+            key={index}
+            className="inline-flex justify-center items-center gap-2 border-dashed border-2 text-xs py-3 border-gray-500 whitespace-nowrap text-gray-700 dark:text-white"
+          >
+            <Icon className="size-5" />
+            {name}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

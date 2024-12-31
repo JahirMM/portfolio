@@ -150,5 +150,33 @@ body {
 }
 
 .contact {
-  animation: socialLinkAnimation 0.5s ease forwards;
+  animation: socialLinkAnimation 1s ease forwards;
+}
+
+/* --------------- */
+
+.workAvailable {
+  animation: workAvailableAnimation 1s ease forwards;
+}
+
+@keyframes workAvailableAnimation {
+  from {
+    transform: translatey(-500px);
+  }
+  to {
+    transform: translatey(-50%);
+  }
+}
+
+.introSection {
+  animation: introSectionAnimation 3s ease forwards;
+}
+
+@keyframes introSectionAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

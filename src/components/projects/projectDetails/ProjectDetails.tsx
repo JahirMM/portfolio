@@ -78,7 +78,7 @@ const ProjectDetails = () => {
             <a href={project.github} target="_blank" className="flex">
               <span className="flex items-center gap-x-3 text-sm px-3 py-2 bg-gray-500 rounded-xl transition-colors duration-500 hover:bg-gray-800/90 active:bg-gray-900 dark:active:bg-black dark:bg-gray-800 dark:hover:bg-black">
                 <Github className="size-5" />
-                Ver en GitHub
+                GitHub
               </span>
             </a>
             {(project.darkModeImage || project.lightModeImage) && (

@@ -26,21 +26,20 @@ const Hero = () => {
   return (
     <div className="grid grid-cols-1 gap-10">
       <div className="lg:col-start-1 lg:col-end-3">
-        <h1 className="text-gray-800 text-5xl font-bold pb-10 text-pretty dark:text-white">
-          Hola, Soy Jahir Machuca
+        <h1 className="text-gray-800 text-5xl font-bold pb-10 text-pretty dark:text-white introSection">
+          ¡Hola! Soy Jahir Machuca
         </h1>
-        <h2 className="text-black text-xl text-wrap dark:opacity-80 dark:text-white">
-          Ingeniero en Computación e Informática con un enfoque en el{" "}
+        <h2 className="text-black text-xl dark:opacity-80 text-pretty dark:text-white introSection">
+          <span className="text-secondaryColorLightTheme font-bold">
+            Ingeniero en Computación e Informática
+          </span>{" "}
+          que convierte ideas en código (sin café). Me gusta el{" "}
           <span className="text-secondaryColorLightTheme font-bold">
             desarrollo web
-          </span>
-          , especializado en el{" "}
-          <span className="text-secondaryColorLightTheme font-bold">
-            frontend
           </span>{" "}
-          y en constante{" "}
+          y siempre estoy probando{" "}
           <span className="text-secondaryColorLightTheme font-bold">
-            aprendizaje del backend
+            nuevas ideas
           </span>
           .
         </h2>
@@ -90,9 +89,9 @@ const Hero = () => {
           <img
             src="/jahir.webp"
             alt="Jahir Machuca"
-            className="size-11/12"
+            className="size-11/12 introSection"
           />
-          <div className="text-gray-800 absolute top-0 -translate-y-[50%] translate-x-0 p-[5px] px-[10px] rounded-[15px] border-[5px] border-primaryColorLightTheme bg-gradient-to-r from-[#D8CCBC] to-[#BEAF9B] text-[14px] font-bold dark:text-white dark:border-[#010720] dark:from-[#212963] dark:to-[#101B49]">
+          <div className="text-gray-800 absolute top-0 -translate-y-[50%] translate-x-0 p-[5px] px-[10px] rounded-[15px] border-[5px] border-primaryColorLightTheme bg-gradient-to-r from-[#D8CCBC] to-[#BEAF9B] text-[14px] font-bold dark:text-white dark:border-[#010720] dark:from-[#212963] dark:to-[#101B49] workAvailable">
             Disponible para trabajar
             <span className="absolute top-0 translate-y-[-4px]">
               <span className="relative flex h-3 w-3">

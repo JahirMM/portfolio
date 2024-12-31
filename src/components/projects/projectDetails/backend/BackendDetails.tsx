@@ -49,7 +49,7 @@ function BackendDetails() {
         />
       )}
       <div className="mt-16 px-10 pt-10 grid grid-cols-1 lg:grid-cols-4 lg:p-0 lg:m-0 lg:gap-4">
-        <article className="md:ml-[185px] lg:col-start-1 lg:col-end-4 lg:px-4 lg:pt-10">
+        <article className="md:ml-[185px] lg:col-start-1 lg:col-end-4 lg:px-8 lg:pt-10 2xl:px-20">
           <h1 className="text-4xl font-bold text-secondaryColorLightTheme mb-8 dark:text-secondaryColorDarkTheme">
             {project?.name}
           </h1>
