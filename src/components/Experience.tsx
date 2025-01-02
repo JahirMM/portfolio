@@ -16,7 +16,7 @@ const Experience = () => {
       title: "Desarrollo Web - Practica Tecnica",
       company: "Fonasa",
       description:
-        "Enfoquado principalmente en el desarrollo del frontend utilizando React, donde creé interfaces y componentes dinámicos para mejorar la visualización de datos con tablas y gráficos interactivos. También implementé un calendario interactivo para gestionar eventos.En el backend, desarrollé algunas APIs utilizando Python con Flask.",
+        "Enfocado principalmente en el desarrollo del frontend utilizando React, donde creé interfaces y componentes dinámicos para mejorar la visualización de datos con tablas y gráficos interactivos. También implementé un calendario interactivo para gestionar eventos. En el backend, desarrollé algunas APIs utilizando Python con Flask.",
     },
   ];
 

@@ -6,6 +6,7 @@ import MtySQL from "@/icons/MtySQL";
 import NextJS from "@/icons/NextJS";
 import React from "@/icons/React";
 import Html from "@/icons/Html";
+import Java from "@/icons/Java";
 
 export const SKILLS = {
   HTML: {
@@ -36,9 +37,12 @@ export const SKILLS = {
     name: "Tailwind CSS",
     icon: Tailwind,
   },
-
   MYSQL: {
     name: "MySQL",
     icon: MtySQL,
+  },
+  JAVA: {
+    name: "Java",
+    icon: Java,
   },
 };

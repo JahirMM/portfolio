@@ -5,7 +5,7 @@ const Skills = () => {
 
   return (
     <div>
-      <ul className="grid grid-cols-2 md:grid-cols-4 gap-5">
+      <ul className="grid grid-cols-2 gap-5 md:grid-cols-4">
         {skillsList.map(({ icon: Icon, name }, index) => (
           <li
             key={index}

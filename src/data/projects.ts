@@ -12,6 +12,7 @@ import Html from "@/icons/Html";
 import Java from "@/icons/Java";
 import SpringBoot from "@/icons/SpringBoot";
 import JWT from "@/icons/JWT";
+import PostgreSQL from "@/icons/PostgreSQL";
 
 const TECHNOLOGIES = {
   NEXT: {
@@ -84,6 +85,11 @@ const TECHNOLOGIES = {
     className: "bg-[#470423] text-white",
     icon: JWT,
   },
+  POSTGRESQL: {
+    name: "PostgreSQL",
+    className: "bg-[#003159] text-white",
+    icon: PostgreSQL,
+  },
 };
 
 export const PROJECTS = [
@@ -111,7 +117,7 @@ export const PROJECTS = [
     title: "Prime Tech",
     subtitle: "Tienda online",
     description:
-      "Proyecto backend que  permite agregar productos y sus detalles para su venta. Desarrollado utilizando Java con Spring Boot, integra seguridad mediante Spring Security y JWT (JSON Web Tokens) para autenticación y autorización. La aplicación facilita la gestión de producto, accesibles solo para usuarios autorizados.",
+      "Proyecto backend que permite agregar productos y sus detalles para su venta. Desarrollado utilizando Java con Spring Boot, integra seguridad mediante Spring Security y JWT (JSON Web Tokens) para autenticación y autorización. Utiliza PostgreSQL como base de datos para almacenar y gestionar la información de los productos. La aplicación facilita la gestión de productos, accesibles solo para usuarios autorizados.",
     link: "",
     github: "https://github.com/JahirMM/primeTechBackend",
     details: "/backend-project/primeTechBackend?nameModule=auth",
@@ -119,7 +125,8 @@ export const PROJECTS = [
     tags: [
       TECHNOLOGIES.JAVA,
       TECHNOLOGIES.SPRINGBOOT,
-      TECHNOLOGIES.JWT
+      TECHNOLOGIES.JWT,
+      TECHNOLOGIES.POSTGRESQL
     ],
   },
   {

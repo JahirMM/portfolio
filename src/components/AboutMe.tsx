@@ -54,7 +54,7 @@ const AboutMe = () => {
           mejorar la experiencia del usuario. Estoy comprometido con el
           aprendizaje continuo y la mejora de mis habilidades. Durante mis
           prácticas, adquirí conocimientos valiosos que me permitieron entender
-          cómo trabajar en proyectos desafiantes y aprender de compañeros
+          mejor cómo abordar proyectos desafiantes y aprender de compañeros
           excelentes.
         </p>
       </article>
