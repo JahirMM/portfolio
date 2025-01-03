@@ -98,9 +98,12 @@ export const PROJECTS = [
     subtitle: "Tu espacio personal para notas",
     description:
       "Aplicación web diseñada para mejorar la gestión personal de notas. Los usuarios pueden crear cuentas, iniciar sesión y gestionar sus notas de manera flexible, con la opción de marcarlas como favoritas para acceder rápidamente a las más importantes. Creado desde cero con Next.js, React (TypeScript) y Tailwind CSS para el frontend, y Node.js con TypeScript y Express para el backend.",
-      link: "",
-      github: "https://github.com/JahirMM/WriteNotes",
-    details: "/project/WriteNote",
+    link: "",
+    github: "https://github.com/JahirMM/WriteNotes",
+    details: {
+      frontend: "/project/WriteNote",
+      backend: "/backend-project/writeNoteBackend?nameModule=auth",
+    },
     image: "/projects/writeNote/writeNote-main.webp",
     tags: [
       TECHNOLOGIES.NEXT,
@@ -120,13 +123,16 @@ export const PROJECTS = [
       "Proyecto backend que permite agregar productos y sus detalles para su venta. Desarrollado utilizando Java con Spring Boot, integra seguridad mediante Spring Security y JWT (JSON Web Tokens) para autenticación y autorización. Utiliza PostgreSQL como base de datos para almacenar y gestionar la información de los productos. La aplicación facilita la gestión de productos, accesibles solo para usuarios autorizados.",
     link: "",
     github: "https://github.com/JahirMM/primeTechBackend",
-    details: "/backend-project/primeTechBackend?nameModule=auth",
+    details: {
+      frontend: "",
+      backend: "/backend-project/primeTechBackend?nameModule=auth",
+    },
     image: "/projects/primeTech/backend/primeTech-main.webp",
     tags: [
       TECHNOLOGIES.JAVA,
       TECHNOLOGIES.SPRINGBOOT,
       TECHNOLOGIES.JWT,
-      TECHNOLOGIES.POSTGRESQL
+      TECHNOLOGIES.POSTGRESQL,
     ],
   },
   {
@@ -136,7 +142,10 @@ export const PROJECTS = [
       "Aplicación web interactiva que ayuda a los usuarios a practicar la conjugación de verbos en inglés. En el juego, los usuarios deben emparejar verbos en presente simple con su correspondiente forma en pasado. Desarrollado utilizando Vite, React y TypeScript, el proyecto ofrece una experiencia educativa entretenida y ágil, diseñada desde cero para mejorar la práctica del inglés de manera divertida.",
     link: "https://menory-game.vercel.app/",
     github: "https://github.com/JahirMM/MemoryGame",
-    details: "",
+    details: {
+      frontend: "",
+      backend: "",
+    },
     image: "/projects/memoryGame/memoryGame-main.webp",
     tags: [
       TECHNOLOGIES.VITEJS,

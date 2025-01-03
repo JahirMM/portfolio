@@ -1,8 +1,10 @@
 import { Api } from "@/interfaces/backendInterfaces";
 
+import FilterDetails from "@/components/projects/projectDetails/backend/FilterDetails";
 import CodeBlock from "@/components/projects/projectDetails/backend/CodeBlock";
 
 import { generateId } from "@/utils/stringUtils";
+import PaginationDetails from "./PaginationDetails";
 
 interface ApiDetailsProps {
   api: Api;
@@ -19,7 +21,7 @@ const ApiDetails: React.FC<ApiDetailsProps> = ({ api }) => {
   }
 
   return (
-    <div id={generateId(api.title)} className="border-gray-300 mb-4 pb-4">
+    <div id={generateId(api.title)} className="border-gray-300 mb-10 pb-4">
       {api.title && (
         <h3 className="text-gray-800 text-3xl mb-8 font-bold dark:text-gray-300">
           {api.title}
@@ -86,6 +88,8 @@ const ApiDetails: React.FC<ApiDetailsProps> = ({ api }) => {
       ) : (
         <></>
       )}
+      {api.filters && <FilterDetails filters={api.filters} />}
+      {api.pagination && <PaginationDetails pagination={api.pagination} />}
     </div>
   );
 };

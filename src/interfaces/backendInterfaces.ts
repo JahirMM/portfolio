@@ -3,6 +3,23 @@ interface ApiResponse {
   example: string;
 }
 
+interface ApiParameter {
+  title: string;
+  parameterName: string;
+  type: string;
+  description: string;
+  required: string;
+  request: string;
+}
+
+interface PaginationParameter {
+  page?: ApiParameter;
+}
+
+interface FilterParameter {
+  filters?: ApiParameter[];
+}
+
 interface Api {
   title: string;
   description: string;
@@ -10,6 +27,8 @@ interface Api {
   request: string;
   body: string;
   response: ApiResponse;
+  pagination?: PaginationParameter;
+  filters?: FilterParameter;
 }
 
 interface Module {
@@ -32,6 +51,7 @@ interface Backend<T = {}> {
 
 type AuthModule = Module;
 type UserModule = Module;
+
 type ProductModule = Module;
 type CameraModule = Module;
 type BatteryModule = Module;
@@ -44,25 +64,35 @@ type ShoppingCartModule = Module;
 type PurchasedProductModule = Module;
 type HistoryModule = Module;
 
+type NoteModule = Module;
+
 interface PRIME_TECH_BACKEND_INTERFACE
   extends Backend<{
-    auth?: AuthModule;
-    user?: UserModule;
-    product?: ProductModule;
-    camera?: CameraModule;
-    battery?: BatteryModule;
-    screen?: ScreenModule;
-    mobileDevice?: MobileDeviceModule;
-    simCard?: SimCardModule;
-    laptop?: LaptopModule;
-    favoriteProduct?: FavoriteProductModule;
-    ShoppingCart?: ShoppingCartModule;
-    purchasedProduct?: PurchasedProductModule;
-    history?: HistoryModule;
+    auth: AuthModule;
+    user: UserModule;
+    product: ProductModule;
+    camera: CameraModule;
+    battery: BatteryModule;
+    screen: ScreenModule;
+    mobileDevice: MobileDeviceModule;
+    simCard: SimCardModule;
+    laptop: LaptopModule;
+    favoriteProduct: FavoriteProductModule;
+    shoppingCart: ShoppingCartModule;
+    purchasedProduct: PurchasedProductModule;
+    history: HistoryModule;
+  }> {}
+
+interface WRITE_NOTE_INTERFACE
+  extends Backend<{
+    auth: AuthModule;
+    user: UserModule;
+    note: NoteModule;
   }> {}
 
 export type {
   PRIME_TECH_BACKEND_INTERFACE,
+  WRITE_NOTE_INTERFACE,
   ApiResponse,
   Api,
   Module,
@@ -72,4 +102,6 @@ export type {
   UserModule,
   ProductModule,
   CameraModule,
+  FilterParameter,
+  PaginationParameter
 };

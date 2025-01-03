@@ -8,6 +8,7 @@ import DiagramComponent from "./DiagramComponent";
 
 import { useBackendProject } from "@/hooks/useBackendProject";
 import { useSelectedModule } from "@/hooks/useSelectedModule";
+import { generateNameProject } from "@/utils/stringUtils";
 
 function BackendDetails() {
   const navigate = useNavigate();
@@ -46,9 +47,10 @@ function BackendDetails() {
         <BackendProjectNavigation
           navigationOptions={navigationOptions}
           nameModule={nameModule}
+          nameProject={generateNameProject(project.name)}
         />
       )}
-      <div className="mt-16 px-10 pt-10 grid grid-cols-1 lg:grid-cols-4 lg:p-0 lg:m-0 lg:gap-4">
+      <div className="mt-16 w-full px-10 pt-10 grid grid-cols-1 lg:grid-cols-4 lg:p-0 lg:m-0 lg:gap-4">
         <article className="md:ml-[185px] lg:col-start-1 lg:col-end-4 lg:px-8 lg:pt-10 2xl:px-20">
           <h1 className="text-4xl font-bold text-secondaryColorLightTheme mb-8 dark:text-secondaryColorDarkTheme">
             {project?.name}
@@ -57,9 +59,11 @@ function BackendDetails() {
             {project?.description}
           </p>
 
-          {project?.diagram && project.diagram.length > 0 && (
-            <DiagramComponent diagrams={project.diagram} />
-          )}
+          {project?.diagram &&
+            project.diagram.length > 0 &&
+            project.diagram[0].urlImge && (
+              <DiagramComponent diagrams={project.diagram} />
+            )}
 
           {selectedModule && <ModuleDetails module={selectedModule} />}
         </article>

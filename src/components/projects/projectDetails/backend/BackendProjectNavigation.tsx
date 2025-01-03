@@ -14,11 +14,13 @@ interface NavigationOption {
 interface ProjectNavigationProps {
   navigationOptions: NavigationOption[];
   nameModule: string;
+  nameProject: string;
 }
 
 function BackendProjectNavigation({
   navigationOptions,
   nameModule,
+  nameProject
 }: ProjectNavigationProps) {
   const navigate = useNavigate();
   const [showMenu, setShowMenu] = useState(false);
@@ -91,7 +93,7 @@ function BackendProjectNavigation({
                   `}
             >
               <Link
-                to={`/backend-project/primeTechBackend?nameModule=${encodeURIComponent(
+                to={`/backend-project/${nameProject}?nameModule=${encodeURIComponent(
                   navOption.url
                 )}`}
                 onClick={() => toggleMenu()}

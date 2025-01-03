@@ -1,34 +1,40 @@
 import { useParams } from "react-router-dom";
-import { PRIME_TECH_BACKEND_INTERFACE } from "@/interfaces/backendInterfaces";
+import { PRIME_TECH_BACKEND_INTERFACE, WRITE_NOTE_INTERFACE } from "@/interfaces/backendInterfaces";
+
 import { PRIME_TECH_BACKEND } from "@/data/backendProjectDetails/primeTechBackend";
+import { WRITE_NOTE_BACKEND } from "@/data/backendProjectDetails/writeNoteBackend";
+
+type BackendProject = {
+  name: string;
+  data: PRIME_TECH_BACKEND_INTERFACE | WRITE_NOTE_INTERFACE;
+};
+
+const PROJECTS: Record<string, () => BackendProject> = {
+  primetechbackend: () => ({
+    name: "Prime Tech Backend",
+    data: PRIME_TECH_BACKEND,
+  }),
+  writenotebackend: () => ({
+    name: "Write Note Backend",
+    data: WRITE_NOTE_BACKEND,
+  }),
+};
 
 export function useBackendProject() {
   const { nameProject } = useParams<{ nameProject: string | undefined }>();
 
-  const BACKEND_PROJECTS = [
-    {
-      name: "Prime Tech Backend",
-      data: PRIME_TECH_BACKEND,
-      navegation: Object.keys(PRIME_TECH_BACKEND.modules || {}).map(
-        (moduleKey) => ({
-          nameOption:
-            moduleKey.charAt(0).toUpperCase() +
-            moduleKey.slice(1).replace(/([A-Z])/g, " $1"),
-          url: moduleKey,
-        })
-      ),
-    },
-  ];
+  const normalizedProject = nameProject?.toLowerCase().replace(/\s+/g, "");
 
-  const project = BACKEND_PROJECTS.find(
-    (proj) =>
-      proj.name.toLowerCase().replace(/\s+/g, "") === nameProject?.toLowerCase()
-  )?.data as PRIME_TECH_BACKEND_INTERFACE | undefined;
+  const project = PROJECTS[normalizedProject]?.().data;
 
-  const navigationOptions = BACKEND_PROJECTS.find(
-    (proj) =>
-      proj.name.toLowerCase().replace(/\s+/g, "") === nameProject?.toLowerCase()
-  )?.navegation;
+  const navigationOptions = project
+    ? Object.keys(project.modules || {}).map((moduleKey) => ({
+        nameOption:
+          moduleKey.charAt(0).toUpperCase() +
+          moduleKey.slice(1).replace(/([A-Z])/g, " $1"),
+        url: moduleKey,
+      }))
+    : [];
 
   return { project, navigationOptions };
 }

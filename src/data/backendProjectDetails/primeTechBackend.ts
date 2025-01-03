@@ -1,4 +1,6 @@
-export const PRIME_TECH_BACKEND = {
+import { PRIME_TECH_BACKEND_INTERFACE } from "@/interfaces/backendInterfaces";
+
+export const PRIME_TECH_BACKEND: PRIME_TECH_BACKEND_INTERFACE = {
   name: "Prime Tech Backend",
   description:
     "Proyecto backend que  permite agregar productos y sus detalles para su venta. Desarrollado utilizando Java con Spring Boot, integra seguridad mediante Spring Security y JWT (JSON Web Tokens) para autenticación y autorización. La aplicación facilita la gestión de producto, accesibles solo para usuarios autorizados.",
@@ -291,7 +293,187 @@ export const PRIME_TECH_BACKEND = {
             `,
           },
         },
-        // lista de productos con filtro
+        {
+          title: "Obtener productos",
+          description: "API pública para recuperar la lista de productos.",
+          method: "GET",
+          request: "http://localhost:8080/prime-tech/api/v1/products",
+          body: "",
+          response: {
+            description: "",
+            example: `
+            {
+                "products": [
+                    {
+                        "productId": "6b933f6 a-e3de-423d-a8ea-db8f44a8b440",
+                        "sellerId": "c36e4379-52e8-495d-9e74-20db2644dbff",
+                        "name": "iPhone 15 Pro 256GB",
+                        "description": "El último modelo de iPhone con 256GB de almacenamiento, cámara avanzada y pantalla OLED.",
+                        "brand": "Apple",
+                        "stock": 80,
+                        "price": 949.950,
+                        "categoryName": "cellular",
+                        "deviceType": "mobile",
+                        "createdAt": "2024-11-16T18:59:54.178189",
+                        "updatedAt": "2024-12-07T14:29:02.41456"
+                    },
+                    {
+                        "productId": "895ee562-5dc3-40f8-937b-65b660acc1ac",
+                        "sellerId": "b6c99381-6538-479e-9b9f-a539cc79764d",
+                        "name": "Samsung S24 ultra negro 24ram",
+                        "description": "descripcion 1",
+                        "brand": "Samsung",
+                        "stock": 6,
+                        "price": 350000.000,
+                        "categoryName": "other",
+                        "deviceType": "other",
+                        "createdAt": "2024-11-07T20:37:52.84312",
+                        "updatedAt": "2024-12-07T17:13:35.956415"
+                    },
+                    {
+                        "productId": "5b7bbf5f-0bab-4437-99f8-1a9c18a4da74",
+                        "sellerId": "c36e4379-52e8-495d-9e74-20db2644dbff",
+                        "name": "HP Omen 4536436434 Core Ultra 234236 16GB",
+                        "description": "Laptop de alto rendimiento con procesador Core Ultra 7, 16GB de RAM y almacenamiento SSD de 1TB. Ideal para gaming y tareas intensivas.",
+                        "brand": "HP",
+                        "stock": 18,
+                        "price": 534.990,
+                        "categoryName": "laptop",
+                        "deviceType": "laptop",
+                        "createdAt": "2024-11-18T12:33:00.742227",
+                        "updatedAt": "2024-12-09T14:16:09.870076"
+                    },
+                    {
+                        "productId": "f370790f-8fc6-4f69-827f-2d425f490c5a",
+                        "sellerId": "b6c99381-6538-479e-9b9f-a539cc79764d",
+                        "name": "Laptop omen15 negro",
+                        "description": "la mejor laptop de HP",
+                        "brand": "HP",
+                        "stock": 4,
+                        "price": 1150000.000,
+                        "categoryName": "laptop",
+                        "deviceType": "laptop",
+                        "createdAt": "2024-11-09T16:53:42.343732",
+                        "updatedAt": "2024-12-09T15:01:21.426679"
+                    },
+                    {
+                        "productId": "d296874e-c6a2-47ea-a57c-a2344927ba49",
+                        "sellerId": "b6c99381-6538-479e-9b9f-a539cc79764d",
+                        "name": "iphone 15 pro",
+                        "description": "el mejor celular",
+                        "brand": "iphone",
+                        "stock": 10,
+                        "price": 1100000.000,
+                        "categoryName": "tablet",
+                        "deviceType": "mobile",
+                        "createdAt": "2024-11-15T21:42:46.538905",
+                        "updatedAt": "2024-12-09T15:01:21.502689"
+                    },
+                    {
+                        "productId": "c0f11aa4-a0cb-47e0-9f00-6eb58c6e5cd1",
+                        "sellerId": "c36e4379-52e8-495d-9e74-20db2644dbff",
+                        "name": "test",
+                        "description": "test",
+                        "brand": "HP",
+                        "stock": 7,
+                        "price": 1249.940,
+                        "categoryName": "laptop",
+                        "deviceType": "laptop",
+                        "createdAt": "2024-12-07T18:31:20.984993",
+                        "updatedAt": "2024-12-28T22:33:57.854643"
+                    }
+                ],
+                "page": {
+                    "size": 20,
+                    "totalElements": 6,
+                    "totalPages": 1,
+                    "number": 0
+                }
+            }
+            `,
+          },
+          filters: {
+            filters: [
+              {
+                title: "Filtro por marca",
+                parameterName: "brand",
+                type: "string",
+                description: "Permite filtrar productos por su marca",
+                required: "false",
+                request:
+                  "http://localhost:8080/prime-tech/api/v1/products?brand=hp",
+              },
+              {
+                title: "Filtro por nombre",
+                parameterName: "name",
+                type: "string",
+                description: "Permite filtrar productos por su nombre",
+                required: "false",
+                request:
+                  "http://localhost:8080/prime-tech/api/v1/products?name=samsung",
+              },
+              {
+                title: "Filtro por categoria",
+                parameterName: "categoryId",
+                type: "UUID",
+                description:
+                  "Permite filtrar productos por categoría usando un ID establecido.",
+                required: "false",
+                request:
+                  "http://localhost:8080/prime-tech/api/v1/products?categoryId=ec1b2fc4-682b-4ec3-b475-6e27c046da4g",
+              },
+              {
+                title: "Filtro por vendedor",
+                parameterName: "sellerId",
+                type: "UUID",
+                description:
+                  "Permite filtrar productos de un vendedor pasando como parametro su ID.",
+                required: "false",
+                request:
+                  "http://localhost:8080/prime-tech/api/v1/products?sellerId=b6c99381-6538-479e-9b9f-a539cc79764t",
+              },
+              {
+                title: "Filtro por rango de precio",
+                parameterName: "minPrice y maxPrice",
+                type: "BigDecimal",
+                description: "Permite filtrar productos por un rango de precio",
+                required: "false",
+                request:
+                  "http://localhost:8080/prime-tech/api/v1/products?minPrice=350000&maxPrice=300",
+              },
+              {
+                title: "Filtro por precio minimo",
+                parameterName: "minPrice",
+                type: "BigDecimal",
+                description: "Permite filtrar productos por un precio mínimo.",
+                required: "false",
+                request:
+                  "http://localhost:8080/prime-tech/api/v1/products?minPrice=350000",
+              },
+              {
+                title: "Filtro por precio maximo",
+                parameterName: "maxPrice",
+                type: "BigDecimal",
+                description: "Permite filtrar productos por un precio máximo.",
+                required: "false",
+                request:
+                  "http://localhost:8080/prime-tech/api/v1/products?maxPrice=300",
+              },
+            ],
+          },
+          pagination: {
+            page: {
+              title: "Por número de página y cantidad",
+              parameterName: "page y size",
+              type: "int",
+              description:
+                "Permite mostrar productos por la página seleccionada y establecer la cantidad de productos por página.",
+              required: "false",
+              request:
+                "http://localhost:8080/prime-tech/api/v1/products?page=1&size=20",
+            },
+          },
+        },
         {
           title: "Actualizar producto",
           description:

@@ -1,7 +1,12 @@
 import { useSearchParams } from "react-router-dom";
-import { PRIME_TECH_BACKEND_INTERFACE } from "@/interfaces/backendInterfaces";
+import {
+  PRIME_TECH_BACKEND_INTERFACE,
+  WRITE_NOTE_INTERFACE,
+} from "@/interfaces/backendInterfaces";
 
-export function useSelectedModule(project?: PRIME_TECH_BACKEND_INTERFACE) {
+export function useSelectedModule<T extends PRIME_TECH_BACKEND_INTERFACE | WRITE_NOTE_INTERFACE>(
+  project?: T
+) {
   const [searchParams] = useSearchParams();
   const nameModule = searchParams.get("nameModule");
 

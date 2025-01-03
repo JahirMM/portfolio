@@ -50,7 +50,7 @@ const Projects = () => {
                 <div className="text-gray-800 text-sm text-pretty dark:text-gray-300">
                   {description}
                 </div>
-                <footer className="flex items-end justify-start mt-4 gap-x-4">
+                <footer className="flex flex-wrap items-end justify-start mt-4 gap-x-4 gap-y-2">
                   {github && (
                     <ProjectLink href={github} openInNewTab={true}>
                       <Github className="size-6" />
@@ -64,10 +64,20 @@ const Projects = () => {
                     </ProjectLink>
                   )}
                   {details && (
-                    <ProjectLink href={details} openInNewTab={false}>
-                      <FileDescription className="size-6" />
-                      Detalles
-                    </ProjectLink>
+                    <>
+                      {details.frontend && (
+                        <ProjectLink href={details.frontend} openInNewTab={false}>
+                          <FileDescription className="size-6" />
+                          Frontend
+                        </ProjectLink>
+                      )}
+                      {details.backend && (
+                        <ProjectLink href={details.backend} openInNewTab={false}>
+                          <FileDescription className="size-6" />
+                          Backend
+                        </ProjectLink>
+                      )}
+                    </>
                   )}
                 </footer>
               </div>
