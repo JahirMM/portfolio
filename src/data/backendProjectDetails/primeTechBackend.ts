@@ -286,6 +286,7 @@ export const PRIME_TECH_BACKEND: PRIME_TECH_BACKEND_INTERFACE = {
                   "price": 949.95,
                   "category": "cellular",
                   "deviceType": "mobile",
+                  "averageRaiting": 0.0,
                   "createdAt": "2024-11-16T18:59:54.178189",
                   "updatedAt": "2024-11-16T19:28:18.052042"
                 }
@@ -314,6 +315,7 @@ export const PRIME_TECH_BACKEND: PRIME_TECH_BACKEND_INTERFACE = {
                         "price": 949.950,
                         "categoryName": "cellular",
                         "deviceType": "mobile",
+                        "averageRaiting": 0.0,
                         "createdAt": "2024-11-16T18:59:54.178189",
                         "updatedAt": "2024-12-07T14:29:02.41456"
                     },
@@ -327,6 +329,7 @@ export const PRIME_TECH_BACKEND: PRIME_TECH_BACKEND_INTERFACE = {
                         "price": 350000.000,
                         "categoryName": "other",
                         "deviceType": "other",
+                        "averageRaiting": 0.0,
                         "createdAt": "2024-11-07T20:37:52.84312",
                         "updatedAt": "2024-12-07T17:13:35.956415"
                     },
@@ -340,6 +343,7 @@ export const PRIME_TECH_BACKEND: PRIME_TECH_BACKEND_INTERFACE = {
                         "price": 534.990,
                         "categoryName": "laptop",
                         "deviceType": "laptop",
+                        "averageRaiting": 0.0,
                         "createdAt": "2024-11-18T12:33:00.742227",
                         "updatedAt": "2024-12-09T14:16:09.870076"
                     },
@@ -353,6 +357,7 @@ export const PRIME_TECH_BACKEND: PRIME_TECH_BACKEND_INTERFACE = {
                         "price": 1150000.000,
                         "categoryName": "laptop",
                         "deviceType": "laptop",
+                        "averageRaiting": 0.0,
                         "createdAt": "2024-11-09T16:53:42.343732",
                         "updatedAt": "2024-12-09T15:01:21.426679"
                     },
@@ -366,6 +371,7 @@ export const PRIME_TECH_BACKEND: PRIME_TECH_BACKEND_INTERFACE = {
                         "price": 1100000.000,
                         "categoryName": "tablet",
                         "deviceType": "mobile",
+                        "averageRaiting": 0.0,
                         "createdAt": "2024-11-15T21:42:46.538905",
                         "updatedAt": "2024-12-09T15:01:21.502689"
                     },
@@ -379,6 +385,7 @@ export const PRIME_TECH_BACKEND: PRIME_TECH_BACKEND_INTERFACE = {
                         "price": 1249.940,
                         "categoryName": "laptop",
                         "deviceType": "laptop",
+                        "averageRaiting": 0.0,
                         "createdAt": "2024-12-07T18:31:20.984993",
                         "updatedAt": "2024-12-28T22:33:57.854643"
                     }
@@ -459,6 +466,15 @@ export const PRIME_TECH_BACKEND: PRIME_TECH_BACKEND_INTERFACE = {
                 request:
                   "http://localhost:8080/prime-tech/api/v1/products?maxPrice=300",
               },
+              {
+                title: "Filtro por puntuación",
+                parameterName: "rating",
+                type: "Double",
+                description: "Permite filtrar productos por su puntuación",
+                required: "false",
+                request:
+                  "http://localhost:8080/prime-tech/api/v1/products?minRating=3.4",
+              },
             ],
           },
           pagination: {
@@ -520,7 +536,7 @@ export const PRIME_TECH_BACKEND: PRIME_TECH_BACKEND_INTERFACE = {
         {
           title: "Subir imagen",
           description:
-            "Subir imagen de un producto. En el formulario de datos (form-data), utilizar la llave 'image' de tipo file y 'isMain' de tipo boolean para indicar si es la imagen principal. Un producto puede tener hasta 5 imágenes y solo una de tipo 'main'.",
+            "Subir imagen de un producto. En el formulario de datos (form-data), utilizar la llave 'image' de tipo file y 'isMain' de tipo boolean para indicar si es la imagen principal. Un producto puede tener hasta 4 imágenes y solo una de tipo 'main'.",
           method: "POST",
           request:
             "http://localhost:8080/prime-tech/api/v1/product-image/6b933f6a-e3de-423d-a8ea-db8f44a8b440",
@@ -1751,6 +1767,111 @@ export const PRIME_TECH_BACKEND: PRIME_TECH_BACKEND_INTERFACE = {
                         "saleDate": "2024-12-28T22:33:57.854643"
                     }
                 ]
+            }
+          `,
+          },
+        },
+      ],
+    },
+    review: {
+      title: "Review APIs",
+      description:
+        "APIs relacionadas con la gestión de reviews",
+      apis: [
+        {
+          title: "Agregar review",
+          description:
+            "El usuario debe estar autenticado. Se valida que el usuario haya comprado el producto y que no haya agregado una reseña anteriormente. Recibe el parámetro productId en la ruta /review/{productId}.",
+          method: "POST",
+          request:
+            "http://localhost:8080/prime-tech/api/v1/review/f9aeb399-6f2f-45de-85b8-938d7f1edab9",
+          body: `
+          {
+              "rating": 3.4,
+              "comment": "Muy buen celular y llegó a tiempo."
+          }
+          `,
+          response: {
+            description: "Respuesta se agrega una review.",
+            example: `
+            {
+                "message": "Review successfully added",
+                "review": {
+                    "reviewId": "1ace27e3-bcb4-4733-9e40-7b9f7dae7987",
+                    "rating": 3.4,
+                    "comment": "Muy buen celular y llegó a tiempo.",
+                    "createdAt": "2025-01-07T19:38:37.1374095"
+                }
+            }
+          `,
+          },
+        },
+        {
+          title: "Obtener reviews",
+          description:
+            "API publica para obtener todos las reseñas de un producto. Recibe el parámetro productId en la ruta /review/{reviewId}.",
+          method: "POST",
+          request:
+            "http://localhost:8080/prime-tech/api/v1/review/f370790f-8fc6-4f69-827f-2d425f490c5a",
+          body: "",
+          response: {
+            description: "Respuesta del listado de reseñas de un producto",
+            example: `
+            {
+                "reviews": [
+                    {
+                        "name": "Alfonso Sanz Delgado",
+                        "reviewId": "7756ffa5-2c5b-4b59-b369-adf652fd34c2",
+                        "rating": 3.4,
+                        "comment": "Muy buen celular y llegó a tiempo.",
+                        "createdAt": "2025-01-07T21:33:04.179899"
+                    }
+                ]
+            }
+          `,
+          },
+        },
+        {
+          title: "Actualizar review",
+          description:
+            "El usuario debe estar autenticado. Se valida que el usuario haya dejado una reseña específica para el producto. Recibe el parámetro productId en la ruta /review/{reviewId}.",
+          method: "POST",
+          request:
+            "http://localhost:8080/prime-tech/api/v1/review/f9aeb399-6f2f-45de-85b8-938d7f1edab9",
+          body: `
+          {
+              "rating": 4,
+              "comment": "Muy buen celular y llegó a tiempo."
+          }
+          `,
+          response: {
+            description: "Respuesta cuando se actualiza información de la review",
+            example: `
+            {
+                "message": "Review successfully updated",
+                "review": {
+                    "reviewId": "c7c64779-4039-4621-983b-cf6c48e5d299",
+                    "rating": 4.0,
+                    "comment": "Muy buen celular y llegó a tiempo.",
+                    "createdAt": "2025-01-07T19:30:07.612864"
+                }
+            }
+          `,
+          },
+        },
+        {
+          title: "Eliminar review",
+          description:
+            "El usuario debe estar autenticado. Recibe el parámetro productId en la ruta /review/{reviewId}.",
+          method: "POST",
+          request:
+            "http://localhost:8080/prime-tech/api/v1/review/c7c64779-4039-4621-983b-cf6c48e5d299",
+          body: "",
+          response: {
+            description: "Respuesta cuando se elimina el review",
+            example: `
+            {
+                "message": "Review successfully deleted"
             }
           `,
           },

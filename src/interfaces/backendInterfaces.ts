@@ -63,6 +63,7 @@ type FavoriteProductModule = Module;
 type ShoppingCartModule = Module;
 type PurchasedProductModule = Module;
 type HistoryModule = Module;
+type ReviewModule = Module;
 
 type NoteModule = Module;
 
@@ -81,6 +82,7 @@ interface PRIME_TECH_BACKEND_INTERFACE
     shoppingCart: ShoppingCartModule;
     purchasedProduct: PurchasedProductModule;
     history: HistoryModule;
+    review: ReviewModule;
   }> {}
 
 interface WRITE_NOTE_INTERFACE
