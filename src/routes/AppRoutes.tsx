@@ -28,26 +28,10 @@ const AppRoutes = () => {
         />
         <Route
           path="/backend-project/:nameProject"
-          element={
-              <BackendDetails />
-          }
+          element={<BackendDetails />}
         />
-        <Route
-          path="/not-found"
-          element={
-            <Layout>
-              <NotFound />
-            </Layout>
-          }
-        />
-        <Route
-          path="*"
-          element={
-            <Layout>
-              <NotFound />
-            </Layout>
-          }
-        />
+        <Route path="/not-found" element={<NotFound />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );
