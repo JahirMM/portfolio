@@ -46,7 +46,7 @@ function BackendDetails() {
       {navigationOptions && (
         <BackendProjectNavigation
           navigationOptions={navigationOptions}
-          nameModule={nameModule}
+          nameModule={nameModule ?? ""}
           nameProject={generateNameProject(project.name)}
         />
       )}
@@ -68,7 +68,9 @@ function BackendDetails() {
           {selectedModule && <ModuleDetails module={selectedModule} />}
         </article>
         <aside className="lg:pt-10">
-          <SubMenu apisList={selectedModule.apis} />
+          {selectedModule && selectedModule.apis && (
+            <SubMenu apisList={selectedModule.apis} />
+          )}
         </aside>
       </div>
     </div>

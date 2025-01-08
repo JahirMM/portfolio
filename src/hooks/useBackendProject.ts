@@ -25,7 +25,7 @@ export function useBackendProject() {
 
   const normalizedProject = nameProject?.toLowerCase().replace(/\s+/g, "");
 
-  const project = PROJECTS[normalizedProject]?.().data;
+  const project = PROJECTS[normalizedProject!]?.().data;
 
   const navigationOptions = project
     ? Object.keys(project.modules || {}).map((moduleKey) => ({

@@ -1,6 +1,9 @@
 import { FilterParameter } from "@/interfaces/backendInterfaces";
 
 function FilterDetails({ filters }: { filters: FilterParameter }) {
+  if (!filters?.filters || filters.filters.length === 0) {
+    return null;
+  }
   return (
     <>
       <span className="text-gray-800 text-2xl block font-bold mb-5 dark:text-gray-300">

@@ -1,42 +1,27 @@
-import { useRef } from "react";
-import Draggable from "react-draggable";
-
 const SOFTSKILLS = [
   {
     name: "Responsable",
     icon: "✅",
-    left: "5%",
-    top: "1%",
   },
   {
     name: "Honesto",
     icon: "🤝",
-    left: "50%",
-    top: "16%",
   },
   {
     name: "Amigable",
     icon: "😊",
-    left: "10%",
-    top: "32%",
   },
   {
     name: "Autodidacta",
     icon: "📚",
-    left: "30%",
-    top: "46%",
   },
   {
     name: "Trabajo en equipo",
     icon: "🤝",
-    left: "25%",
-    top: "80%",
   },
   {
     name: "Proactivo",
     icon: "🚀",
-    left: "30%",
-    top: "63%",
   },
 ];
 
@@ -62,32 +47,21 @@ const AboutMe = () => {
         <h3 className="px-6 py-6 text-secondaryColorLightTheme text-xl font-bold">
           Habilidades blandas
         </h3>
-        <div className="relative flex-1 bg-cardsBackgroundLightTheme dark:bg-cardsBackgroundDarkTheme">
-          {SOFTSKILLS.map(({ name, icon, left, top }, index) => {
-            const nodeRef = useRef<HTMLDivElement>(null);
+        <div className="flex-1 flex flex-col px-6 gap-4 bg-cardsBackgroundLightTheme dark:bg-cardsBackgroundDarkTheme">
+          {SOFTSKILLS.map(({ name, icon }, index) => {
             return (
-              <Draggable key={index} bounds="parent" nodeRef={nodeRef}>
-                <div
-                  ref={nodeRef}
-                  className="
+              <div
+                key={index}
+                className="
                     cursor-pointer
-                    absolute
                     inline-flex items-center gap-2
-                    px-6 py-1.5
-                    bg-gradient-to-r from-[#BEAF9B] to-[#F3EDE5] dark:from-[#212963] dark:to-[#101B49]
-                    rounded-full
-                    whitespace-nowrap"
-                  style={{
-                    left: left,
-                    top: top,
-                  }}
-                >
-                  <span className="font-medium text-sm text-gray-800 dark:text-white">
-                    {name}
-                  </span>
-                  <span>{icon}</span>
-                </div>
-              </Draggable>
+                    whitespace-nowrap "
+              >
+                <span className="font-medium text-sm text-gray-800 dark:text-white">
+                  {name}
+                </span>
+                <span>{icon}</span>
+              </div>
             );
           })}
         </div>

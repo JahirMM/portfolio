@@ -7,16 +7,23 @@ const Experience = () => {
       endDate: "mar. 2024",
       title: "Desarrollo Frontend - Practica Profesional",
       company: "Apiux Tecnología",
-      description:
-        "Desarrollo frontend de un sistema utilizando Angular, enfocado en la gestión de documentos y carpetas en Alfresco. Implementé funcionalidades como el inicio de sesión, la navegación entre nodos, y la visualización y descarga de archivos. Además, utilicé Tailwind CSS para el diseño del sitio web, asegurando una experiencia de usuario fluida. También trabajé en la instalación y configuración de máquinas virtuales con Ubuntu para gestionar Alfresco y PostgreSQL.",
+      description: [
+        "Desarrollé el frontend de un sistema en Angular para la gestión de documentos y carpetas en Alfresco.",
+        "Implementé funcionalidades claves, como inicio de sesión, navegación entre nodos y visualización/descarga de archivos.",
+        "Utilicé Tailwind CSS para diseñar una interfaz intuitiva, mejorando la experiencia del usuario.",
+        "Configuré máquinas virtuales con Ubuntu para la instalación y gestión de Alfresco y PostgreSQL.",
+      ],
     },
     {
       startDate: "dic. 2022",
       endDate: "feb. 2023",
       title: "Desarrollo Web - Practica Tecnica",
       company: "Fonasa",
-      description:
-        "Enfocado principalmente en el desarrollo del frontend utilizando React, donde creé interfaces y componentes dinámicos para mejorar la visualización de datos con tablas y gráficos interactivos. También implementé un calendario interactivo para gestionar eventos. En el backend, desarrollé algunas APIs utilizando Python con Flask.",
+      description: [
+        "Diseñé interfaces y componentes dinámicos con React, mejorando la visualización de datos con tablas y gráficos interactivos.",
+        "Desarrollé un calendario interactivo para la gestión de eventos.",
+        "Colaboré en el desarrollo de APIs con Python y Flask para integrar datos y funcionalidades en el sistema.",
+      ],
     },
   ];
 
@@ -45,7 +52,7 @@ const Experience = () => {
               {company.company}
             </h4>
           ))}
-          <span className="pedo z-30 w-full h-[2px] absolute bottom-0 bg-gray-600 md:left-0 md:w-[2px] md:h-full"></span>
+          <span className="pedo z-30 w-full h-[1px] absolute bottom-0 bg-gray-600 md:left-0 md:w-[2px] md:h-full"></span>
         </span>
       </nav>
       <div className="md:col-start-2 md:col-end-4">
@@ -58,9 +65,11 @@ const Experience = () => {
               <time className="p-0 m-0 text-sm text-gray-400 dark:text-white/80">
                 {experience.startDate} - {experience.endDate}
               </time>
-              <p className="mt-5 text-gray-800 dark:text-gray-300">
-                {experience.description}
-              </p>
+              <ul className="mt-5 text-gray-800 space-y-4 dark:text-gray-300 list-disc pl-5">
+                {experience.description.map((point, idx) => (
+                  <li key={idx} className="text-sm">{point}</li>
+                ))}
+              </ul>
             </div>
           )
         )}

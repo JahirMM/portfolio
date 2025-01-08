@@ -5,6 +5,9 @@ function PaginationDetails({
 }: {
   pagination: PaginationParameter;
 }) {
+  if (!pagination?.page) {
+    return null; // No renderiza nada
+  }
   return (
     <>
       <span className="text-gray-800 text-2xl block font-bold mb-5 dark:text-gray-300">
