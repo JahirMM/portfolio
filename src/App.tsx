@@ -1,6 +1,7 @@
 import SectionContainer from "@/components/SectionContainer";
 import Experience from "@/components/Experience";
 import Projects from "@/components/projects/Projects";
+import DownloadCV from "@/components/DownloadCV";
 import AboutMe from "@/components/AboutMe";
 import Skills from "@/components/Skills";
 import Hero from "@/components/Hero";
@@ -18,10 +19,13 @@ function App() {
           <Hero />
         </SectionContainer>
         <SectionContainer customClass="mb-20" id="experiencia">
-          <h2 className="text-gray-800 text-4xl font-bold mb-20 flex items-center gap-x-4 dark:text-white">
-            <BriefCase className="size-7" />
-            Experiencia
-          </h2>
+          <div className="mb-20 flex flex-col items-start gap-5 sm:flex-row sm:items-center">
+            <h2 className="text-gray-800 text-4xl font-bold flex items-center gap-x-4 dark:text-white">
+              <BriefCase className="size-7" />
+              Experiencia
+            </h2>
+           <DownloadCV/>
+          </div>
           <Experience />
         </SectionContainer>
         <SectionContainer customClass="mb-20" id="skills">
