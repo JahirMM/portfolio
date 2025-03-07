@@ -23,7 +23,7 @@ interface FilterParameter {
 interface Api {
   title: string;
   description: string;
-  method: "GET" | "POST" | "PUT" | "DELETE";
+  method: "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
   request: string;
   body: string;
   response: ApiResponse;
@@ -52,6 +52,7 @@ interface Backend<T = {}> {
 type AuthModule = Module;
 type UserModule = Module;
 
+type CategoryModule = Module;
 type ProductModule = Module;
 type CameraModule = Module;
 type BatteryModule = Module;
@@ -59,6 +60,8 @@ type ScreenModule = Module;
 type MobileDeviceModule = Module;
 type SimCardModule = Module;
 type LaptopModule = Module;
+type RecentProducts = Module;
+type OfferModule = Module;
 type FavoriteProductModule = Module;
 type ShoppingCartModule = Module;
 type PurchasedProductModule = Module;
@@ -71,6 +74,7 @@ interface PRIME_TECH_BACKEND_INTERFACE
   extends Backend<{
     auth: AuthModule;
     user: UserModule;
+    category: CategoryModule;
     product: ProductModule;
     camera: CameraModule;
     battery: BatteryModule;
@@ -78,6 +82,8 @@ interface PRIME_TECH_BACKEND_INTERFACE
     mobileDevice: MobileDeviceModule;
     simCard: SimCardModule;
     laptop: LaptopModule;
+    recentProducts: RecentProducts;
+    offer: OfferModule;
     favoriteProduct: FavoriteProductModule;
     shoppingCart: ShoppingCartModule;
     purchasedProduct: PurchasedProductModule;
@@ -105,5 +111,5 @@ export type {
   ProductModule,
   CameraModule,
   FilterParameter,
-  PaginationParameter
+  PaginationParameter,
 };

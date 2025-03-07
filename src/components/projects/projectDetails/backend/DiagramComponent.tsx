@@ -23,12 +23,14 @@ function DiagramComponent({ diagrams }: { diagrams: Diagram[] }) {
       {showDiagram &&
         diagrams.map((diagram, index) => (
           <figure key={index} className="mb-10">
-            <img
-              src={diagram.urlImge}
-              alt="Diagrama entidad-relación de primeTech"
-              className="w-full bg-gray-900 p-2"
-            />
-            <figcaption className="text-gray-800 text-sm text-pretty dark:text-gray-300">
+            <a href={diagram.urlImge} target="_blank" rel="noopener noreferrer">
+              <img
+                src={diagram.urlImge}
+                alt="Diagrama entidad-relación de primeTech"
+                className="w-full p-2 bg-gray-900 cursor-pointer"
+              />
+            </a>
+            <figcaption className="text-sm text-gray-800 text-pretty dark:text-gray-300">
               Diagrama entidad-relación de primeTech
             </figcaption>
           </figure>

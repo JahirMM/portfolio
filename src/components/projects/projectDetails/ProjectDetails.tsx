@@ -12,6 +12,7 @@ const PROJECT_DETAILS: {
     darkModeImage?: string;
     lightModeImage?: string;
     images?: string[];
+    videos: string[];
   };
 } = {
   WriteNote: {
@@ -28,6 +29,30 @@ const PROJECT_DETAILS: {
       "/projects/writeNote/userProfile.webp",
       "/projects/writeNote/notesList.webp",
       "/projects/writeNote/writeNoteMobileView.webp",
+    ],
+    videos: [],
+  },
+  PrimeTech: {
+    title: "PrimeTech",
+    subtitle: "Tienda tecnológica donde puedes comprar y vender con facilidad",
+    description:
+      "Plataforma de e-commerce donde los usuarios pueden explorar productos, filtrar resultados, gestionar favoritos y realizar compras. También pueden registrarse y convertirse en vendedores para administrar sus productos. Desarrollado con Next.js, React y TypeScript, usando TailwindCSS para el diseño y TanStack Query para la gestión de datos.",
+    github: "https://github.com/JahirMM/primeTechFrontend",
+    lightModeImage: "",
+    darkModeImage: "",
+    images: [
+      "/projects/primeTech/frontend/home.webp",
+      "/projects/primeTech/frontend/productos.webp",
+      "/projects/primeTech/frontend/productosFavoritos.webp",
+      "/projects/primeTech/frontend/carritoDeCompra.webp",
+      "/projects/primeTech/frontend/perfil.webp",
+      "/projects/primeTech/frontend/compras.webp",
+      "/projects/primeTech/frontend/ventas.webp",
+      "/projects/primeTech/frontend/misProductos.webp",
+    ],
+    videos: [
+      "/projects/primeTech/frontend/videos/video1.mp4",
+      "/projects/primeTech/frontend/videos/video2.mp4",
     ],
   },
 };
@@ -66,17 +91,17 @@ const ProjectDetails = () => {
 
   return (
     <>
-      <section className="py-20 p-10 w-full mx-auto container md:max-w-6xl">
+      <section className="container w-full p-10 py-20 mx-auto md:max-w-6xl">
         {project ? (
           <>
-            <h1 className="text-5xl font-bold text-secondaryColorLightTheme mb-10 dark:text-secondaryColorDarkTheme">
+            <h1 className="mb-10 text-5xl font-bold text-secondaryColorLightTheme dark:text-secondaryColorDarkTheme">
               {project.title}
             </h1>
-            <div className="text-gray-800 text-pretty mb-10 dark:text-white/80">
+            <div className="mb-10 text-gray-800 text-pretty dark:text-white/80">
               {project.description}
             </div>
-            <a href={project.github} target="_blank" className="flex">
-              <span className="flex items-center gap-x-3 text-sm px-3 py-2 bg-gray-500 rounded-xl transition-colors duration-500 hover:bg-gray-800/90 active:bg-gray-900 dark:active:bg-black dark:bg-gray-800 dark:hover:bg-black">
+            <a href={project.github} target="_blank" className="flex mb-10">
+              <span className="flex items-center px-3 py-2 text-sm transition-colors duration-500 bg-gray-500 gap-x-3 rounded-xl hover:bg-gray-800/90 active:bg-gray-900 dark:active:bg-black dark:bg-gray-800 dark:hover:bg-black">
                 <Github className="size-5" />
                 GitHub
               </span>
@@ -114,16 +139,37 @@ const ProjectDetails = () => {
                 />
               </div>
             )}
-            {/* <div className="max-w-[75rem] mx-auto mb-40 mt-40">VIDEO</div> */}
 
+            {project.videos &&
+              project.videos.length > 0 &&
+              project.videos.map((video, index) => (
+                <div className="max-w-[75rem] mb-40" key={index}>
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    controls
+                    className="w-full rounded-lg shadow-lg"
+                  >
+                    <source src={video} type="video/mp4" />
+                    Tu navegador no soporta el video.
+                  </video>
+                </div>
+              ))}
             {project.images && project.images.length > 0 && (
               <div className="max-w-[75rem] mx-auto flex flex-col gap-40">
                 {project.images.map((image, index) => (
                   <div
-                    className="bg-cardsBackgroundLightTheme p-4 border border-gray-800/10 rounded-xl dark:bg-cardsBackgroundDarkTheme dark:border-gray-800"
+                    className="p-4 border bg-cardsBackgroundLightTheme border-gray-800/10 rounded-xl dark:bg-cardsBackgroundDarkTheme dark:border-gray-800"
                     key={index}
                   >
-                    <img src={image} alt={`Imagen ${index + 1}`} />
+                    <a href={image} target="_blank" rel="noopener noreferrer">
+                      <img
+                        src={image}
+                        alt={`Imagen ${index + 1}`}
+                        className="cursor-pointer"
+                      />
+                    </a>
                   </div>
                 ))}
               </div>

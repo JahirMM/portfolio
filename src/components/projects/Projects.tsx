@@ -11,7 +11,16 @@ const Projects = () => {
     <div className="flex flex-col gap-y-16">
       {PROJECTS.map(
         (
-          { image, title, subtitle, description, link, tags, github, details },
+          {
+            image,
+            title,
+            subtitle,
+            description,
+            link,
+            tags,
+            githubLinks,
+            details,
+          },
           index
         ) => (
           <article
@@ -47,33 +56,44 @@ const Projects = () => {
                     </li>
                   ))}
                 </ul>
-                <div className="text-gray-800 text-sm text-pretty dark:text-gray-300">
+                <div className="text-sm text-gray-800 text-pretty dark:text-gray-300">
                   {description}
                 </div>
                 <footer className="flex flex-wrap items-end justify-start mt-4 gap-x-4 gap-y-2">
-                  {github && (
-                    <ProjectLink href={github} openInNewTab={true}>
-                      <Github className="size-6" />
-                      Code
-                    </ProjectLink>
-                  )}
+                  {githubLinks.length > 0 &&
+                    githubLinks.map((github, index) => (
+                      <ProjectLink
+                        href={github.link}
+                        openInNewTab={true}
+                        key={index}
+                      >
+                        <Github className="size-4" />
+                        {github.label}
+                      </ProjectLink>
+                    ))}
                   {link && (
                     <ProjectLink href={link} openInNewTab={true}>
-                      <Link className="size-6" />
+                      <Link className="size-4" />
                       Preview
                     </ProjectLink>
                   )}
                   {details && (
                     <>
                       {details.frontend && (
-                        <ProjectLink href={details.frontend} openInNewTab={false}>
-                          <FileDescription className="size-6" />
+                        <ProjectLink
+                          href={details.frontend}
+                          openInNewTab={false}
+                        >
+                          <FileDescription className="size-4" />
                           Frontend
                         </ProjectLink>
                       )}
                       {details.backend && (
-                        <ProjectLink href={details.backend} openInNewTab={false}>
-                          <FileDescription className="size-6" />
+                        <ProjectLink
+                          href={details.backend}
+                          openInNewTab={false}
+                        >
+                          <FileDescription className="size-4" />
                           Backend
                         </ProjectLink>
                       )}

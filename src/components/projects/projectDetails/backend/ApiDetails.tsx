@@ -21,20 +21,20 @@ const ApiDetails: React.FC<ApiDetailsProps> = ({ api }) => {
   }
 
   return (
-    <div id={generateId(api.title)} className="border-gray-300 mb-10 pb-4">
+    <div id={generateId(api.title)} className="pb-4 mb-10 border-gray-300">
       {api.title && (
-        <h3 className="text-gray-800 text-3xl mb-8 font-bold dark:text-gray-300">
+        <h3 className="mb-8 text-3xl font-bold text-gray-800 dark:text-gray-300">
           {api.title}
         </h3>
       )}
       {api.description && (
-        <p className="text-gray-800 text-sm text-pretty dark:text-gray-300">
+        <p className="text-sm text-gray-800 text-pretty dark:text-gray-300">
           {api.description}
         </p>
       )}
       {api.method && (
         <p className="mt-5 font-bold">
-          <span className="text-gray-600 mr-3 dark:text-gray-500">Method:</span>
+          <span className="mr-3 text-gray-600 dark:text-gray-500">Method:</span>
           <span
             className={`
               ${
@@ -46,6 +46,8 @@ const ApiDetails: React.FC<ApiDetailsProps> = ({ api }) => {
                   ? "text-blue-500"
                   : api.method === "DELETE"
                   ? "text-pink-500"
+                  : api.method === "PATCH"
+                  ? "text-purple-800"
                   : ""
               }
               `}
@@ -56,18 +58,18 @@ const ApiDetails: React.FC<ApiDetailsProps> = ({ api }) => {
       )}
 
       {api.request && (
-        <div className="mt-3 flex flex-col">
-          <span className="text-gray-600 font-bold mb-5 dark:text-gray-500">
+        <div className="flex flex-col mt-3">
+          <span className="mb-5 font-bold text-gray-600 dark:text-gray-500">
             Request:
           </span>
-          <pre className="bg-gray-900 text-white text-sm py-4 px-6 overflow-auto w-full">
+          <pre className="w-full px-6 py-4 overflow-auto text-sm text-white bg-gray-900">
             <code className="font-mono">{api.request}</code>
           </pre>
         </div>
       )}
       {api.body && (
         <div className="mt-5 mb-9">
-          <span className="text-gray-600 block font-bold mb-5 dark:text-gray-500">
+          <span className="block mb-5 font-bold text-gray-600 dark:text-gray-500">
             Body:
           </span>
           <CodeBlock code={api.body} />
@@ -75,11 +77,11 @@ const ApiDetails: React.FC<ApiDetailsProps> = ({ api }) => {
       )}
       {api.response.description !== "" || api.response.example !== "" ? (
         <div className="mt-5 mb-9">
-          <span className="text-gray-600 block font-bold mb-5 dark:text-gray-500">
+          <span className="block mb-5 font-bold text-gray-600 dark:text-gray-500">
             Response:
           </span>
           {api.response.description && (
-            <p className="text-gray-800 text-sm text-pretty mb-5 dark:text-gray-300">
+            <p className="mb-5 text-sm text-gray-800 text-pretty dark:text-gray-300">
               {api.response.description}
             </p>
           )}

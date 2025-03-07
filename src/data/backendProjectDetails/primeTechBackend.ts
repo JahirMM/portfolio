@@ -75,6 +75,26 @@ export const PRIME_TECH_BACKEND: PRIME_TECH_BACKEND_INTERFACE = {
             example: "",
           },
         },
+        {
+          title: "Cambiar correo",
+          description:
+            "Permite a un usuario autenticado cambiar su dirección de correo electrónico proporcionando su contraseña actual para verificación.",
+          method: "POST",
+          request: "http://localhost:8080/prime-tech/api/v1/change-email",
+          body: `
+            {
+              "email": "santos@gmail.com",
+              "password": "santosMi123"
+            }`,
+          response: {
+            description:
+              "Devuelve un mensaje confirmando la actualización del correo electrónico.",
+            example: `
+              {
+                "message": "Updated mail"
+              }`,
+          },
+        },
       ],
     },
     user: {
@@ -224,6 +244,44 @@ export const PRIME_TECH_BACKEND: PRIME_TECH_BACKEND_INTERFACE = {
         },
       ],
     },
+    category: {
+      title: "Category, API",
+      description: "",
+      apis: [
+        {
+          title: "Obtener cateogorias",
+          description:
+            "Recupera la lista de categorías de productos disponibles en la plataforma.",
+          method: "GET",
+          request: "http://localhost:8080/prime-tech/api/v1/categories",
+          body: "",
+          response: {
+            description:
+              "Devuelve un array de objetos, donde cada objeto representa una categoría con su ID y nombre.",
+            example: `
+            [
+                {
+                    "categoryId": "729efac0-20d8-41f9-abdd-d0ec2131215d",
+                    "categoryName": "cellular"
+                },
+                {
+                    "categoryId": "fea29c48-63be-48e3-a720-efa2a4f7401b",
+                    "categoryName": "tablet"
+                },
+                {
+                    "categoryId": "61c23b4d-3071-4f63-b5e6-8be4c3c11710",
+                    "categoryName": "laptop"
+                },
+                {
+                    "categoryId": "ec1b2fc4-682b-4ec3-b475-6e27c046da48",
+                    "categoryName": "other"
+                }
+            ]
+          `,
+          },
+        },
+      ],
+    },
     product: {
       title: "Product APIs",
       description:
@@ -279,6 +337,7 @@ export const PRIME_TECH_BACKEND: PRIME_TECH_BACKEND_INTERFACE = {
               {
                 "product": {
                   "productId": "6b933f6a-e3de-423d-a8ea-db8f44a8b440",
+                  "sellerId": "c36e4379-52e8-495d-9e74-20db2644dbff",
                   "name": "iPhone 15 Pro 256GB",
                   "description": "El último modelo de iPhone con 256GB de almacenamiento, cámara avanzada y pantalla OLED.",
                   "brand": "Apple",
@@ -302,102 +361,67 @@ export const PRIME_TECH_BACKEND: PRIME_TECH_BACKEND_INTERFACE = {
           body: "",
           response: {
             description: "",
-            example: `
-            {
-                "products": [
-                    {
-                        "productId": "6b933f6 a-e3de-423d-a8ea-db8f44a8b440",
-                        "sellerId": "c36e4379-52e8-495d-9e74-20db2644dbff",
-                        "name": "iPhone 15 Pro 256GB",
-                        "description": "El último modelo de iPhone con 256GB de almacenamiento, cámara avanzada y pantalla OLED.",
-                        "brand": "Apple",
-                        "stock": 80,
-                        "price": 949.950,
-                        "categoryName": "cellular",
-                        "deviceType": "mobile",
-                        "averageRaiting": 0.0,
-                        "createdAt": "2024-11-16T18:59:54.178189",
-                        "updatedAt": "2024-12-07T14:29:02.41456"
-                    },
-                    {
-                        "productId": "895ee562-5dc3-40f8-937b-65b660acc1ac",
-                        "sellerId": "b6c99381-6538-479e-9b9f-a539cc79764d",
-                        "name": "Samsung S24 ultra negro 24ram",
-                        "description": "descripcion 1",
-                        "brand": "Samsung",
-                        "stock": 6,
-                        "price": 350000.000,
-                        "categoryName": "other",
-                        "deviceType": "other",
-                        "averageRaiting": 0.0,
-                        "createdAt": "2024-11-07T20:37:52.84312",
-                        "updatedAt": "2024-12-07T17:13:35.956415"
-                    },
-                    {
-                        "productId": "5b7bbf5f-0bab-4437-99f8-1a9c18a4da74",
-                        "sellerId": "c36e4379-52e8-495d-9e74-20db2644dbff",
-                        "name": "HP Omen 4536436434 Core Ultra 234236 16GB",
-                        "description": "Laptop de alto rendimiento con procesador Core Ultra 7, 16GB de RAM y almacenamiento SSD de 1TB. Ideal para gaming y tareas intensivas.",
-                        "brand": "HP",
-                        "stock": 18,
-                        "price": 534.990,
-                        "categoryName": "laptop",
-                        "deviceType": "laptop",
-                        "averageRaiting": 0.0,
-                        "createdAt": "2024-11-18T12:33:00.742227",
-                        "updatedAt": "2024-12-09T14:16:09.870076"
-                    },
-                    {
-                        "productId": "f370790f-8fc6-4f69-827f-2d425f490c5a",
-                        "sellerId": "b6c99381-6538-479e-9b9f-a539cc79764d",
-                        "name": "Laptop omen15 negro",
-                        "description": "la mejor laptop de HP",
-                        "brand": "HP",
-                        "stock": 4,
-                        "price": 1150000.000,
-                        "categoryName": "laptop",
-                        "deviceType": "laptop",
-                        "averageRaiting": 0.0,
-                        "createdAt": "2024-11-09T16:53:42.343732",
-                        "updatedAt": "2024-12-09T15:01:21.426679"
-                    },
-                    {
-                        "productId": "d296874e-c6a2-47ea-a57c-a2344927ba49",
-                        "sellerId": "b6c99381-6538-479e-9b9f-a539cc79764d",
-                        "name": "iphone 15 pro",
-                        "description": "el mejor celular",
-                        "brand": "iphone",
-                        "stock": 10,
-                        "price": 1100000.000,
-                        "categoryName": "tablet",
-                        "deviceType": "mobile",
-                        "averageRaiting": 0.0,
-                        "createdAt": "2024-11-15T21:42:46.538905",
-                        "updatedAt": "2024-12-09T15:01:21.502689"
-                    },
-                    {
-                        "productId": "c0f11aa4-a0cb-47e0-9f00-6eb58c6e5cd1",
-                        "sellerId": "c36e4379-52e8-495d-9e74-20db2644dbff",
-                        "name": "test",
-                        "description": "test",
-                        "brand": "HP",
-                        "stock": 7,
-                        "price": 1249.940,
-                        "categoryName": "laptop",
-                        "deviceType": "laptop",
-                        "averageRaiting": 0.0,
-                        "createdAt": "2024-12-07T18:31:20.984993",
-                        "updatedAt": "2024-12-28T22:33:57.854643"
-                    }
-                ],
-                "page": {
-                    "size": 20,
-                    "totalElements": 6,
-                    "totalPages": 1,
-                    "number": 0
-                }
-            }
-            `,
+            example: `{
+                          "products": [
+                              {
+                                  "productId": "09cc2aed-439b-4b0c-8d41-5ef2f36ee9f3",
+                                  "sellerId": "2369517a-0c81-4db9-8e60-5f1893e103d9",
+                                  "image": "/productImage/b60e803d-f211-4629-8e2c-d0b9e8a55288.png",
+                                  "name": "Galaxy Tab S6L 2024 (10.4, 128GB, Gray)",
+                                  "description": "Esta tablet Samsung es la compañera ideal, con capacidad de sobra para cada una de tus actividades. El diseño delgado, compacto y portátil, con facilidad para sostener en una mano, lo convierte en una combinación perfecta de rendimiento y versatilidad. Transferir, sincronizar y acceder a tus dispositivos las veces que quieras ahora es posible. Sus conexiones wi-fi te permiten potenciar sus funciones al máximo.",
+                                  "brand": "Samsung",
+                                  "stock": 21,
+                                  "price": 429990.000,
+                                  "categoryName": "tablet",
+                                  "deviceType": "mobile",
+                                  "averageRating": 0.0,
+                                  "discountPercentage": 30.00,
+                                  "activeOffer": true,
+                                  "createdAt": "2025-03-05T20:13:51.104823",
+                                  "updatedAt": null
+                              },
+                              {
+                                  "productId": "0cbe0a95-914b-4976-9360-be9208b9630f",
+                                  "sellerId": "c36e4379-52e8-495d-9e74-20db2644dbff",
+                                  "image": "/productImage/bd8d5469-ffd5-4437-8023-6111ce13e26d.png",
+                                  "name": "Apple iPhone 15 Pro (128 GB) - Titanio Blanco",
+                                  "description": "Phone 15 Pro. Forjado en titanio y equipado con el revolucionario chip A17 Pro, un Botón de Acción personalizable y el sistema de cámaras Pro más versátil. FORJADO EN TITANIO — El iPhone 15 Pro tiene un diseño resistente y ligero, con titanio de calidad aeroespacial y parte posterior de vidrio mate texturizado. Frente de Ceramic Shield, más duro que el vidrio más duro de cualquier smartphone. Y resistencia a las salpicaduras, al agua y al polvo. PANTALLA AVANZADA — La pantalla Super Retina XDR de 6.1 pulgadas con ProMotion aumenta la frecuencia de actualización hasta 120 Hz cuando necesitas el máximo rendimiento gráfico.",
+                                  "brand": "apple",
+                                  "stock": 12,
+                                  "price": 969990.000,
+                                  "categoryName": "cellular",
+                                  "deviceType": "mobile",
+                                  "averageRating": 0.0,
+                                  "discountPercentage": 0,
+                                  "activeOffer": false,
+                                  "createdAt": "2025-03-04T17:06:19.684122",
+                                  "updatedAt": "2025-03-04T17:46:36.317249"
+                              },
+                              {
+                                  "productId": "251963a6-aaad-41f9-8b69-3980ee9f1e41",
+                                  "sellerId": "c36e4379-52e8-495d-9e74-20db2644dbff",
+                                  "image": "/productImage/261ff321-3e56-4259-86cc-40ae70c5e78e.png",
+                                  "name": "Apple iPhone 15 (256 GB) - Rosa",
+                                  "description": "El iPhone 15 viene con la Dynamic Island, cámara gran angular de 48 MP, entrada USB-C y un resistente vidrio con infusión de color en un diseño de aluminio. LA DYNAMIC ISLAND LLEGA AL IPHONE 15 — La Dynamic Island te muestra alertas y Actividades en Vivo para que no te pierdas nada mientras haces de todo. Puedes ver cuánto falta para que llegue el auto que pediste, saber si alguien te está llamando, consultar el estado de tu vuelo y mucho más. DISEÑO INNOVADOR — El iPhone 15 tiene un robusto vidrio con infusión de color en un diseño de aluminio",
+                                  "brand": "apple",
+                                  "stock": 31,
+                                  "price": 932094.000,
+                                  "categoryName": "cellular",
+                                  "deviceType": "mobile",
+                                  "averageRating": 0.0,
+                                  "discountPercentage": 30.00,
+                                  "activeOffer": true,
+                                  "createdAt": "2025-03-04T17:16:53.974475",
+                                  "updatedAt": "2025-03-04T17:44:38.111177"
+                              }
+                          ],
+                          "page": {
+                              "size": 3,
+                              "totalElements": 38,
+                              "totalPages": 13,
+                              "number": 0
+                          }
+                      }`,
           },
           filters: {
             filters: [
@@ -474,6 +498,15 @@ export const PRIME_TECH_BACKEND: PRIME_TECH_BACKEND_INTERFACE = {
                 required: "false",
                 request:
                   "http://localhost:8080/prime-tech/api/v1/products?minRating=3.4",
+              },
+              {
+                title: "Filtro por oferta",
+                parameterName: "onSale",
+                type: "Boolean",
+                description: "Permite filtrar productos en oferta",
+                required: "false",
+                request:
+                  "http://localhost:8080/prime-tech/api/v1/products?onSale=true",
               },
             ],
           },
@@ -1393,6 +1426,200 @@ export const PRIME_TECH_BACKEND: PRIME_TECH_BACKEND_INTERFACE = {
         },
       ],
     },
+    recentProducts: {
+      title: "Recent products, APIs",
+      description:
+        "APIs para gestionar los productos recientemente visitados por los usuarios. Cada vez que se visualiza un producto, este se añade y actualiza en la lista de productos visitados del usuario. Requiere autenticación.",
+      apis: [
+        {
+          title: "Obtener productos recientemente visitados",
+          description: "",
+          method: "GET",
+          request: "http://localhost:8080/prime-tech/api/v1/recent-product",
+          body: "",
+          response: {
+            description:
+              "Lista de productos recientemente visitados por el usuario autenticado.",
+            example: `
+              [
+                  {
+                      "productId": "aea1e0b3-b480-4fc9-b333-840205c60719",
+                      "name": "MacBook Air A3113 M3 8GB de Ram 512GB SSD gris espacial Apple",
+                      "brand": "apple",
+                      "price": 1489990.00,
+                      "averageRating": 0.0,
+                      "activeOffer": false,
+                      "discountPercentage": 0,
+                      "imageUrl": "/productImage/1544efe1-1cd2-4e44-bb25-eae1ede00c4a.png"
+                  },
+                  {
+                      "productId": "fa392cfa-0589-48c6-84c6-edfee9a533f8",
+                      "name": "Apple iPhone 15 Pro (128 GB) - Titanio Azu",
+                      "brand": "apple",
+                      "price": 969990.00,
+                      "averageRating": 0.0,
+                      "activeOffer": false,
+                      "discountPercentage": 0,
+                      "imageUrl": "/productImage/8df269c8-f5c0-4142-8135-59f528887d1f.png"
+                  },
+                  {
+                      "productId": "0cbe0a95-914b-4976-9360-be9208b9630f",
+                      "name": "Apple iPhone 15 Pro (128 GB) - Titanio Blanco",
+                      "brand": "apple",
+                      "price": 969990.00,
+                      "averageRating": 0.0,
+                      "activeOffer": false,
+                      "discountPercentage": 0,
+                      "imageUrl": "/productImage/bd8d5469-ffd5-4437-8023-6111ce13e26d.png"
+                  },
+                  {
+                      "productId": "6b933f6a-e3de-423d-a8ea-db8f44a8b440",
+                      "name": "Apple iPhone 15 Pro (256 GB) - Titanio Azul",
+                      "brand": "Apple",
+                      "price": 1249990.00,
+                      "averageRating": 4.0,
+                      "activeOffer": false,
+                      "discountPercentage": 17.00,
+                      "imageUrl": "/productImage/d9907bc5-d672-48af-9d7d-860a42f63eff.png"
+                  }
+              ]
+            `,
+          },
+        },
+        {
+          title: "Agregar producto",
+          description:
+            "Permite agregar un producto recientemente visitados. El usuario debe estar autenticado. Recibe el parámetro productId en la ruta /recent-product/{productId}",
+          method: "GET",
+          request:
+            "http://localhost:8080/prime-tech/api/v1/recent-product/aea1e0b3-b480-4fc9-b333-840205c60719",
+          body: "",
+          response: {
+            description: "Mensaje de confirmación",
+            example: `
+              {
+                  "message": "Recent product added correctly."
+              }
+            `,
+          },
+        },
+      ],
+    },
+    offer: {
+      title: "Offer, APIs",
+      description:
+        "APIs para la gestión de ofertas del producto. Permite a los vendedores crear, modificar y desactivar descuentos, mientras que los clientes pueden consultar las ofertas activas. Requiere autenticación y permisos según el rol del usuario.",
+      apis: [
+        {
+          title: "Agregar oferta",
+          description:
+            "Crea una nueva oferta de descuento para un producto. El usuario debe estar autenticado y tener el rol de vendedor. Recibe el parámetro productId en la ruta /offer/{productId}.",
+          method: "POST",
+          request:
+            "http://localhost:8080/prime-tech/api/v1/offers/251963a6-aaad-41f9-8b69-3980ee9f1e41",
+          body: `
+            {
+                "discountPercentage": 10.5,
+                "startDate": "2025-01-10T10:00:00",
+                "endDate": "2025-01-17T10:00:00"
+            }`,
+          response: {
+            description:
+              "Confirma la creación de la oferta y devuelve su información.",
+            example: `
+              {
+                  "message": "Offer successfully added",
+                  "offer": {
+                      "offerId": "35c32010-f46a-4b02-b79c-1e05e04bbdf2",
+                      "productId": "251963a6-aaad-41f9-8b69-3980ee9f1e41",
+                      "discountPercentage": 10.5,
+                      "startDate": "2025-01-10T10:00:00",
+                      "endDate": "2025-01-17T10:00:00",
+                      "active": true
+                  }
+              }
+            `,
+          },
+        },
+        {
+          title: "Obtener oferta de un producto",
+          description:
+            "Obtiene la oferta activa de un producto. El usuario debe estar autenticado. Recibe el parámetro productId en la ruta /offer/{productId}",
+          method: "GET",
+          request:
+            "http://localhost:8080/prime-tech/api/v1/offers/251963a6-aaad-41f9-8b69-3980ee9f1e41",
+          body: "",
+          response: {
+            description:
+              "Devuelve los detalles de la oferta activa de un producto.",
+            example: `
+              {
+                  "offer": {
+                      "offerId": "35c32010-f46a-4b02-b79c-1e05e04bbdf2",
+                      "productId": "251963a6-aaad-41f9-8b69-3980ee9f1e41",
+                      "discountPercentage": 10.50,
+                      "startDate": "2025-01-10T10:00:00",
+                      "endDate": "2025-01-17T10:00:00",
+                      "active": true
+                  }
+              }
+            `,
+          },
+        },
+        {
+          title: "Estatus de oferta del producto",
+          description:
+            "Verifica si un producto tiene una oferta activa. El usuario debe estar autenticado. Recibe el parámetro productId en la ruta /offer/status/{productId}",
+          method: "GET",
+          request:
+            "http://localhost:8080/prime-tech/api/v1/offers/251963a6-aaad-41f9-8b69-3980ee9f1e41/offer-status",
+          body: "",
+          response: {
+            description: "Indica si un producto tiene una oferta activa.",
+            example: `
+              {
+                  "hasProductOffer": true
+              }
+            `,
+          },
+        },
+        {
+          title: "Desactivar oferta",
+          description:
+            "Desactiva una oferta existente. El usuario debe estar autenticado y tener el rol de vendedor. Recibe el parámetro offerId en la ruta /offer/disable/{offerId}",
+          method: "PATCH",
+          request:
+            "http://localhost:8080/prime-tech/api/v1/offers/35c32010-f46a-4b02-b79c-1e05e04bbdf2/deactivate",
+          body: "",
+          response: {
+            description:
+              "Confirma que la oferta ha sido desactivada correctamente.",
+            example: `
+              {
+                  "message": "Offer successfully deactivated"
+              }
+            `,
+          },
+        },
+        {
+          title: "Activar oferta",
+          description:
+            "Activa una oferta previamente deshabilitada. El usuario debe estar autenticado y tener el rol de vendedor. Recibe el parámetro offerId en la ruta /offer/enable/{offerId}",
+          method: "PATCH",
+          request:
+            "http://localhost:8080/prime-tech/api/v1/offers/35c32010-f46a-4b02-b79c-1e05e04bbdf2/activate",
+          body: "",
+          response: {
+            description: "Confirma que la oferta ha sido activada nuevamente.",
+            example: `
+              {
+                  "message": "Offer successfully activated"
+              }
+            `,
+          },
+        },
+      ],
+    },
     favoriteProduct: {
       title: "Favorite Products APIs",
       description:
@@ -1775,8 +2002,7 @@ export const PRIME_TECH_BACKEND: PRIME_TECH_BACKEND_INTERFACE = {
     },
     review: {
       title: "Review APIs",
-      description:
-        "APIs relacionadas con la gestión de reviews",
+      description: "APIs relacionadas con la gestión de reviews",
       apis: [
         {
           title: "Agregar review",
@@ -1845,7 +2071,8 @@ export const PRIME_TECH_BACKEND: PRIME_TECH_BACKEND_INTERFACE = {
           }
           `,
           response: {
-            description: "Respuesta cuando se actualiza información de la review",
+            description:
+              "Respuesta cuando se actualiza información de la review",
             example: `
             {
                 "message": "Review successfully updated",
