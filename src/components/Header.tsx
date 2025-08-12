@@ -6,6 +6,7 @@ import { navItems } from "@/data/navItems";
 
 import Menu from "@/icons/Menu";
 import IconX from "@/icons/IconX";
+import LinkIcon from "@/icons/LinkIcon";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -104,6 +105,17 @@ const Header = () => {
               </a>
             </li>
           ))}
+          <li className="p-1 transition-all duration-500 border rounded-lg group bg-gray-200/50 border-black/20 hover:bg-white/30 dark:hover:bg-white/10 dark:border-white/10 dark:bg-white/5">
+            <a
+              className="flex items-center gap-2 text-sm text-gray-800 group-hover:text-secondaryColorLightTheme group-dark:hover:text-secondaryColorDarkTheme dark:text-gray-200/80"
+              aria-label="contacto"
+              href="mailto:jahirmachuca45@gmail.com"
+              onClick={toggleMenu}
+            >
+              <span>Contacto</span>
+              <LinkIcon className="text-black dark:text-white size-3 group-hover:text-secondaryColorLightTheme group-dark:hover:text-secondaryColorDarkTheme" />
+            </a>
+          </li>
           <li>
             <ThemeSwitcher />
           </li>

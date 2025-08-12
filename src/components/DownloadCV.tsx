@@ -3,9 +3,9 @@ import Download from "@/icons/Download";
 function DownloadCV() {
   return (
     <a
-      href="/CV/CV-jahir-jafet-machuca-martinez.pdf"
-      download="CV-Jahir-Jafet-Machuca-Martinez.pdf"
-      className="text-sm flex items-center gap-3 bg-gray-200/50 text-gray-800 rounded-full border border-black/20 py-[2px] px-3 dark:border-white/10 dark:bg-white/5 dark:text-white"
+      href="/CV/cv-jahir-jafet-machuca-martinez.pdf"
+      download="cv-Jahir-jafet-Machuca-Martinez.pdf"
+      className="flex items-center gap-3 px-3 py-2 text-sm transition-all duration-500 border rounded-lg bg-gray-200/50 border-black/20 hover:bg-white/30 dark:hover:bg-white/10 dark:border-white/10 dark:bg-white/5 hover:scale-[1.1]"
     >
       <Download className="text-black size-3 dark:text-white" />
       Currículum
