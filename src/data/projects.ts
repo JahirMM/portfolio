@@ -13,6 +13,8 @@ import React from "@/icons/React";
 import Html from "@/icons/Html";
 import Java from "@/icons/Java";
 import JWT from "@/icons/JWT";
+import TanStack from "@/icons/TanStack";
+import Supabase from "@/icons/Supabase";
 
 const TECHNOLOGIES = {
   NEXT: {
@@ -90,9 +92,45 @@ const TECHNOLOGIES = {
     className: "bg-[#003159] text-white",
     icon: PostgreSQL,
   },
+  TANSTACK: {
+    name: "TanStack",
+    className: "bg-[#74361B] text-white",
+    icon: TanStack,
+  },
+    SUPABASE: {
+    name: "Supabase",
+    className: "bg-[#07381D] text-white",
+    icon: Supabase,
+  },
 };
 
 export const PROJECTS = [
+  {
+    title: "TaskPlatform",
+    subtitle: "Organiza tus proyectos de forma colaborativa",
+    description:
+      "TaskPlatform es una plataforma web para gestionar proyectos de forma colaborativa y en tiempo real. Permite iniciar sesión con GitHub, crear proyectos con columnas y tareas reorganizables, asignar prioridades, añadir descripciones y gestionar comentarios. Los dueños pueden invitar a otros usuarios y trabajar con notificaciones instantáneas. Desarrollada con Next.js, React, TypeScript, TailwindCSS, TanStack Query y Supabase para almacenamiento, sincronización y autenticación.",
+    link: "https://taskplatform-six.vercel.app/",
+    githubLinks: [
+      {
+        link: "https://github.com/JahirMM/TaskPlatform",
+        label: "Code",
+      },
+    ],
+    details: {
+      frontend: "",
+      backend: "",
+    },
+    image: "/projects/taskPlatform/taskPlatform-main.webp",
+    tags: [
+      TECHNOLOGIES.NEXT,
+      TECHNOLOGIES.REACT,
+      TECHNOLOGIES.TYPESCRIP,
+      TECHNOLOGIES.TAILWIND,
+      TECHNOLOGIES.TANSTACK,
+      TECHNOLOGIES.SUPABASE
+    ],
+  },
   {
     title: "PrimeTech",
     subtitle: "e-commerce",
@@ -116,8 +154,10 @@ export const PROJECTS = [
     image: "/projects/primeTech/primeTech-main.webp",
     tags: [
       TECHNOLOGIES.NEXT,
+      TECHNOLOGIES.REACT,
       TECHNOLOGIES.TYPESCRIP,
       TECHNOLOGIES.TAILWIND,
+      TECHNOLOGIES.TANSTACK,
       TECHNOLOGIES.JAVA,
       TECHNOLOGIES.SPRINGBOOT,
       TECHNOLOGIES.JWT,
@@ -143,8 +183,10 @@ export const PROJECTS = [
     image: "/projects/writeNote/writeNote-main.webp",
     tags: [
       TECHNOLOGIES.NEXT,
+      TECHNOLOGIES.REACT,
       TECHNOLOGIES.TYPESCRIP,
       TECHNOLOGIES.TAILWIND,
+      TECHNOLOGIES.TANSTACK,
       TECHNOLOGIES.NODEJS,
       TECHNOLOGIES.MONGODB,
       TECHNOLOGIES.EXPRESSJS,

@@ -3,12 +3,10 @@ import Experience from "@/components/Experience";
 import Projects from "@/components/projects/Projects";
 import DownloadCV from "@/components/DownloadCV";
 import AboutMe from "@/components/AboutMe";
-import Skills from "@/components/Skills";
 import Hero from "@/components/Hero";
 
 import BriefCase from "@/icons/BriefCase";
 import Code from "@/icons/Code";
-import Gears from "@/icons/Gears";
 
 function App() {
   return (
@@ -19,8 +17,8 @@ function App() {
           <Hero />
         </SectionContainer>
         <SectionContainer customClass="mb-20" id="experiencia">
-          <div className="mb-20 flex flex-col items-start gap-5 sm:flex-row sm:items-center">
-            <h2 className="text-gray-800 text-4xl font-bold flex items-center gap-x-4 dark:text-white">
+          <div className="flex flex-col items-start gap-5 mb-20 sm:flex-row sm:items-center">
+            <h2 className="flex items-center text-4xl font-bold text-gray-800 gap-x-4 dark:text-white">
               <BriefCase className="size-7" />
               Experiencia
             </h2>
@@ -28,22 +26,15 @@ function App() {
           </div>
           <Experience />
         </SectionContainer>
-        <SectionContainer customClass="mb-20" id="skills">
-          <h2 className="text-gray-800 text-4xl font-bold mb-20 flex items-center gap-x-4 dark:text-white">
-            <Gears className="size-7" />
-            Skills
-          </h2>
-          <Skills />
-        </SectionContainer>
         <SectionContainer customClass="mb-20" id="proyectos">
-          <h2 className="text-gray-800 text-4xl font-bold mb-20 flex items-center gap-x-4 dark:text-white">
+          <h2 className="flex items-center mb-20 text-4xl font-bold text-gray-800 gap-x-4 dark:text-white">
             <Code className="size-8" />
             Proyectos
           </h2>
           <Projects />
         </SectionContainer>
         <SectionContainer id="sobre-mi">
-          <h2 className="text-gray-800 text-4xl font-bold mb-20 flex items-center gap-x-4 dark:text-white">
+          <h2 className="flex items-center mb-20 text-4xl font-bold text-gray-800 gap-x-4 dark:text-white">
             <Code className="size-8" />
             Sobre mí
           </h2>

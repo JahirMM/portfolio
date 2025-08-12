@@ -5,11 +5,6 @@ export const navItems = [
     url: "/#experiencia",
   },
   {
-    title: "Skills",
-    label: "skills",
-    url: "/#skills",
-  },
-  {
     title: "Proyectos",
     label: "proyectos",
     url: "/#proyectos",
