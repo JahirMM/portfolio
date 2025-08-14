@@ -109,7 +109,7 @@ const Header = () => {
             <a
               className="flex items-center gap-2 text-sm text-gray-800 group-hover:text-secondaryColorLightTheme group-dark:hover:text-secondaryColorDarkTheme dark:text-gray-200/80"
               aria-label="contacto"
-              href="mailto:jahirmachuca45@gmail.com"
+              href="mailto:j.machuca912@gmail.com"
               onClick={toggleMenu}
             >
               <span>Contacto</span>
