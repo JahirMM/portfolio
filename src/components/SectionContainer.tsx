@@ -12,7 +12,7 @@ const SectionContainer = ({
   return (
     <section
       id={id}
-      className={`${customClass} p-10 scroll-m-20 w-full mx-auto container md:max-w-6xl`}
+      className={`${customClass} scroll-m-20 w-full px-8`}
     >
       {children}
     </section>

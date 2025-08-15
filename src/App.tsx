@@ -1,6 +1,6 @@
 import SectionContainer from "@/components/SectionContainer";
-import Experience from "@/components/Experience";
 import Projects from "@/components/projects/Projects";
+import Experience from "@/components/Experience";
 import DownloadCV from "@/components/DownloadCV";
 import AboutMe from "@/components/AboutMe";
 import Hero from "@/components/Hero";
@@ -11,9 +11,8 @@ import Code from "@/icons/Code";
 function App() {
   return (
     <>
-      <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
-      <div className="relative z-40">
-        <SectionContainer customClass="py-20 md:py-36" id="top">
+      <div className="">
+        <SectionContainer customClass="pt-8 h-screen" id="top">
           <Hero />
         </SectionContainer>
         <SectionContainer customClass="mb-20" id="experiencia">
@@ -22,7 +21,7 @@ function App() {
               <BriefCase className="size-7" />
               Experiencia
             </h2>
-           <DownloadCV/>
+            <DownloadCV />
           </div>
           <Experience />
         </SectionContainer>
