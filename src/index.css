@@ -176,3 +176,26 @@ body {
     opacity: 1;
   }
 }
+
+/* -------------- */
+/* ------------------- */
+/* ---------------------- */
+
+@media (min-width: 416px) and (max-width: 612px) {
+  .text-response {
+    font-size: 72px;
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+}

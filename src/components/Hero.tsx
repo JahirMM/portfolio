@@ -26,7 +26,7 @@ const Hero = () => {
   return (
     <>
       {/* BOTÓN DISPONIBLE */}
-      <div className="flex justify-center p-0 m-0 mb-3 cursor-pointer md:justify-start">
+      <div className="relative z-[998] flex justify-start p-0 m-0 mb-5 cursor-pointer">
         <a
           href="mailto:j.machuca912@gmail.com"
           target="_blank"
@@ -41,11 +41,13 @@ const Hero = () => {
 
       {/* TÍTULO PRINCIPAL */}
       <div className="mb-10">
-        <h1 className="font-black leading-none tracking-tight text-center text-8xl md:text-start">
-          <span className="text-gray-900 sm:text-9xl">HOLA, SOY</span>
+        <h1 className="font-black leading-none tracking-tight text-center md:text-start">
+          <span className="text-5xl text-gray-900 sm:text-8xl md:text-9xl text-response">
+            HOLA, SOY
+          </span>
         </h1>
         <h2
-          className="font-black leading-none tracking-tight text-center text-transparent stroke-2 text-8xl md:text-9xl md:text-start"
+          className="mt-3 text-5xl font-black leading-none tracking-tight text-center text-transparent stroke-2 sm:mt-0 sm:text-8xl md:text-9xl md:text-start text-response"
           style={{ WebkitTextStroke: "2px #808080" }}
         >
           JAHIR MACHUCA
@@ -54,7 +56,7 @@ const Hero = () => {
 
       {/* IMAGEN Y PEQUEÑA DESCRIPCIÓN */}
       <div className="grid items-center gap-16 md:grid-cols-2">
-        <div className="mx-auto w-80 h-80">
+        <div className="w-4/5 mx-auto sm:w-80 sm:h-80">
           <img
             src="/public/jahir.webp"
             alt="Jahir Machuca"
