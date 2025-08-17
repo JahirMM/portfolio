@@ -13,7 +13,7 @@ const ProjectLink = ({
     <a
       target={openInNewTab ? "_blank" : ""}
       role="link"
-      className="flex items-center justify-center gap-4 py-4 text-xs text-black transition-colors duration-300 hover:bg-secondaryColorLightTheme"
+      className="flex items-center justify-center gap-4 py-4 text-xs text-black transition-colors duration-300 hover:bg-secondaryColorLightTheme hover:font-bold dark:text-gray-300 dark:hover:text-black"
       href={href}
     >
       {children}

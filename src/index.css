@@ -126,18 +126,24 @@ body {
 /* -------------- */
 
 .socialLink {
-  animation: socialLinkAnimation 0.5s ease forwards;
+  animation: socialLinkAppear 0.5s ease forwards;
   transition-property: scale;
   transition-duration: 0.3s;
   transition-timing-function: ease-in;
 }
 
-@keyframes socialLinkAnimation {
-  from {
-    transform: translateX(-500px);
+@keyframes socialLinkAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
   }
-  to {
-    transform: translateX(0);
+  50% {
+    opacity: 1;
+    transform: translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -146,7 +152,7 @@ body {
 }
 
 .contact {
-  animation: socialLinkAnimation 1s ease forwards;
+  animation: socialLinkAppear 1s ease forwards;
 }
 
 /* --------------- */
@@ -198,4 +204,30 @@ body {
 
 .animate-scroll {
   animation: scroll 20s linear infinite;
+}
+
+.headline {
+  animation: glowAppear 1s ease-out forwards;
+}
+
+@keyframes glowAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

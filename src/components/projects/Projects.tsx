@@ -14,10 +14,10 @@ const Projects = () => {
       {PROJECTS.map((project, index) => (
         <article
           key={index}
-          className="grid grid-cols-1 border border-gray-400 rounded-md group lg:w-[500px]"
+          className="grid grid-cols-1 border border-gray-400 rounded-md group lg:w-[500px] dark:border-gray-800"
         >
           {/* IMAGEN */}
-          <div className="p-3 overflow-hidden border-b border-gray-400">
+          <div className="p-3 overflow-hidden border-b border-gray-400 dark:border-gray-800">
             <div className="inline-block w-full h-full overflow-hidden">
               <img
                 src={project.image}
@@ -30,12 +30,12 @@ const Projects = () => {
           {/* DESCRIPCIÓN + BOTONES */}
           <div className="grid grid-cols-1 md:grid-cols-2">
             {/* DESCRIPTION */}
-            <div className="flex flex-col justify-between border-b border-gray-400 sm:border-b-0 sm:border-r">
+            <div className="flex flex-col justify-between border-b border-gray-400 sm:border-b-0 sm:border-r dark:border-gray-800">
               <div className="p-3 mb-4 text-center text-black md:text-start">
                 <h3 className="mb-3 text-xl font-bold text-secondaryColorLightTheme">
                   {project.title}
                 </h3>
-                <p className="text-xs">{project.description}</p>
+                <p className="text-xs dark:text-gray-300">{project.description}</p>
               </div>
 
               {/* TECNOLOGÍAS */}
@@ -54,7 +54,7 @@ const Projects = () => {
               </ul>
             </div>
 
-            <div className="grid grid-cols-1 divide-y divide-gray-400">
+            <div className="grid grid-cols-1 divide-y divide-gray-400 dark:divide-gray-800">
               {project.githubLinks.length > 0 &&
                 project.githubLinks.map((github, index) => (
                   <ProjectLink

@@ -4,9 +4,19 @@ import { navItems } from "@/data/navItems";
 
 import IconX from "@/icons/IconX";
 import Menu from "@/icons/Menu";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 function Header() {
   const [showMenu, setShowMenu] = useState(false);
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreen = () => setIsMobile(window.innerWidth < 768);
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
 
   useEffect(() => {
     if (showMenu && window.innerWidth < 768) {
@@ -30,18 +40,68 @@ function Header() {
         z-[998] 
         transition-transform duration-500 ease-in-out 
         bg-primaryColorLightTheme
-        md:translate-y-0 md:fixed md:w-auto md:h-auto md:pt-9 md:right-0 md:px-0 md:pr-8`}
+        md:translate-y-0 md:fixed md:w-auto md:h-auto md:pt-9 md:right-0 md:px-0 md:pr-8
+        dark:bg-primaryColorDarkTheme`}
       >
-        <nav className="flex items-center justify-center w-full h-full border-2 border-gray-300 rounded-lg md:border-0 md:justify-end">
+        <nav className="flex items-center justify-center w-full h-full border-2 border-gray-300 rounded-lg md:border-0 md:justify-end dark:border-gray-700">
           <ul className="flex flex-col items-center gap-10 text-2xl font-semibold text-center text-gray-900 md:flex-row md:text-sm">
             {navItems.map((link, index) => (
-              <li key={index}>
-                <a aria-label={link.label} href={link.url} onClick={toggleMenu} className="hover:text-secondaryColorLightTheme">
+              <li
+                key={index}
+                style={
+                  isMobile && showMenu
+                    ? {
+                        animationName: "fadeInUp",
+                        animationDuration: "0.5s",
+                        animationTimingFunction: "ease-out",
+                        animationFillMode: "forwards",
+                        animationDelay: `${index * 0.4}s`,
+                        opacity: 0,
+                      }
+                    : {}
+                }
+              >
+                <a
+                  aria-label={link.label}
+                  href={link.url}
+                  onClick={toggleMenu}
+                  className="hover:text-secondaryColorLightTheme dark:text-white dark:hover:text-secondaryColorLightTheme"
+                >
                   {link.title}
                 </a>
               </li>
             ))}
-            <li>
+
+            <li
+              style={
+                isMobile && showMenu
+                  ? {
+                      animationName: "fadeInUp",
+                      animationDuration: "0.5s",
+                      animationTimingFunction: "ease-out",
+                      animationFillMode: "forwards",
+                      animationDelay: `${navItems.length * 0.4}s`,
+                      opacity: 0,
+                    }
+                  : {}
+              }
+            >
+              <ThemeSwitcher />
+            </li>
+            <li
+              style={
+                isMobile && showMenu
+                  ? {
+                      animationName: "fadeInUp",
+                      animationDuration: "0.5s",
+                      animationTimingFunction: "ease-out",
+                      animationFillMode: "forwards",
+                      animationDelay: `${(navItems.length + 1) * 0.4}s`,
+                      opacity: 0,
+                    }
+                  : {}
+              }
+            >
               <a
                 href="mailto:j.machuca912@gmail.com"
                 target="_blank"
@@ -49,7 +109,7 @@ function Header() {
                 aria-label="Enviar un correo a Jahir Machuca"
                 className="inline-block px-5 py-2 text-sm font-semibold text-gray-900 transition-transform duration-500 rounded-xl bg-secondaryColorLightTheme hover:scale-110"
               >
-                Contactame
+                Contáctame
               </a>
             </li>
           </ul>
@@ -59,20 +119,18 @@ function Header() {
       <div className="fixed flex gap-10 top-8 right-10 z-[999] md:hidden">
         {showMenu ? (
           <span className="p-0.5 rounded-md bg-primaryColorLightTheme">
-          <IconX
-            className="text-black cursor-pointer size-8"
-            onClick={() => setShowMenu((showMenu) => !showMenu)}
-          />
+            <IconX
+              className="text-black cursor-pointer size-8"
+              onClick={() => setShowMenu((showMenu) => !showMenu)}
+            />
           </span>
         ) : (
           <span className="p-0.5 rounded-md bg-primaryColorLightTheme">
-
-          <Menu
-            className="text-black cursor-pointer size-8"
-            onClick={() => setShowMenu((showMenu) => !showMenu)}
-          />
+            <Menu
+              className="text-black cursor-pointer size-8"
+              onClick={() => setShowMenu((showMenu) => !showMenu)}
+            />
           </span>
-
         )}
       </div>
     </>
