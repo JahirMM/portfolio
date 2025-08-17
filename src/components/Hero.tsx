@@ -26,7 +26,7 @@ const Hero = () => {
   return (
     <>
       {/* BOTÓN DISPONIBLE */}
-      <div className="relative z-[998] flex justify-start p-0 m-0 mb-5 cursor-pointer">
+      <div className="relative z-[998] inline-flex justify-start p-0 m-0 mb-5 cursor-pointer">
         <a
           href="mailto:j.machuca912@gmail.com"
           target="_blank"

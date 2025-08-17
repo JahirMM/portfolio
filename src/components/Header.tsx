@@ -36,7 +36,7 @@ function Header() {
           <ul className="flex flex-col items-center gap-10 text-2xl font-semibold text-center text-gray-900 md:flex-row md:text-sm">
             {navItems.map((link, index) => (
               <li key={index}>
-                <a aria-label={link.label} href={link.url} onClick={toggleMenu}>
+                <a aria-label={link.label} href={link.url} onClick={toggleMenu} className="hover:text-secondaryColorLightTheme">
                   {link.title}
                 </a>
               </li>
@@ -47,7 +47,7 @@ function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Enviar un correo a Jahir Machuca"
-                className="hidden px-5 py-2 text-sm font-semibold text-gray-900 rounded-xl bg-secondaryColorLightTheme md:inline-block"
+                className="inline-block px-5 py-2 text-sm font-semibold text-gray-900 transition-transform duration-500 rounded-xl bg-secondaryColorLightTheme hover:scale-110"
               >
                 Contactame
               </a>
@@ -57,15 +57,6 @@ function Header() {
       </header>
 
       <div className="fixed flex gap-10 top-8 right-10 z-[999] md:hidden">
-        <a
-          href="mailto:j.machuca912@gmail.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Enviar un correo a Jahir Machuca"
-          className="flex items-center justify-center px-5 py-2 text-sm font-semibold text-gray-900 rounded-xl bg-secondaryColorLightTheme"
-        >
-          Contactame
-        </a>
         {showMenu ? (
           <span className="p-0.5 rounded-md bg-primaryColorLightTheme">
           <IconX
