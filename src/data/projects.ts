@@ -2,6 +2,8 @@ import TypeScript from "@/icons/TypeScript";
 import SpringBoot from "@/icons/SpringBoot";
 import PostgreSQL from "@/icons/PostgreSQL";
 import ExpressJS from "@/icons/ExpressJS";
+import TanStack from "@/icons/TanStack";
+import Supabase from "@/icons/Supabase";
 import Tailwind from "@/icons/Tailwind";
 import CSSIcon from "@/icons/CSSIcon";
 import MongoDB from "@/icons/MongoDB";
@@ -13,8 +15,6 @@ import React from "@/icons/React";
 import Html from "@/icons/Html";
 import Java from "@/icons/Java";
 import JWT from "@/icons/JWT";
-import TanStack from "@/icons/TanStack";
-import Supabase from "@/icons/Supabase";
 
 const TECHNOLOGIES = {
   NEXT: {
@@ -44,7 +44,7 @@ const TECHNOLOGIES = {
   },
   EXPRESSJS: {
     name: "Express.js",
-    className: "bg-[#334155] text-white",
+    className: "bg-black text-black text-white",
     icon: ExpressJS,
   },
   VITEJS: {
@@ -109,7 +109,7 @@ export const PROJECTS = [
     title: "TaskPlatform",
     subtitle: "Organiza tus proyectos de forma colaborativa",
     description:
-      "TaskPlatform es una plataforma web para gestionar proyectos de forma colaborativa y en tiempo real. Permite iniciar sesión con GitHub, crear proyectos con columnas y tareas reorganizables, asignar prioridades, añadir descripciones y gestionar comentarios. Los dueños pueden invitar a otros usuarios y trabajar con notificaciones instantáneas. Desarrollada con Next.js, React, TypeScript, TailwindCSS, TanStack Query y Supabase para almacenamiento, sincronización y autenticación.",
+      "TaskPlatform es una plataforma web para gestionar proyectos de forma colaborativa y en tiempo real. Permite iniciar sesión con GitHub, crear proyectos con columnas y tareas reorganizables, asignar prioridades, añadir descripciones y gestionar comentarios. Los dueños pueden invitar a otros usuarios y trabajar con notificaciones instantáneas.",
     link: "https://taskplatform-six.vercel.app/",
     githubLinks: [
       {
@@ -135,7 +135,7 @@ export const PROJECTS = [
     title: "PrimeTech",
     subtitle: "e-commerce",
     description:
-      "E-commerce para la compra y venta de productos tecnológicos como laptops, celulares y tablets. Permite explorar un catálogo con distintos filtros, gestionar favoritos y realizar compras. Además, los usuarios pueden registrarse y convertirse en vendedores para publicar y administrar sus productos. El frontend fue desarrollado con Next.js, React y TypeScript, utilizando TailwindCSS para el diseño y TanStack Query para la gestión de datos. El backend, desarrollador con Java con Spring Boot, integra Spring Security y JWT para la autenticación. La base de datos utilizada es PostgreSQL.",
+      "E-commerce para la compra y venta de productos tecnológicos como laptops, celulares y tablets. Permite explorar un catálogo con distintos filtros, gestionar favoritos y realizar compras. Además, los usuarios pueden registrarse y convertirse en vendedores para publicar y administrar sus productos.",
     link: "",
     githubLinks: [
       {
@@ -168,7 +168,7 @@ export const PROJECTS = [
     title: "WriteNote ",
     subtitle: "Tu espacio personal para notas",
     description:
-      "Aplicación web diseñada para mejorar la gestión personal de notas. Los usuarios pueden crear cuentas, iniciar sesión y gestionar sus notas de manera flexible, con la opción de marcarlas como favoritas para acceder rápidamente a las más importantes. Creado desde cero con Next.js, React (TypeScript) y Tailwind CSS para el frontend, y Node.js con TypeScript y Express para el backend.",
+      "Aplicación web diseñada para mejorar la gestión personal de notas. Los usuarios pueden crear cuentas, iniciar sesión y gestionar sus notas de manera flexible, con la opción de marcarlas como favoritas para acceder rápidamente a las más importantes.",
     link: "",
     githubLinks: [
       {

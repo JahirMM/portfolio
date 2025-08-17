@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 const ProjectLink = ({
   href,
   children,
-  openInNewTab
+  openInNewTab,
 }: {
   href: string;
   children: ReactNode;
@@ -13,7 +13,7 @@ const ProjectLink = ({
     <a
       target={openInNewTab ? "_blank" : ""}
       role="link"
-      className="flex items-center px-3 py-2 text-xs transition-colors duration-500 bg-gray-500 gap-x-3 rounded-xl hover:bg-gray-800/90 active:bg-gray-900 dark:active:bg-black dark:bg-gray-800 dark:hover:bg-black"
+      className="flex items-center justify-center gap-4 py-4 text-xs text-black transition-colors duration-300 hover:bg-secondaryColorLightTheme"
       href={href}
     >
       {children}
