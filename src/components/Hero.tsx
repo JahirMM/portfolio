@@ -9,7 +9,7 @@ import SocialLink from "@/components/SocialLink";
 
 const Hero = () => {
   const [copied, setCopied] = useState(false);
-  const textToCopy = "jahirmachuca45@gmail.com";
+  const textToCopy = "j.machuca912@gmail.com";
 
   const handleCopy = async () => {
     try {
@@ -33,7 +33,7 @@ const Hero = () => {
           <span className="font-bold text-secondaryColorLightTheme">
             Ingeniero en Computación e Informática
           </span>{" "}
-          que convierte ideas en código (sin café). Me gusta el{" "}
+          que convierte ideas en código. Me gusta el{" "}
           <span className="font-bold text-secondaryColorLightTheme">
             desarrollo web
           </span>{" "}
@@ -60,7 +60,7 @@ const Hero = () => {
           </SocialLink>
           <div className="flex items-center justify-center px-4 py-2 transition border rounded-full bg-gray-200/50 border-black/20 gap-x-4 dark:border-white/10 dark:bg-white/5 contact">
             <a
-              href="mailto:jahirmachuca45@gmail.com"
+              href="mailto:j.machuca912@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Enviar un correo a Jahir Machuca"
@@ -68,13 +68,13 @@ const Hero = () => {
               <Mail className="size-5" />
             </a>
             <a
-              href="mailto:jahirmachuca45@gmail.com"
+              href="mailto:j.machuca912@gmail.com"
               className="hover:underline"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Enviar un correo a Jahir Machuca"
             >
-              jahirmachuca45@gmail.com
+              j.machuca912@gmail.com
             </a>
             <span className="relative">
               <Copy

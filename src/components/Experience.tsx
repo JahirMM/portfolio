@@ -3,15 +3,29 @@ import { useState } from "react";
 const Experience = () => {
   const EXPERIENCE = [
     {
+      startDate: "ago. 2025",
+      endDate: "nov. 2025",
+      title: "Desarrollo Full Stack",
+      company: "AQC Propiedades",
+      description: [
+        "Desarrollé soluciones full stack en distintos proyectos internos de la empresa.",
+        "Implementé el frontend utilizando Next.js, TypeScript y TailwindCSS, aplicando principios de arquitectura modular, componentización e internacionalización (i18n).",
+        " Desarrollé del backend con Node.js, Express y TypeScript, empleando Supabase (PostgreSQL) como base de datos principal y servicios de autenticación y almacenamiento.",
+        "Integré herramientas empresariales mediante AppSheet para automatizar procesos internos y mejorar la gestión operativa.",
+        "Colaboración con el diseño y Prototipado de Software (Interfaces).",
+        "Colaboré en la automatización de flujos mediante n8n."
+      ],
+    },
+    {
       startDate: "ene. 2024",
       endDate: "mar. 2024",
       title: "Desarrollo Frontend - Practica Profesional",
       company: "Apiux Tecnología",
       description: [
-        "Desarrollé el frontend de un sistema en Angular para la gestión de documentos y carpetas en Alfresco.",
-        "Implementé funcionalidades claves, como inicio de sesión, navegación entre nodos y visualización/descarga de archivos.",
-        "Utilicé Tailwind CSS para diseñar una interfaz intuitiva, mejorando la experiencia del usuario.",
-        "Configuré máquinas virtuales con Ubuntu para la instalación y gestión de Alfresco y PostgreSQL.",
+        "Desarrollé el frontend de un sistema en Angular para la gestión de documentos y carpetas dentro de la plataforma Alfresco.",
+        "Implementé funcionalidades esenciales como autenticación de usuarios, navegación jerárquica entre nodos, y visualización y descarga de archivos mediante integración con la API de Alfresco",
+        "Diseñé una interfaz moderna y responsiva utilizando Tailwind CSS, optimizando la experiencia del usuario y la usabilidad del sistema.",
+        "Configuré máquinas virtuales en Ubuntu para la instalación y gestión de Alfresco yPostgreSQL.",
       ],
     },
     {
@@ -59,15 +73,17 @@ const Experience = () => {
         {EXPERIENCE.filter((item) => item.company === companySelected).map(
           (experience, index) => (
             <div key={index}>
-              <h3 className="text-secondaryColorLightTheme text-2xl text-pretty font-bold dark:font-normal">
+              <h3 className="text-2xl font-bold text-secondaryColorLightTheme text-pretty dark:font-normal">
                 {experience.title}
               </h3>
               <time className="p-0 m-0 text-sm text-gray-400 dark:text-white/80">
                 {experience.startDate} - {experience.endDate}
               </time>
-              <ul className="mt-5 text-gray-800 space-y-4 dark:text-gray-300 list-disc pl-5">
+              <ul className="pl-5 mt-5 space-y-4 text-gray-800 list-disc dark:text-gray-300">
                 {experience.description.map((point, idx) => (
-                  <li key={idx} className="text-sm">{point}</li>
+                  <li key={idx} className="text-sm">
+                    {point}
+                  </li>
                 ))}
               </ul>
             </div>
