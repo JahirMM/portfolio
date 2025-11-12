@@ -16,6 +16,7 @@ import JWT from "@/icons/JWT";
 import TanStack from "@/icons/TanStack";
 import Supabase from "@/icons/Supabase";
 import { Shadcnui } from "@/icons/Shadcn";
+import I18next from "@/icons/I18next";
 
 const TECHNOLOGIES = {
   NEXT: {
@@ -108,6 +109,11 @@ const TECHNOLOGIES = {
     className: "bg-[#1E1E2E] text-white",
     icon: Shadcnui,
   },
+  I18NEXT: {
+    name: "i18next",
+    className: "bg-[#15442F] text-white",
+    icon: I18next,
+  }
 };
 
 export const PROJECTS = [
@@ -129,6 +135,7 @@ export const PROJECTS = [
       TECHNOLOGIES.TYPESCRIP,
       TECHNOLOGIES.TAILWIND,
       TECHNOLOGIES.SHADCN,
+      TECHNOLOGIES.I18NEXT,
     ],
   },
   {
