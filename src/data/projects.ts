@@ -15,6 +15,7 @@ import Java from "@/icons/Java";
 import JWT from "@/icons/JWT";
 import TanStack from "@/icons/TanStack";
 import Supabase from "@/icons/Supabase";
+import { Shadcnui } from "@/icons/Shadcn";
 
 const TECHNOLOGIES = {
   NEXT: {
@@ -97,14 +98,39 @@ const TECHNOLOGIES = {
     className: "bg-[#74361B] text-white",
     icon: TanStack,
   },
-    SUPABASE: {
+  SUPABASE: {
     name: "Supabase",
     className: "bg-[#07381D] text-white",
     icon: Supabase,
   },
+  SHADCN: {
+    name: "shadcn/ui",
+    className: "bg-[#1E1E2E] text-white",
+    icon: Shadcnui,
+  },
 };
 
 export const PROJECTS = [
+  {
+    title: "Impekble",
+    subtitle: "Software de servicios de limpieza",
+    description:
+      "Impekable es un software que permite automatizar procesos de limpieza, mantenimiento, servicio de lavanderías, entre otras cosas. Cuenta con múltiples funcionalidades para la gestión de tareas, como la asignación de actividades, el monitoreo, el registro de evidencias en tiempo real y el control de calidad mediante inspecciones. Con esto permite conectar múltiples actores como operarios, inspectores, conductores y administradores. Proyecto desarrollado en conjunto con el equipo del área de desarrollo, diseño, audiovisual y marketing.",
+    link: "https://www.impekble.com/",
+    githubLinks: [],
+    details: {
+      frontend: "",
+      backend: "",
+    },
+    image: "/projects/impekble/impekble-main.webp",
+    tags: [
+      TECHNOLOGIES.NEXT,
+      TECHNOLOGIES.REACT,
+      TECHNOLOGIES.TYPESCRIP,
+      TECHNOLOGIES.TAILWIND,
+      TECHNOLOGIES.SHADCN,
+    ],
+  },
   {
     title: "TaskPlatform",
     subtitle: "Organiza tus proyectos de forma colaborativa",
@@ -128,7 +154,7 @@ export const PROJECTS = [
       TECHNOLOGIES.TYPESCRIP,
       TECHNOLOGIES.TAILWIND,
       TECHNOLOGIES.TANSTACK,
-      TECHNOLOGIES.SUPABASE
+      TECHNOLOGIES.SUPABASE,
     ],
   },
   {
